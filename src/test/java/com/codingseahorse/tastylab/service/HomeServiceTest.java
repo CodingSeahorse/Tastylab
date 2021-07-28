@@ -10,7 +10,6 @@ import com.codingseahorse.tastylab.model.recipe.Food;
 import com.codingseahorse.tastylab.model.recipe.FoodTag;
 import com.codingseahorse.tastylab.model.recipe.Recipe;
 import com.codingseahorse.tastylab.model.recipe.RecipeSkills;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -125,9 +124,9 @@ class HomeServiceTest {
         // </editor-fold>
         assertThat(homeDTO)
                 .satisfies(explore -> {
-                    assertThat(explore.getExploreRecipes().getTotalElements()).isGreaterThan(0).isNotNull();
+                    assertThat(explore.getExploreRecipes().getTotalElements()).isGreaterThanOrEqualTo(1).isNotNull();
                     assertThat(explore.getExploreRecipes().getTotalPages()).isEqualTo(1).isNotNull();
-                    assertThat(explore.getHighlightRecipes().getTotalElements()).isGreaterThan(0).isNotNull();
+                    assertThat(explore.getHighlightRecipes().getTotalElements()).isGreaterThanOrEqualTo(1).isNotNull();
                     assertThat(explore.getHighlightRecipes().getTotalPages()).isEqualTo(1).isNotNull();
                 })
                 .isInstanceOf(HomeDTO.class)
