@@ -32,6 +32,11 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<!-- ===== TOOLS ===== -->
 		<dependency>
 			<groupId>org.modelmapper</groupId>
@@ -49,7 +54,6 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.5.9</version>
 		</dependency>
-		<!-- ===== TEST ===== -->
 		<!-- == JUNIT5 == -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
