@@ -9,10 +9,12 @@ import com.codingseahorse.tastylab.model.recipe.Food;
 import com.codingseahorse.tastylab.model.recipe.FoodTag;
 import com.codingseahorse.tastylab.model.recipe.Recipe;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
@@ -20,20 +22,24 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.codingseahorse.tastylab.model.member.Gender.FEMALE;
 import static com.codingseahorse.tastylab.model.member.Gender.MALE;
 import static com.codingseahorse.tastylab.model.recipe.RecipeSkills.EASY;
 import static com.codingseahorse.tastylab.model.recipe.RecipeSkills.MIDDLE;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class ConverterTest {
-    private ModelMapper modelMapper = new ModelMapper();
+    @Mock
+    private ModelMapper mockModelMapper;
+    @InjectMocks
+    private Converter converter;
 
     @Test
-    public void check_if_the_RecipeDTO_converts_into_Recipe(){
+    public void convertToEntityRecipe_callsModelMapper(){
+        //arrange
         Collection<Food> foods = new ArrayList<>();
         List<FoodTag> foodTags = new ArrayList<>();
 
@@ -57,17 +63,15 @@ class ConverterTest {
                 memberDTO,
                 foodTags
         );
-
-        Recipe map = modelMapper.map(recipeDTO, Recipe.class);
-
-        assertThat(map)
-                .isNotNull()
-                .isInstanceOf(Recipe.class);
+        //act
+        converter.convertToEntityRecipe(recipeDTO);
+        //assert
+        verify(mockModelMapper).map(recipeDTO, Recipe.class);
     }
 
     @Test
-    public void check_if_the_Recipe_converts_into_RecipeDTO(){
-
+    public void convertToRecipeDTO_callsModelMapper(){
+        //arrange
         Collection<Food> foods = new ArrayList<>();
         List<FoodTag> foodTags = new ArrayList<>();
 
@@ -98,17 +102,16 @@ class ConverterTest {
                 member,
                 foodTags
         );
-
-        RecipeDTO recipeDTO = modelMapper.map(recipe,RecipeDTO.class);
-
-        assertThat(recipeDTO)
-                .isNotNull()
-                .isInstanceOf(RecipeDTO.class);
+        // act
+        converter.convertToRecipeDTO(recipe);
+        // assert
+        verify(mockModelMapper).map(recipe,RecipeDTO.class);
 
     }
 
     @Test
-    public void check_if_MemberDTO_converts_into_Member_Entity(){
+    public void convertToEntityMember_callsModelMapper(){
+        // arrange
         MemberDTO memberDTO = new MemberDTO(
                 "Peter",
                 "Parker",
@@ -116,15 +119,15 @@ class ConverterTest {
                 MALE
         );
         memberDTO.setEmail("Peter.Parker@gmail.com");
-        Member member = modelMapper.map(memberDTO,Member.class);
-
-        assertThat(member)
-                .isNotNull()
-                .isInstanceOf(Member.class);
+        // act
+        converter.convertToEntityMember(memberDTO);
+        // assert
+        verify(mockModelMapper).map(memberDTO,Member.class);
     }
 
     @Test
-    public void check_if_Member_Entity_converts_into_MemberDTO(){
+    public void convertToMemberDTO_callsModelMapper(){
+        // arrange
         MemberCard memberCard = new MemberCard(
                 LocalDateTime.now(),
                 "scooby",
@@ -139,45 +142,42 @@ class ConverterTest {
                 MALE,
                 memberCard
         );
-
-        MemberDTO memberDTO = modelMapper.map(member,MemberDTO.class);
-
-        assertThat(memberDTO)
-                .isNotNull()
-                .isInstanceOf(MemberDTO.class);
+        // act
+        converter.convertToMemberDTO(member);
+        // assert
+        verify(mockModelMapper).map(member,MemberDTO.class);
     }
 
     @Test
-    public void check_if_MemberCardDTO_converts_To_MemberCard_Entity(){
+    public void convertToEntityMemberCard_callsModelMapper(){
+        // arrange
         MemberCardDTO memberCardDTO = new MemberCardDTO(
                 "shaggy",
                 "scooby"
         );
-
-        MemberCard memberCard = modelMapper.map(memberCardDTO,MemberCard.class);
-
-        assertThat(memberCard)
-                .isNotNull()
-                .isInstanceOf(MemberCard.class);
+        // act
+        converter.convertToEntityMemberCard(memberCardDTO);
+        // assert
+        verify(mockModelMapper).map(memberCardDTO,MemberCard.class);
     }
 
     @Test
-    public void check_if_MemberCard_Entity_converts_into_MemberCardDTO(){
+    public void convertToMemberCardDTO_callsModelMapper(){
+        // arrange
         MemberCard memberCard = new MemberCard(
                 LocalDateTime.now(),
                 "velma",
                 "daphne"
         );
-
-        MemberCardDTO memberCardDTO = modelMapper.map(memberCard,MemberCardDTO.class);
-
-        assertThat(memberCardDTO)
-                .isNotNull()
-                .isInstanceOf(MemberCardDTO.class);
+        // act
+        converter.convertToMemberCardDTO(memberCard);
+        // assert
+        verify(mockModelMapper).map(memberCard,MemberCardDTO.class);
     }
 
     @Test
-    public void check_if_RecipeDTO_List_converts_into_Page_of_RecipeDTO(){
+    public void convertRecipeDTOListToPageOfRecipeDTO_callsModelMapper(){
+        // arrange
         List<RecipeDTO> recipeDTOList = new ArrayList<>();
         Collection<Food> foodCollection = new ArrayList<>();
         List<FoodTag> foodTags = new ArrayList<>();
@@ -209,20 +209,18 @@ class ConverterTest {
                 memberDTO,
                 foodTags
         ));
-
-        final int start = (int)pageRequest.getOffset();
-        final int end = Math.min((start + pageRequest.getPageSize()), recipeDTOList.size());
-
-        Page<RecipeDTO> recipeDTOPage =  new PageImpl<>(recipeDTOList.subList(start, end), pageRequest, recipeDTOList.size());
-
-        assertThat(recipeDTOPage)
-                .isNotEmpty()
+        // act
+        Page<RecipeDTO> convertedRecipeDTOPage = converter.convertRecipeDTOListToPageOfRecipeDTO(recipeDTOList, pageRequest);
+        // assert
+        assertThat(convertedRecipeDTOPage)
                 .isNotNull()
+                .isNotEmpty()
                 .isInstanceOf(Page.class);
     }
 
     @Test
     public void check_if_Recipe_Entity_List_converts_into_List_of_RecipeDTO(){
+        // arrange
         List<Recipe> recipeList = new ArrayList<>();
         List<FoodTag> foodTags = new ArrayList<>();
         Collection<Food> foodCollection = new ArrayList<>();
@@ -254,27 +252,10 @@ class ConverterTest {
                         foodTags
                 )
         );
-
-        List<RecipeDTO> listofRecipeDTO =
-                recipeList
-                        .stream()
-                        .map(recipe ->
-                                new RecipeDTO(
-                                        recipe.getCreatedAt(),
-                                        recipe.getRecipeName(),
-                                        recipe.getDuration(),
-                                        recipe.getRecipeSkills(),
-                                        recipe.getFoods(),
-                                        new MemberDTO(
-                                                recipe.getCreator().getFirstName(),
-                                                recipe.getCreator().getLastName(),
-                                                recipe.getCreator().getAge(),
-                                                recipe.getCreator().getGender()
-                                        ),
-                                        recipe.getFoodTag()
-                                )).collect(Collectors.toList());
-
-        assertThat(listofRecipeDTO)
+        // act
+        List<RecipeDTO> convertedListRecipeDTO = converter.convertRecipeListToRecipeDTOList(recipeList);
+        // assert
+        assertThat(convertedListRecipeDTO)
                 .isNotNull()
                 .isNotEmpty()
                 .isInstanceOf(List.class);

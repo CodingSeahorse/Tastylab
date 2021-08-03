@@ -6,6 +6,8 @@ import com.codingseahorse.tastylab.dto.RecipeDTO;
 import com.codingseahorse.tastylab.model.member.Member;
 import com.codingseahorse.tastylab.model.member.MemberCard;
 import com.codingseahorse.tastylab.model.recipe.Recipe;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -16,8 +18,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class Converter {
-
+    @NonNull
     ModelMapper modelMapper;
 
     // <editor-fold desc="Recipe & RecipeDTO *Converter">
