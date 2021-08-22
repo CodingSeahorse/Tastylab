@@ -24,6 +24,7 @@ class MemberCardRepositoryTest {
         );
         memberCardRepository.save(daphneCard);
     }
+
     @Test
     public void check_if_getMemberCardByUsername_returns_the_right_MemberCard(){
         MemberCard getMemberCard = memberCardRepository.getMemberCardByUsername("daphne");

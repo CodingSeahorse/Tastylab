@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.*;
 
+//TODO WRITE MEMBER-REPOSITORY-TEST
 @DataJpaTest
 class MemberRepositoryTest {
 
@@ -20,49 +21,65 @@ class MemberRepositoryTest {
     @Autowired
     MemberCardRepository memberCardRepository;
 
+    MemberCard scoobyDooCard;
+    Member scoobyDoo;
+
     @BeforeEach
-    public void createMember_with_memberCard(){
-        // <editor-fold desc="created MemberCard">
-        MemberCard memberCardDoo = new MemberCard(
+    void createMember_with_memberCard(){
+        // <editor-fold defaultstate="collapsed" desc="created MemberCard">
+        scoobyDooCard = new MemberCard(
                 LocalDateTime.now(),
                 "scooby",
                 "dooo"
         );
 
-        memberCardRepository.save(memberCardDoo);
+        memberCardRepository.save(scoobyDooCard);
         // </editor-fold>
-        // <editor-fold desc="created Member">
-        Member scoobyDoo = new Member(
+        // <editor-fold defaultstate="collapsed" desc="created Member">
+        scoobyDoo = new Member(
                 "scooby",
                 "doo",
                 "scooby.doo@gmail.com",
                 8,
                 Gender.MALE,
-                memberCardDoo
+                scoobyDooCard
         );
 
         memberRepository.save(scoobyDoo);
         // </editor-fold>
     }
+
     @Test
-    public void check_if_getMemberByEmailAndFirstName_returns_the_right_member(){
+    void should_getMemberByEmailAndFirstName_return_Member(){
         Member getMember = memberRepository.getMemberByEmailAndFirstName("scooby.doo@gmail.com","scooby");
 
         assertThat(getMember)
-                .satisfies(member -> {
-                    assertThat(member.getEmail()).isEqualTo("scooby.doo@gmail.com");
-                    assertThat(member.getFirstName()).isEqualTo("scooby");
-                })
-                .isInstanceOf(Member.class)
+                .isNotNull()
+                .isEqualTo(scoobyDoo);
+    }
+    // TODO: FIX NULLPOINT (Problems with OneToOne Relationship(MemberCard))
+    @Test
+    void should_getMemberByMemberCardUsername_return_Member(){
+        Member searchedMember = memberRepository.getMemberByMembercardUsername("scooby");
+
+        assertThat(searchedMember)
+                .isNotNull()
+                .isEqualTo(scoobyDoo);
+    }
+    // TODO: FIX NULLPOINT (Problems with OneToOne Relationship(MemberCard))
+    @Test
+    void should_getMemberByMembercardUsernameAndMembercardPassword_return_Member(){
+        Member searchedMember = memberRepository.getMemberByMembercardUsernameAndMembercardPassword("scooby","dooo");
+
+        assertThat(searchedMember)
                 .isNotNull();
     }
 
     @Test
-    public void check_if_existsMemberByEmail_returns_true_or_false(){
-        boolean alreadyExistsMemberWithEmail = memberRepository.existsMemberByEmail("scooby.doo@gmail.com");
+    void should_existsMemberByEmail_return_true_or_false(){
+        boolean searchedMember = memberRepository.existsMemberByEmail("scooby.doo@gmail.com");
 
-        assertThat(alreadyExistsMemberWithEmail)
-                .isNotNull()
+        assertThat(searchedMember)
                 .isTrue();
     }
 }

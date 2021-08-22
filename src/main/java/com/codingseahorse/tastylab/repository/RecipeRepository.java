@@ -10,9 +10,9 @@ import java.util.List;
 public interface RecipeRepository extends JpaRepository<Recipe,Integer>{
     List<Recipe> getAllByRecipeStatus(RecipeStatus type);
 
-    List<Recipe> getRecipeByCreator_MemberId(Integer memberId);
+    List<Recipe> getAllByCreatorEmail(String creatorEmail);
 
     List<Recipe> getRecipeByCreator_FirstName(String firstName);
 
-    Recipe getRecipeByRecipeNameAndCreatorEmail(String recipeName,String creatorEmail);
+    boolean existsByRecipeNameAndCreatorEmail(String recipeName,String creatorEmail);
 }

@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
+// TODO: SIMPLIFY TESTS
 @DataJpaTest
 class RecipeRepositoryTest {
 
@@ -26,13 +27,38 @@ class RecipeRepositoryTest {
     @Autowired
     MemberRepository memberRepository;
 
+    // <editor-fold defaultstate="collapsed" desc="FoodCollection & FoodTags">
+    Collection<Food> foodCollection = new ArrayList<>();
+    List<FoodTag> foodTags = new ArrayList<>();
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="MemberCard, Member & Recipe">
+    MemberCard memberCard = new MemberCard(
+            LocalDateTime.now(),
+            "shaggy",
+            "123"
+    );
+    Member shaggy = new Member(
+            "shaggy",
+            "Doo",
+            "shaggy.doo@gmail.com",
+            34,
+            Gender.MALE,
+            memberCard
+    );
+    Recipe shaggysCrepe = new Recipe(
+            LocalDateTime.now(),
+            "shaggys-awesome-doo-crepe",
+            20,
+            RecipeSkills.EASY,
+            foodCollection,
+            shaggy,
+            foodTags
+    );
+    // </editor-fold>
+
     @BeforeEach
-    public void create_recipe_with_member_and_memberCard(){
-        // <editor-fold desc="created empty FoodCollection & FoodTags">
-        Collection<Food> foodCollection = new ArrayList<>();
-        List<FoodTag> foodTags = new ArrayList<>();
-        // </editor-fold>
-        // <editor-fold desc="added data to FoodCollection & FoodTags">
+    void setup(){
+        // <editor-fold defaultstate="collapsed" desc="added data to FoodCollection & FoodTags">
         foodCollection.add(Food.FLOUR);
         foodCollection.add(Food.MILK);
         foodCollection.add(Food.EGG);
@@ -41,43 +67,60 @@ class RecipeRepositoryTest {
         foodTags.add(new FoodTag("crepe"));
         foodTags.add(new FoodTag("tasty"));
         // </editor-fold>
-        // <editor-fold desc="created MemberCard">
-        MemberCard memberCard = new MemberCard(
-                LocalDateTime.now(),
-                "shaggy",
-                "123"
-        );
-
+        // <editor-fold defaultstate="collapsed" desc="save MemberCard,Member,MembersRecipe">
         memberCardRepository.save(memberCard);
-        // </editor-fold>
-        // <editor-fold desc="created Member">
-        Member shaggy = new Member(
-                "shaggy",
-                "Doo",
-                "shaggy.doo@gmail.com",
-                34,
-                Gender.MALE,
-                memberCard
-        );
         memberRepository.save(shaggy);
-        // </editor-fold>
-        // <editor-fold desc="created new Recipe">
-        Recipe shaggysCrepe = new Recipe(
-                LocalDateTime.now(),
-                "shaggys-awesomes-doo-crepe",
-                20,
-                RecipeSkills.EASY,
-                foodCollection,
-                shaggy,
-                foodTags
-        );
-
         recipeRepository.save(shaggysCrepe);
         // </editor-fold>
     }
 
     @Test
-    void check_if_getRecipeByCreator_FirstName_methode_returns_the_right_recipes(){
+    void should_getAllByRecipeStatus_returns_recipes_ordered_by_recipeStatus(){
+
+        List<Recipe> recipeList = recipeRepository.getAllByRecipeStatus(RecipeStatus.NORMAL); //Default
+
+        assertThat(recipeList.size()).isEqualTo(1);
+        assertThat(recipeList.get(0).getRecipeName()).isEqualTo("shaggys-awesome-doo-crepe");
+    }
+
+    @Test
+    void should_getAllByCreatorEmail_returns_list_of_recipe(){
+
+        List<Recipe> getRecipeByCreatorMemberIdList = recipeRepository.getAllByCreatorEmail(shaggy.getEmail());
+
+        Recipe shaggysCrepeRecipe =
+                getRecipeByCreatorMemberIdList
+                        .stream()
+                        .filter(recipe -> recipe.getRecipeName().equals("shaggys-awesome-doo-crepe"))
+                        .findFirst()
+                        .orElse(null);
+
+        assertThat(getRecipeByCreatorMemberIdList)
+                .satisfies(recipes -> {
+                    assertThat(recipes.size()).isGreaterThanOrEqualTo(1);
+                    assertThat(shaggysCrepeRecipe).isNotNull();
+                })
+                .isInstanceOf(List.class)
+                .isNotEmpty()
+                .isNotNull();
+    }
+
+    @Test
+    void should_getRecipeByRecipeNameAndCreatorEmail_returns_true_or_false(){
+        boolean existedRecipe =
+                recipeRepository
+                        .existsByRecipeNameAndCreatorEmail(
+                                "shaggys-awesome-doo-crepe",
+                                "shaggy.doo@gmail.com"
+                        );
+
+        assertThat(existedRecipe)
+                .isTrue()
+                .isNotNull();
+    }
+
+    @Test
+    void should_getRecipeByCreator_FirstName_methode_returns_the_right_recipes(){
 
         List<Recipe> getShaggysRecipes = recipeRepository.getRecipeByCreator_FirstName("shaggy");
 
@@ -97,67 +140,4 @@ class RecipeRepositoryTest {
                 .isNotEmpty()
                 .isNotNull();
     }
-
-    @Test
-    public void check_if_getRecipeByCreator_MemberId_returns_the_right_recipes(){
-
-        List<Recipe> getRecipeByCreatorMemberIdList = recipeRepository.getRecipeByCreator_MemberId(1);
-
-        Recipe shaggysCrepeRecipe =
-                getRecipeByCreatorMemberIdList
-                        .stream()
-                        .filter(recipe -> recipe.getRecipeName().equals("shaggys-awesomes-doo-crepe"))
-                        .findFirst()
-                        .orElse(null);
-
-        assertThat(getRecipeByCreatorMemberIdList)
-                .satisfies(recipes -> {
-                    assertThat(recipes.size()).isGreaterThanOrEqualTo(1);
-                    assertThat(shaggysCrepeRecipe).isNotNull();
-                })
-                .isInstanceOf(List.class)
-                .isNotEmpty()
-                .isNotNull();
-    }
-
-    @Test
-    public void check_if_getAllByRecipeStatus_returns_the_right_recipes(){
-
-        List<Recipe> getAllByRecipeStatusList = recipeRepository.getAllByRecipeStatus(RecipeStatus.NORMAL); //Default Value
-
-        Recipe shaggysCrepeRecipe =
-                getAllByRecipeStatusList
-                        .stream()
-                        .filter(recipe -> recipe.getRecipeSkills().equals(RecipeSkills.EASY))
-                        .findFirst()
-                        .orElse(null);
-
-        assertThat(getAllByRecipeStatusList)
-                .satisfies(recipe -> {
-                    assertThat(recipe.size()).isGreaterThanOrEqualTo(1);
-                    assertThat(shaggysCrepeRecipe).isNotNull();
-                })
-                .isInstanceOf(List.class)
-                .isNotEmpty()
-                .isNotNull();
-    }
-
-    @Test
-    public void check_if_getRecipeByRecipeNameAndCreatorEmail_returns_the_right_recipe(){
-        Recipe getRecipe =
-                recipeRepository
-                        .getRecipeByRecipeNameAndCreatorEmail(
-                                "shaggys-awesomes-doo-crepe",
-                                "shaggy.doo@gmail.com"
-                        );
-
-        assertThat(getRecipe)
-                .satisfies(recipe -> {
-                    assertThat(recipe.getRecipeName()).isEqualTo("shaggys-awesomes-doo-crepe");
-                    assertThat(recipe.getCreator().getEmail()).isEqualTo("shaggy.doo@gmail.com");
-                })
-                .isInstanceOf(Recipe.class)
-                .isNotNull();
-    }
-
 }
