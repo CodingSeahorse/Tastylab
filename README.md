@@ -17,79 +17,81 @@ Version 1.0
 
 ##  🍓 API Design 🍓
 
-### 🍪 HomeController 🍪
-> **Parent-Path** : "/api/v1/home"
-> ___
-> + *GET* ⟹ "/?page=0&size=3"
-    >
-    >   *HttpStatus* ⟹ 200 OK
-    >
-    >   *Authorized* ⟹ everyone
-    >
-    >   *Description* ⟹ this endpoint returns **two separately** pages *"Explore"* & *"Highlight"* for the homepage.
 ### 🍪 MemberController 🍪
-> **Parent-Path** : "/api/v1/member"
+> ***Parent-Path*** : "/api/member"
 > ___
-> + *POST* ⟹ ~ Request Payload
-    >
-    >   *HttpStatus* ⟹ 201 Created
-    >
-    >   *Authorized* ⟹ only Blogger
-    >
-    >   *Description* ⟹ this endpoint post the user input data to the recipe service to *create a new recipe*.
+>>   **PUT**  ~ Request Payload(MemberRequest)
+>>
+>>   *Path* ⟹ ""
+>>   
+>>   *HttpStatus* ⟹ 200 Ok
+>>
+>>   *Authorized* ⟹ only Blogger
+>>
+>>   *Description* ⟹ this endpoint *update* user data and *return* MemberDTO
 > ___
->
-> + *GET* ⟹ "/recipes?page=0&size=10"
-    >
-    >   *HttpStatus* ⟹ 200 Ok
-    >
-    >   *Authorized* ⟹ only Blogger
-    >
-    >   *Description* ⟹ this endpoint *returns* the logged-in user recipes.
-### 🍪 MemberManagementController 🍪
-> **Parent-Path** : api/v1/member-management
-> ___
-> + *POST* ⟹ ~ Request Payload
-    >
-    >   *HttpStatus* ⟹ 200 Ok
-    >
-    >   *Authorized* ⟹ only Blogger
-    >
-    >   *Description* ⟹ this endpoint sends a request to the support to delete the Member.
-> ___
-> + *PUT* ⟹ ~ Request Payload
-    >
-    >   *HttpStatus* ⟹ 200 Ok
-    >
-    >   *Authorized* ⟹ only Blogger
-    >
-    >   *Description* ⟹ this endpoint sends a request with *new* Member-Data to the service.
-> ___
->
-> + *DELETE* ⟹ "?username="" "
-    >
-    >   *HttpStatus* ⟹ 404 Not Found
-    >
-    >   *Authorized* ⟹ only Admin's
-    >
-    >   *Description* ⟹ this endpoint *deletes* a member from database.
+>>   **DELETE**
+>> 
+>>   *Path* ⟹ "/{memberId}"
+>>
+>>   *HttpStatus* ⟹ 404 Not Found
+>>
+>>   *Authorized* ⟹ only Blogger
+>>
+>>   *Description* ⟹ this endpoint *delete* member.
 ### 🍪 LoginController 🍪
-> **Parent-Path** : api/v1/welcome/login
+> ***Parent-Path*** : "api/welcome/login"
 > ___
-> + *POST* ⟹ ~ Request Payload
-    >
-    >   *HttpStatus* ⟹ 200 Ok
-    >
-    >   *Authorized* ⟹ everyone
-    >
-    >   *Description* ⟹ this endpoint *sends* the username & password to the first filter.
+>>   **POST** ~ Request Payload(LoginRequest)
+>>
+>>   *Path* ⟹ ""
+>>
+>>   *HttpStatus* ⟹ 200 Ok
+>>
+>>   *Authorized* ⟹ everyone
+>>
+>>   *Description* ⟹ this endpoint *sends* the username & password to authenticate.
 ### 🍪 RegistrationController 🍪
-> **Parent-Path** : api/v1/welcome/signup
+> ***Parent-Path*** : "api/welcome/signup"
 > ___
-> + *POST* ⟹ ~ Request Payload
-    >
-    >   *HttpStatus* ⟹ 201 Created
-    >
-    >   *Authorized* ⟹ everyone
-    >
-    >   *Description* ⟹ this endpoint *sends* the user input data to the service.
+>>  **POST** ~ Request Payload(RegistrationRequest)
+>>
+>>   *Path* ⟹ ""
+>>
+>>   *HttpStatus* ⟹ 200 Ok
+>>
+>>   *Authorized* ⟹ everyone
+>>
+>>   *Description* ⟹ this endpoint *sends* a form to create new member.
+### 🍪 RecipeController 🍪
+> ***Parent-Path*** : "api/recipe"
+> ___
+>>   **POST** ~ Request Payload(RecipeRequest)
+>>
+>>   *Path* ⟹ ""
+>>
+>>   *HttpStatus* ⟹ 201 Created
+>>
+>>   *Authorized* ⟹ BLOGGER
+>>
+>>   *Description* ⟹ this endpoint *creates* a recipe.
+> ___
+>>   **GET**
+>>
+>>   *Path* ⟹ "/home?page=0,0&size=3,3" 
+>>   
+>>   *HttpStatus* ⟹ 200 Ok
+>>
+>>   *Authorized* ⟹ BLOGGER
+>>
+>>   *Description* ⟹ this endpoint *sends* two pages for the home area.
+> ___
+>>   **GET**
+>>
+>>   *Path* ⟹ "/{username}?page=0&size=3"
+>>   
+>>   *HttpStatus* ⟹ 200 Ok
+>>
+>>   *Authorized* ⟹ BLOGGER
+>>
+>>   *Description* ⟹ this endpoint *sends* the member recipe.

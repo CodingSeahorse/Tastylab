@@ -6,6 +6,9 @@ import com.codingseahorse.tastylab.dto.RecipeDTO;
 import com.codingseahorse.tastylab.model.member.Member;
 import com.codingseahorse.tastylab.model.member.MemberCard;
 import com.codingseahorse.tastylab.model.recipe.Recipe;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -16,38 +19,40 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class Converter {
-
+    @NonNull
     ModelMapper modelMapper;
 
-    // <editor-fold desc="Recipe & RecipeDTO *Converter">
-    public Recipe convertToEntityRecipe(RecipeDTO recipeDTO){
-        return modelMapper.map(recipeDTO,Recipe.class);
+    // <editor-fold defaultstate="collapsed" desc="Recipe & RecipeDTO *Converter">
+    public void convertToEntityRecipe(RecipeDTO recipeDTO){
+        modelMapper.map(recipeDTO, Recipe.class);
     }
 
-    public RecipeDTO convertToRecipeDTO(Recipe recipe){
-        return modelMapper.map(recipe,RecipeDTO.class);
+    public void convertToRecipeDTO(Recipe recipe){
+        modelMapper.map(recipe, RecipeDTO.class);
     }
     // </editor-fold>
-    // <editor-fold desc="Member & MemberDTO *Converter">
-    public Member convertToEntityMember(MemberDTO memberDTO){
-        return modelMapper.map(memberDTO,Member.class);
+    // <editor-fold defaultstate="collapsed" desc="Member & MemberDTO *Converter">
+    public void convertToEntityMember(MemberDTO memberDTO){
+        modelMapper.map(memberDTO, Member.class);
     }
 
-    public MemberDTO convertToMemberDTO(Member member){
-        return modelMapper.map(member, MemberDTO.class);
+    public void convertToMemberDTO(Member member){
+        modelMapper.map(member, MemberDTO.class);
     }
     // </editor-fold>
-    // <editor-fold desc="MemberCard & MemberCardDTO *Converter">
-    public MemberCard convertToEntityMemberCard(MemberCardDTO memberCardDTO){
-        return modelMapper.map(memberCardDTO,MemberCard.class);
+    // <editor-fold defaultstate="collapsed" desc="MemberCard & MemberCardDTO *Converter">
+    public void convertToEntityMemberCard(MemberCardDTO memberCardDTO){
+        modelMapper.map(memberCardDTO, MemberCard.class);
     }
 
-    public MemberCardDTO convertToMemberCardDTO(MemberCard memberCard){
-        return modelMapper.map(memberCard,MemberCardDTO.class);
+    public void convertToMemberCardDTO(MemberCard memberCard){
+        modelMapper.map(memberCard, MemberCardDTO.class);
     }
     // </editor-fold>
-    // <editor-fold desc="RecipeDTOListToPage & RecipeListToRecipeDTOList *Converter">
+    // <editor-fold defaultstate="collapsed" desc="RecipeDTOListToPage & RecipeListToRecipeDTOList *Converter">
     public Page<RecipeDTO> convertRecipeDTOListToPageOfRecipeDTO(List<RecipeDTO> recipeDTOList, PageRequest pageRequest){
         final int start = (int)pageRequest.getOffset();
         final int end = Math.min((start + pageRequest.getPageSize()), recipeDTOList.size());

@@ -1,9 +1,10 @@
-package com.codingseahorse.tastylab.pages.home;
+package com.codingseahorse.tastylab.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/home")
-public class HomeController {
+@RequestMapping("/api/welcome/login")
+public class LoginController {
+
 }
