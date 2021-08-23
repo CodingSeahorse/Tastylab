@@ -60,17 +60,4 @@ public class MemberCard {
             columnDefinition = "TEXT"
     )
     private String password;
-
-    @OneToOne(
-            cascade = ALL,
-            fetch = LAZY
-    )
-    @JoinColumn(
-            name = "member_id",
-            referencedColumnName = "member_id",
-            foreignKey = @ForeignKey(
-                    name = "member_card_fk"
-            )
-    )
-    private Member member;
 }

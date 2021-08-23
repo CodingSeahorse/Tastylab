@@ -91,11 +91,8 @@ public class Member {
     private Gender gender;
 
     @NonNull
-    @OneToOne(
-            mappedBy = "member",
-            orphanRemoval = true,
-            fetch = LAZY
-    )
+    @OneToOne
+    @JoinColumn(name = "memberCardId", referencedColumnName = "member_card_id")
     private MemberCard membercard;
 
     @OneToMany(

@@ -45,6 +45,5 @@ public class WelcomeService {
 
         memberCardRepository.save(memberCard);
         memberRepository.save(member);
-        memberCard.setMember(member);
     }
 }
