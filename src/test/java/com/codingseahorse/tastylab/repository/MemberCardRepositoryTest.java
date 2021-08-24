@@ -36,5 +36,4 @@ class MemberCardRepositoryTest {
                 .isInstanceOf(MemberCard.class)
                 .isEqualTo(daphneCard);
     }
-
 }
