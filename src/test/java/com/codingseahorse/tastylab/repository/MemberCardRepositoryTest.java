@@ -15,9 +15,11 @@ class MemberCardRepositoryTest {
     @Autowired
     MemberCardRepository memberCardRepository;
 
+    MemberCard daphneCard;
+
     @BeforeEach
     public void createMemberCard(){
-        MemberCard daphneCard = new MemberCard(
+        daphneCard = new MemberCard(
                 LocalDateTime.now(),
                 "daphne",
                 "doo"
@@ -30,12 +32,8 @@ class MemberCardRepositoryTest {
         MemberCard getMemberCard = memberCardRepository.getMemberCardByUsername("daphne");
 
         assertThat(getMemberCard)
-                .satisfies(memberCard -> {
-                    assertThat(memberCard.getUsername()).isEqualTo("daphne");
-                    assertThat(memberCard.getPassword()).isEqualTo("doo");
-                })
+                .isNotNull()
                 .isInstanceOf(MemberCard.class)
-                .isNotNull();
+                .isEqualTo(daphneCard);
     }
-
 }
