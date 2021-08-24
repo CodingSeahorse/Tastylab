@@ -75,7 +75,6 @@ class RecipeRepositoryTest {
 
     @Test
     void should_getAllByRecipeStatus(){
-
         List<Recipe> recipeList = recipeRepository.getAllByRecipeStatus(RecipeStatus.NORMAL); //Default
 
         assertThat(recipeList)
@@ -86,7 +85,6 @@ class RecipeRepositoryTest {
 
     @Test
     void should_getAllByCreatorEmail(){
-
         List<Recipe> getRecipeByCreatorMemberIdList = recipeRepository.getAllByCreatorEmail(shaggy.getEmail());
 
         assertThat(getRecipeByCreatorMemberIdList)
@@ -98,7 +96,6 @@ class RecipeRepositoryTest {
 
     @Test
     void should_getRecipeByCreator_FirstName(){
-
         List<Recipe> getShaggysRecipes = recipeRepository.getRecipeByCreator_FirstName("shaggy");
 
         assertThat(getShaggysRecipes)
@@ -117,7 +114,7 @@ class RecipeRepositoryTest {
                         );
 
         assertThat(existedRecipe)
-                .isTrue()
-                .isNotNull();
+                .isNotNull()
+                .isTrue();
     }
 }
