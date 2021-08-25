@@ -34,16 +34,16 @@ class RecipeRepositoryTest {
     MemberCard memberCard = new MemberCard(
             LocalDateTime.now(),
             "shaggy",
-            "123"
-    );
+            "123");
+
     Member shaggy = new Member(
             "shaggy",
             "Doo",
             "shaggy.doo@gmail.com",
             34,
             Gender.MALE,
-            memberCard
-    );
+            memberCard);
+
     Recipe shaggysCrepe = new Recipe(
             LocalDateTime.now(),
             "shaggys-awesome-doo-crepe",
@@ -51,12 +51,11 @@ class RecipeRepositoryTest {
             RecipeSkills.EASY,
             foodCollection,
             shaggy,
-            foodTags
-    );
+            foodTags);
     // </editor-fold>
 
     @BeforeEach
-    void setup(){
+    void setup() {
         // <editor-fold defaultstate="collapsed" desc="added data to FoodCollection & FoodTags">
         foodCollection.add(Food.FLOUR);
         foodCollection.add(Food.MILK);
@@ -74,8 +73,9 @@ class RecipeRepositoryTest {
     }
 
     @Test
-    void should_getAllByRecipeStatus(){
-        List<Recipe> recipeList = recipeRepository.getAllByRecipeStatus(RecipeStatus.NORMAL); //Default
+    void should_getAllByRecipeStatus() {
+        List<Recipe> recipeList =
+                recipeRepository.getAllByRecipeStatus(RecipeStatus.NORMAL); //Default
 
         assertThat(recipeList)
                 .isNotNull()
@@ -84,8 +84,9 @@ class RecipeRepositoryTest {
     }
 
     @Test
-    void should_getAllByCreatorEmail(){
-        List<Recipe> getRecipeByCreatorMemberIdList = recipeRepository.getAllByCreatorEmail(shaggy.getEmail());
+    void should_getAllByCreatorEmail() {
+        List<Recipe> getRecipeByCreatorMemberIdList =
+                recipeRepository.getAllByCreatorEmail(shaggy.getEmail());
 
         assertThat(getRecipeByCreatorMemberIdList)
                 .isNotNull()
@@ -95,8 +96,9 @@ class RecipeRepositoryTest {
 
 
     @Test
-    void should_getRecipeByCreator_FirstName(){
-        List<Recipe> getShaggysRecipes = recipeRepository.getRecipeByCreator_FirstName("shaggy");
+    void should_getRecipeByCreator_FirstName() {
+        List<Recipe> getShaggysRecipes =
+                recipeRepository.getRecipeByCreator_FirstName(shaggy.getFirstName());
 
         assertThat(getShaggysRecipes)
                 .isNotNull()
@@ -105,12 +107,12 @@ class RecipeRepositoryTest {
     }
 
     @Test
-    void should_getRecipeByRecipeNameAndCreatorEmail_returns_true_or_false(){
+    void should_getRecipeByRecipeNameAndCreatorEmail_returns_true_or_false() {
         boolean existedRecipe =
                 recipeRepository
                         .existsByRecipeNameAndCreatorEmail(
-                                "shaggys-awesome-doo-crepe",
-                                "shaggy.doo@gmail.com"
+                                shaggysCrepe.getRecipeName(),
+                                shaggysCrepe.getCreator().getEmail()
                         );
 
         assertThat(existedRecipe)

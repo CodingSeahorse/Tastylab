@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface RecipeRepository extends JpaRepository<Recipe,Integer>{
+public interface RecipeRepository extends JpaRepository<Recipe,Integer> {
     List<Recipe> getAllByRecipeStatus(RecipeStatus type);
 
     List<Recipe> getAllByCreatorEmail(String creatorEmail);

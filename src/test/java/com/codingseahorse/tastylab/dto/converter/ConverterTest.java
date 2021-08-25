@@ -47,8 +47,7 @@ class ConverterTest {
     MemberCard memberCard = new MemberCard(
             LocalDateTime.now(),
             "britneyS",
-            "12345"
-    );
+            "12345");
 
     Member member = new Member(
             "Britney",
@@ -56,8 +55,7 @@ class ConverterTest {
             "oops@gmail.com",
             39,
             FEMALE,
-            memberCard
-    );
+            memberCard);
 
     Recipe recipe = new Recipe(
             LocalDateTime.now(),
@@ -66,20 +64,17 @@ class ConverterTest {
             EASY,
             foods,
             member,
-            foodTags
-    );
+            foodTags);
 
     MemberCardDTO memberCardDTO = new MemberCardDTO(
             "shaggy",
-            "scooby"
-    );
+            "scooby");
 
     MemberDTO memberDTO = new MemberDTO(
             "Peter",
             "Parker",
             26,
-            MALE
-    );
+            MALE);
 
     RecipeDTO recipeDTO = new RecipeDTO(
             LocalDateTime.now(),
@@ -88,18 +83,16 @@ class ConverterTest {
             EASY,
             foods,
             memberDTO,
-            foodTags
-    );
+            foodTags);
 
     PageRequest pageRequest = PageRequest.of(
             0,
             3,
-            Sort.by("createdAt")
-    );
+            Sort.by("createdAt"));
     // </editor-fold>
 
     @Test
-    void convertToEntityRecipe_callsModelMapper(){
+    void convertToEntityRecipe_callsModelMapper() {
         //arrange
         foodTags.add(new FoodTag("Frensh Toast"));
         foods.add(Food.TOMATO);
@@ -112,7 +105,7 @@ class ConverterTest {
     }
 
     @Test
-    void convertToRecipeDTO_callsModelMapper(){
+    void convertToRecipeDTO_callsModelMapper() {
         //arrange
         foods.add(Food.TOMATO);
         foodTags.add(new FoodTag("crepe"));
@@ -123,7 +116,7 @@ class ConverterTest {
     }
 
     @Test
-    void convertToEntityMember_callsModelMapper(){
+    void convertToEntityMember_callsModelMapper() {
         // arrange
         memberDTO.setEmail("Peter.Parker@gmail.com");
         // act
@@ -133,7 +126,7 @@ class ConverterTest {
     }
 
     @Test
-    void convertToMemberDTO_callsModelMapper(){
+    void convertToMemberDTO_callsModelMapper() {
         // act
         converter.convertToMemberDTO(member);
         // assert
@@ -141,7 +134,7 @@ class ConverterTest {
     }
 
     @Test
-    void convertToEntityMemberCard_callsModelMapper(){
+    void convertToEntityMemberCard_callsModelMapper() {
         // act
         converter.convertToEntityMemberCard(memberCardDTO);
         // assert
@@ -149,7 +142,7 @@ class ConverterTest {
     }
 
     @Test
-    void convertToMemberCardDTO_callsModelMapper(){
+    void convertToMemberCardDTO_callsModelMapper() {
         // act
         converter.convertToMemberCardDTO(memberCard);
         // assert
@@ -157,7 +150,7 @@ class ConverterTest {
     }
 
     @Test
-    void convertRecipeDTOListToPageOfRecipeDTO_callsModelMapper(){
+    void convertRecipeDTOListToPageOfRecipeDTO_callsModelMapper() {
         // arrange
         foods.add(Food.BUTTER);
         foods.add(Food.LEMON);
@@ -169,10 +162,12 @@ class ConverterTest {
                 MIDDLE,
                 foods,
                 memberDTO,
-                foodTags
-        ));
+                foodTags));
         // act
-        Page<RecipeDTO> convertedRecipeDTOPage = converter.convertRecipeDTOListToPageOfRecipeDTO(recipeDTOList, pageRequest);
+        Page<RecipeDTO> convertedRecipeDTOPage =
+                converter.convertRecipeDTOListToPageOfRecipeDTO(
+                        recipeDTOList,
+                        pageRequest);
         // assert
         assertThat(convertedRecipeDTOPage)
                 .isNotNull()
@@ -181,7 +176,7 @@ class ConverterTest {
     }
 
     @Test
-    void check_if_Recipe_Entity_List_converts_into_List_of_RecipeDTO(){
+    void check_if_Recipe_Entity_List_converts_into_List_of_RecipeDTO() {
         // arrange
         foodTags.add(new FoodTag("Fish"));
         foods.add(Food.BUTTER);
@@ -193,11 +188,10 @@ class ConverterTest {
                         EASY,
                         foods,
                         member,
-                        foodTags
-                )
-        );
+                        foodTags));
         // act
-        List<RecipeDTO> convertedListRecipeDTO = converter.convertRecipeListToRecipeDTOList(recipeList);
+        List<RecipeDTO> convertedListRecipeDTO =
+                converter.convertRecipeListToRecipeDTOList(recipeList);
         // assert
         assertThat(convertedListRecipeDTO)
                 .isNotNull()

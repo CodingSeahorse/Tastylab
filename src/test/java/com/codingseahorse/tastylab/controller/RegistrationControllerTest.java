@@ -33,8 +33,7 @@ class RegistrationControllerTest {
                 "Turner",
                 "Tina.Turner@world.com",
                 81,
-                "Female"
-        );
+                "Female");
 
         RegistrationDTO registrationDTO = new RegistrationDTO(
                 "Tina",
@@ -43,8 +42,7 @@ class RegistrationControllerTest {
                 "Turner",
                 "Tina.Turner@world.com",
                 81,
-                Gender.FEMALE
-        );
+                Gender.FEMALE);
 
         welcomeService.registerMember(registrationDTO);
 

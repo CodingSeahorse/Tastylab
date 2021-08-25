@@ -13,9 +13,7 @@ import java.util.List;
 @Table(
         name = "tag",
         uniqueConstraints = @UniqueConstraint(
-                name = "tagId",columnNames = "tag_id"
-        )
-)
+                name = "tagId",columnNames = "tag_id"))
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
@@ -25,19 +23,16 @@ public class FoodTag {
     @Column(
             name = "tag_id",
             nullable = false,
-            updatable = false
-    )
+            updatable = false)
     private Long tagId;
 
     @NonNull
     @Column(
             name = "tag_name",
-            nullable = false
-    )
+            nullable = false)
     private String tagName;
 
     @ManyToMany(
-            mappedBy = "foodTag"
-    )
+            mappedBy = "foodTag")
     private List<Recipe> recipe = new ArrayList<>();
 }

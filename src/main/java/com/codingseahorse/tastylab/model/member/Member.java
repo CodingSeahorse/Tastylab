@@ -21,14 +21,11 @@ import static javax.persistence.GenerationType.SEQUENCE;
         uniqueConstraints = {
                 @UniqueConstraint(
                         name = "member_id",
-                        columnNames = "member_id"
-                ),
+                        columnNames = "member_id"),
                 @UniqueConstraint(
                         name = "email",
-                        columnNames = "email"
-                )
-        }
-)
+                        columnNames = "email")
+        })
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
@@ -37,68 +34,66 @@ public class Member {
     @SequenceGenerator(
             name = "member_id_sequencer",
             sequenceName = "member_id_sequencer",
-            allocationSize = 1
-    )
+            allocationSize = 1)
     @GeneratedValue(
             strategy = SEQUENCE,
-            generator = "member_id_sequencer"
-    )
+            generator = "member_id_sequencer")
     @Column(
             name = "member_id",
             nullable = false,
-            updatable = false
-    )
+            updatable = false)
     private Integer memberId;
+
     @NonNull
     @Column(
             name = "first_name",
             nullable = false,
             columnDefinition = "TEXT",
-            length = 30
-    )
+            length = 30)
     private String firstName;
+
     @NonNull
     @Column(
             name = "last_name",
             nullable = false,
             columnDefinition = "TEXT",
-            length = 60
-    )
+            length = 60)
     private String lastName;
+
     @NonNull
     @Column(
             name = "email",
             nullable = false,
             columnDefinition = "TEXT",
-            length = 100
-    )
+            length = 100)
     private String email;
+
     @NonNull
     @Column(
             name = "age",
             nullable = false,
             columnDefinition = "INTEGER",
-            length = 3
-    )
+            length = 3)
     private Integer age;
+
     @NonNull
     @Enumerated(STRING)
     @Column(
             name = "gender",
             nullable = false,
-            columnDefinition = "TEXT"
-    )
+            columnDefinition = "TEXT")
     private Gender gender;
 
     @NonNull
     @OneToOne
-    @JoinColumn(name = "memberCardId", referencedColumnName = "member_card_id")
+    @JoinColumn(
+            name = "memberCardId",
+            referencedColumnName = "member_card_id")
     private MemberCard membercard;
 
     @OneToMany(
             mappedBy = "creator",
             cascade = ALL,
-            fetch = EAGER
-    )
+            fetch = EAGER)
     private List<Recipe> recipes;
 }

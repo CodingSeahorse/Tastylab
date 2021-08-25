@@ -49,14 +49,13 @@ class RecipeServiceTest {
     // <editor-fold defaultstate="collapsed" desc="created MemberCardDTO,MemberDTO & RecipeDTO">
     MemberCardDTO memberCardDTO = new MemberCardDTO(
             "scooby",
-            "doo"
-    );
+            "doo");
+
     MemberDTO memberDTO = new MemberDTO(
             "sara",
             "lance",
             34,
-            Gender.FEMALE
-    );
+            Gender.FEMALE);
 
     RecipeDTO recipeDTO = new RecipeDTO(
             LocalDateTime.now(),
@@ -65,15 +64,13 @@ class RecipeServiceTest {
             RecipeSkills.EASY,
             foodCollection,
             memberDTO,
-            foodTagList
-    );
+            foodTagList);
     // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="created MemberCard & Member">
     MemberCard memberCardReturn = new MemberCard(
             LocalDateTime.now(),
             "StromaeFreshy",
-            "123"
-    );
+            "123");
 
     Member memberReturn = new Member(
             "Stromae",
@@ -81,12 +78,11 @@ class RecipeServiceTest {
             "Stromae.fresh@beat.com",
             34,
             Gender.QUEERGENDER,
-            memberCardReturn
-    );
+            memberCardReturn);
     // </editor-fold>
 
     @BeforeEach
-    void setup(){
+    void setup() {
         // <editor-fold defaultstate="collapsed" desc="added data to FoodCollection & FoodTags">
         foodCollection.add(Food.FLOUR);
         foodCollection.add(Food.EGG);
@@ -103,50 +99,55 @@ class RecipeServiceTest {
 
     @Test
     void should_createRecipe() {
-        given(memberRepository.getMemberByEmailAndFirstName(any(),any()))
-                .willReturn(memberReturn);
+        given(memberRepository
+                .getMemberByEmailAndFirstName(
+                        anyString(),
+                        anyString()))
+                    .willReturn(memberReturn);
 
         recipeService.createRecipe(recipeDTO);
 
         verify(recipeRepository,times(1))
-                .save(any());
+                .save(any(Recipe.class));
     }
 
     @Test
-    void will_throw_when_member_already_created_a_food_with_this_name(){
+    void will_throw_when_member_already_created_a_food_with_this_name() {
         given(recipeRepository
                 .existsByRecipeNameAndCreatorEmail(
                         "Muffin",
-                        "sara.lance@gmail.com"
-                )).willReturn(true);
+                        "sara.lance@gmail.com"))
+                    .willReturn(true);
 
-        assertThatThrownBy(() -> recipeService.createRecipe(recipeDTO))
+        assertThatThrownBy(
+                () -> recipeService.createRecipe(recipeDTO))
                 .isInstanceOf(BadRequestException.class)
-                .hasMessageContaining("You already created the Food with the name:%s", recipeDTO.getRecipeName());
+                .hasMessageContaining(
+                        "You already created the Food with the name:%s",
+                        recipeDTO.getRecipeName());
     }
 
     @Test
-    void should_retrieveRecipesFromMember(){
+    void should_retrieveRecipesFromMember() {
         // <editor-fold defaultstate="collapsed" desc="created MemberCard,Member,Recipe + PageRequest">
         PageRequest pageRequestMemberRecipes = PageRequest.of(
          0,
          3,
-         Sort.by("createdAt")
-        );
+         Sort.by("createdAt"));
 
         MemberCard stromaeMemberCard = new MemberCard(
                 LocalDateTime.now(),
                 "stromae",
-                "123"
-        );
+                "123");
+
         Member stromaeMember = new Member(
                 "Stromae",
                 "Freshy",
                 "Stromae.Freshy@world.org",
                 34,
                 Gender.MALE,
-                stromaeMemberCard
-        );
+                stromaeMemberCard);
+
         Recipe stromaeRecipe = new Recipe(
                 LocalDateTime.now(),
                 "crepe",
@@ -154,18 +155,23 @@ class RecipeServiceTest {
                 RecipeSkills.EASY,
                 foodCollection,
                 stromaeMember,
-                foodTagList
-        );
+                foodTagList);
         // </editor-fold>
 
         stromaeRecipeList.add(stromaeRecipe);
 
-        given(memberRepository.getMemberByMembercardUsername(anyString()))
-                .willReturn(memberReturn);
-        given(recipeRepository.getAllByCreatorEmail(anyString()))
-                .willReturn(stromaeRecipeList);
+        given(memberRepository
+                .getMemberByMembercardUsername(anyString()))
+                    .willReturn(memberReturn);
+        given(recipeRepository
+                .getAllByCreatorEmail(anyString()))
+                    .willReturn(stromaeRecipeList);
 
-        MemberDTO result = recipeService.retrieveRecipesFromMember("stromae", pageRequestMemberRecipes);
+        MemberDTO result =
+                recipeService
+                        .retrieveRecipesFromMember(
+                                "stromae",
+                                pageRequestMemberRecipes);
 
         assertThat(result)
                 .isNotNull();
@@ -177,41 +183,41 @@ class RecipeServiceTest {
         PageRequest pageRequestExplore = PageRequest.of(
                 0,
                 3,
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
+
         PageRequest pageRequestHighlight = PageRequest.of(
                 0,
                 3,
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
         // </editor-fold>
 
-        recipeService.retrieveStartingContent(pageRequestExplore, pageRequestHighlight);
+        recipeService
+                .retrieveStartingContent(
+                        pageRequestExplore,
+                        pageRequestHighlight);
 
         verify(recipeRepository,times(2))
                 .getAllByRecipeStatus(any());
     }
 
     @Test
-    void retrieveStartingContent_should_throw_Exception_if_pageRequestExploreRecipe_page_count_is_bigger_then_page_size(){
+    void retrieveStartingContent_should_throw_Exception_if_pageRequestExploreRecipe_page_count_is_bigger_then_page_size() {
         // <editor-fold defaultstate="collapsed" desc="created PageRequest(normal_data)">
         PageRequest pageRequestExplore = PageRequest.of(
                 0,
                 3,
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
+
         PageRequest pageRequestHighlight = PageRequest.of(
                 0,
                 3,
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created PageRequest(exception)">
         PageRequest pageRequestExploreException = PageRequest.of(
                 6,
                 3,
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created two RecipeDTO's">
         RecipeDTO recipeDTOforExplore = new RecipeDTO(
@@ -221,8 +227,7 @@ class RecipeServiceTest {
                 RecipeSkills.MIDDLE,
                 foodCollection,
                 memberDTO,
-                foodTagList
-        );
+                foodTagList);
 
         RecipeDTO recipeDTOforHighlight = new RecipeDTO(
                 LocalDateTime.now(),
@@ -231,8 +236,7 @@ class RecipeServiceTest {
                 RecipeSkills.PROFESSIONAL,
                 foodCollection,
                 memberDTO,
-                foodTagList
-        );
+                foodTagList);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created two empty List<RecipeDTO>">
         List<RecipeDTO> recipeDTOListExplore = new ArrayList<>();
@@ -243,8 +247,15 @@ class RecipeServiceTest {
         recipeDTOListHighlight.add(recipeDTOforHighlight);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created two Page<RecipeDTO> (explore&highlight)">
-        Page<RecipeDTO> recipeDTOPageExplore = converter.convertRecipeDTOListToPageOfRecipeDTO(recipeDTOListExplore,pageRequestExplore);
-        Page<RecipeDTO> recipeDTOPageHighlight = converter.convertRecipeDTOListToPageOfRecipeDTO(recipeDTOListHighlight,pageRequestHighlight);
+        Page<RecipeDTO> recipeDTOPageExplore =
+                converter.convertRecipeDTOListToPageOfRecipeDTO(
+                                recipeDTOListExplore,
+                                pageRequestExplore);
+
+        Page<RecipeDTO> recipeDTOPageHighlight =
+                converter.convertRecipeDTOListToPageOfRecipeDTO(
+                                recipeDTOListHighlight,
+                                pageRequestHighlight);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created HomeDTO & added the two Page<RecipeDTO>">
         HomeDTO homeDTO = new HomeDTO();
@@ -259,16 +270,16 @@ class RecipeServiceTest {
         MemberCard memberCardX = new MemberCard(
                 LocalDateTime.now(),
                 memberCardDTO.getUsername(),
-                memberCardDTO.getPassword()
-        );
+                memberCardDTO.getPassword());
+
         Member memberX = new Member(
                 memberDTO.getFirstName(),
                 memberDTO.getLastName(),
                 memberDTO.getEmail(),
                 memberDTO.getAge(),
                 memberDTO.getGender(),
-                memberCardX
-        );
+                memberCardX);
+
         Recipe recipeX = new Recipe(
                 LocalDateTime.now(),
                 recipeDTO.getRecipeName(),
@@ -276,43 +287,50 @@ class RecipeServiceTest {
                 recipeDTO.getRecipeSkills(),
                 recipeDTOforExplore.getFoods(),
                 memberX,
-                foodTagList
-        );
+                foodTagList);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="added data to the two returnList">
         returnListExplore.add(recipeX);
         returnListHighlight.add(recipeX);
         // </editor-fold>
 
-        given(recipeRepository.getAllByRecipeStatus(RecipeStatus.EXPLORE))
-                .willReturn(returnListExplore);
-        given(recipeRepository.getAllByRecipeStatus(RecipeStatus.HIGHLIGHT))
-                .willReturn(returnListHighlight);
+        given(recipeRepository
+                .getAllByRecipeStatus(RecipeStatus.EXPLORE))
+                    .willReturn(returnListExplore);
+        given(recipeRepository
+                .getAllByRecipeStatus(RecipeStatus.HIGHLIGHT))
+                    .willReturn(returnListHighlight);
 
-        assertThatThrownBy(() -> recipeService.retrieveStartingContent(pageRequestExploreException,pageRequestHighlight))
+        assertThatThrownBy(
+                () -> recipeService
+                        .retrieveStartingContent(
+                                pageRequestExploreException,
+                                pageRequestHighlight))
                 .isInstanceOf(BadRequestException.class)
-                .hasMessageContaining("This page doesn't exists. All elements are already displayed in %s page or pages. Please enter a valid page", pageRequestExploreException.getOffset());
+                .hasMessageContaining(
+                      "This page doesn't exists." +
+                                " All elements are already displayed in %s page or pages." +
+                                " Please enter a valid page",
+                                pageRequestExploreException.getOffset());
     }
     @Test
-    void retrieveStartingContent_should_throw_Exception_if_pageRequestHighlightRecipe_page_count_is_bigger_then_page_size(){
+    void retrieveStartingContent_should_throw_Exception_if_pageRequestHighlightRecipe_page_count_is_bigger_then_page_size() {
         // <editor-fold defaultstate="collapsed" desc="created PageRequest(normal_data)">
         PageRequest pageRequestExplore = PageRequest.of(
                 0,
                 3,
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
+
         PageRequest pageRequestHighlight = PageRequest.of(
                 0,
                 3,
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created PageRequest(exception)">
         PageRequest pageRequestHighlightException = PageRequest.of(
                 6,
                 3,
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created two RecipeDTO's">
         RecipeDTO recipeDTOforExplore = new RecipeDTO(
@@ -322,8 +340,7 @@ class RecipeServiceTest {
                 RecipeSkills.MIDDLE,
                 foodCollection,
                 memberDTO,
-                foodTagList
-        );
+                foodTagList);
 
         RecipeDTO recipeDTOforHighlight = new RecipeDTO(
                 LocalDateTime.now(),
@@ -332,8 +349,7 @@ class RecipeServiceTest {
                 RecipeSkills.PROFESSIONAL,
                 foodCollection,
                 memberDTO,
-                foodTagList
-        );
+                foodTagList);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created two empty List<RecipeDTO>">
         List<RecipeDTO> recipeDTOListExplore = new ArrayList<>();
@@ -344,8 +360,15 @@ class RecipeServiceTest {
         recipeDTOListHighlight.add(recipeDTOforHighlight);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created two Page<RecipeDTO> (explore&highlight)">
-        Page<RecipeDTO> recipeDTOPageExplore = converter.convertRecipeDTOListToPageOfRecipeDTO(recipeDTOListExplore,pageRequestExplore);
-        Page<RecipeDTO> recipeDTOPageHighlight = converter.convertRecipeDTOListToPageOfRecipeDTO(recipeDTOListHighlight,pageRequestHighlight);
+        Page<RecipeDTO> recipeDTOPageExplore =
+                converter.convertRecipeDTOListToPageOfRecipeDTO(
+                            recipeDTOListExplore,
+                            pageRequestExplore);
+
+        Page<RecipeDTO> recipeDTOPageHighlight =
+                converter.convertRecipeDTOListToPageOfRecipeDTO(
+                            recipeDTOListHighlight,
+                            pageRequestHighlight);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created HomeDTO & added the two Page<RecipeDTO>">
         HomeDTO homeDTO = new HomeDTO();
@@ -360,16 +383,16 @@ class RecipeServiceTest {
         MemberCard memberCardX = new MemberCard(
                 LocalDateTime.now(),
                 memberCardDTO.getUsername(),
-                memberCardDTO.getPassword()
-        );
+                memberCardDTO.getPassword());
+
         Member memberX = new Member(
                 memberDTO.getFirstName(),
                 memberDTO.getLastName(),
                 memberDTO.getEmail(),
                 memberDTO.getAge(),
                 memberDTO.getGender(),
-                memberCardX
-        );
+                memberCardX);
+
         Recipe recipeX = new Recipe(
                 LocalDateTime.now(),
                 recipeDTO.getRecipeName(),
@@ -377,22 +400,31 @@ class RecipeServiceTest {
                 recipeDTO.getRecipeSkills(),
                 recipeDTOforExplore.getFoods(),
                 memberX,
-                foodTagList
-        );
+                foodTagList);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="added data to the two returnList">
         returnListExplore.add(recipeX);
         returnListHighlight.add(recipeX);
         // </editor-fold>
 
-        given(recipeRepository.getAllByRecipeStatus(RecipeStatus.EXPLORE))
-                .willReturn(returnListExplore);
-        given(recipeRepository.getAllByRecipeStatus(RecipeStatus.HIGHLIGHT))
-                .willReturn(returnListHighlight);
+        given(recipeRepository
+                .getAllByRecipeStatus(RecipeStatus.EXPLORE))
+                    .willReturn(returnListExplore);
+        given(recipeRepository
+                .getAllByRecipeStatus(RecipeStatus.HIGHLIGHT))
+                    .willReturn(returnListHighlight);
 
-        assertThatThrownBy(() -> recipeService.retrieveStartingContent(pageRequestExplore,pageRequestHighlightException))
+        assertThatThrownBy(
+                () -> recipeService
+                        .retrieveStartingContent(
+                                pageRequestExplore,
+                                pageRequestHighlightException))
                 .isInstanceOf(BadRequestException.class)
-                .hasMessageContaining("This page doesn't exists. All elements are already displayed in %s page or pages. Please enter a valid page", pageRequestHighlightException.getOffset());
+                .hasMessageContaining(
+              "This page doesn't exists. " +
+                        "All elements are already displayed in %s page or pages." +
+                        " Please enter a valid page",
+                        pageRequestHighlightException.getOffset());
     }
 
     @Test

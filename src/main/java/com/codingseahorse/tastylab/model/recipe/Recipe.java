@@ -16,10 +16,8 @@ import static javax.persistence.GenerationType.SEQUENCE;
         uniqueConstraints = {
                 @UniqueConstraint(
                         name = "recipe_id",
-                        columnNames = "recipe_id"
-                )
-        }
-)
+                        columnNames = "recipe_id")
+        })
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,66 +27,58 @@ public class Recipe {
     @SequenceGenerator(
             name = "recipe_id_sequencer",
             sequenceName = "recipe_id_sequencer",
-            allocationSize = 1
-    )
+            allocationSize = 1)
     @GeneratedValue(
             strategy = SEQUENCE,
-            generator = "recipe_id_sequencer"
-    )
+            generator = "recipe_id_sequencer")
     @Column(
             name = "recipe_id",
             nullable = false,
-            updatable = false
-    )
+            updatable = false)
     private Integer recipeId;
+
     @NonNull
     @Column(
             name = "created_at",
             nullable = false,
-            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
-    )
+            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private LocalDateTime createdAt;
+
     @NonNull
     @Column(
             name = "recipe_name",
             nullable = false,
             columnDefinition = "TEXT",
-            length = 100
-    )
+            length = 100)
     private String recipeName;
 
     @NonNull
     @Column(
             name = "duration",
             nullable = false,
-            columnDefinition = "INTEGER"
-    )
+            columnDefinition = "INTEGER")
     private Integer duration;
 
     @Enumerated(EnumType.STRING)
     @Column(
             name = "recipeStatus",
-            nullable = false
-    )
+            nullable = false)
     private RecipeStatus recipeStatus = RecipeStatus.NORMAL; // DEFAULT VALUE
 
     @NonNull
     @Enumerated(EnumType.STRING)
     @Column(
             name = "recipe_skills",
-            nullable = false
-    )
+            nullable = false)
     private RecipeSkills recipeSkills;
 
     @NonNull
     @ElementCollection(targetClass = Food.class)
     @Enumerated(EnumType.STRING)
     @CollectionTable(
-            name = "recipe_foods"
-    )
+            name = "recipe_foods")
     @Column(
-            name = "foods"
-    )
+            name = "foods")
     private Collection<Food> foods;
 
     @NonNull
@@ -98,23 +88,20 @@ public class Recipe {
             nullable = false,
             referencedColumnName = "member_id",
             foreignKey = @ForeignKey(
-                    name = "member_recipes_fk"
-            )
-    )
+                    name = "member_recipes_fk"))
     private Member creator;
 
     @NonNull
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "tags",
+
             joinColumns = @JoinColumn(
                     name = "recipe_id",
-                    foreignKey = @ForeignKey(name = "tags_recipe_id_fk")
-            ),
+                    foreignKey = @ForeignKey(name = "tags_recipe_id_fk")),
+
             inverseJoinColumns = @JoinColumn(
                     name = "food_tag_id",
-                    foreignKey = @ForeignKey(name = "tags_food_id_fk")
-            )
-    )
+                    foreignKey = @ForeignKey(name = "tags_food_id_fk")))
     private List<FoodTag> foodTag;
 }

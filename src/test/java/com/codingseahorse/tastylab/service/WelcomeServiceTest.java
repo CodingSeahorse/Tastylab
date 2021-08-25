@@ -35,8 +35,7 @@ class WelcomeServiceTest {
             "Doo",
             "shaggy.doo@gmail.com",
             34,
-            Gender.MALE
-    );
+            Gender.MALE);
     // </editor-fold>
 
     @Test
@@ -51,21 +50,25 @@ class WelcomeServiceTest {
     }
 
     @Test
-    void will_throw_when_email_is_taken(){
+    void will_throw_when_email_is_taken() {
         String inputEmail = "shaggy.doo@gmail.com";
 
-        given(memberRepository.existsMemberByEmail(inputEmail)).willReturn(true);
+        given(memberRepository.existsMemberByEmail(inputEmail))
+                .willReturn(true);
 
         assertThatThrownBy(() -> welcomeService.registerMember(registrationDTO))
                 .isInstanceOf(BadRequestException.class)
-                .hasMessageContaining("This email adress %s is already taken. Please enter another email address",inputEmail);
+                .hasMessageContaining(
+                        "This email adress %s is already taken. " +
+                        "Please enter another email address",
+                        inputEmail);
 
         verify(memberRepository,never())
                 .save(any(Member.class));
     }
 
     @Test
-    void check_if_WelcomeService_isNotNull(){
+    void check_if_WelcomeService_isNotNull() {
         WelcomeService welcomeService = new WelcomeService();
         assertThat(welcomeService)
                 .isNotNull();
