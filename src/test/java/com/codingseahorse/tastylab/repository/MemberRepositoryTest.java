@@ -24,13 +24,12 @@ class MemberRepositoryTest {
     Member scoobyDoo;
 
     @BeforeEach
-    void createMember_with_memberCard(){
+    void createMember_with_memberCard() {
         // <editor-fold defaultstate="collapsed" desc="created MemberCard">
         scoobyDooCard = new MemberCard(
                 LocalDateTime.now(),
                 "scooby",
-                "dooo"
-        );
+                "dooo");
 
         memberCardRepository.save(scoobyDooCard);
         // </editor-fold>
@@ -41,16 +40,19 @@ class MemberRepositoryTest {
                 "scooby.doo@gmail.com",
                 8,
                 Gender.MALE,
-                scoobyDooCard
-        );
+                scoobyDooCard);
 
         memberRepository.save(scoobyDoo);
         // </editor-fold>
     }
 
     @Test
-    void should_getMemberByEmailAndFirstName_return_Member(){
-        Member getMember = memberRepository.getMemberByEmailAndFirstName("scooby.doo@gmail.com","scooby");
+    void should_getMemberByEmailAndFirstName_return_Member() {
+        Member getMember =
+                memberRepository
+                        .getMemberByEmailAndFirstName(
+                                scoobyDoo.getEmail(),
+                                scoobyDoo.getFirstName());
 
         assertThat(getMember)
                 .isNotNull()
@@ -58,8 +60,9 @@ class MemberRepositoryTest {
     }
 
     @Test
-    void should_getMemberByMemberCardUsername_return_Member(){
-        Member searchedMember = memberRepository.getMemberByMembercardUsername("scooby");
+    void should_getMemberByMemberCardUsername_return_Member() {
+        Member searchedMember =
+                memberRepository.getMemberByMembercardUsername(scoobyDooCard.getUsername());
 
         assertThat(searchedMember)
                 .isNotNull()
@@ -67,8 +70,11 @@ class MemberRepositoryTest {
     }
 
     @Test
-    void should_getMemberByMembercardUsernameAndMembercardPassword_return_Member(){
-        Member searchedMember = memberRepository.getMemberByMembercardUsernameAndMembercardPassword("scooby","dooo");
+    void should_getMemberByMembercardUsernameAndMembercardPassword_return_Member() {
+        Member searchedMember =
+                memberRepository.getMemberByMembercardUsernameAndMembercardPassword(
+                            scoobyDooCard.getUsername(),
+                            scoobyDooCard.getPassword());
 
         assertThat(searchedMember)
                 .isNotNull()
@@ -76,10 +82,12 @@ class MemberRepositoryTest {
     }
 
     @Test
-    void should_existsMemberByEmail_return_true_or_false(){
-        boolean searchedMember = memberRepository.existsMemberByEmail("scooby.doo@gmail.com");
+    void should_existsMemberByEmail_return_true_or_false() {
+        boolean searchedMember =
+                memberRepository.existsMemberByEmail(scoobyDoo.getEmail());
 
         assertThat(searchedMember)
+                .isNotNull()
                 .isTrue();
     }
 }

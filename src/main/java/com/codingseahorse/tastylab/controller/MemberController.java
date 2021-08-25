@@ -4,8 +4,6 @@ import com.codingseahorse.tastylab.dto.MemberDTO;
 import com.codingseahorse.tastylab.exception.NotFoundException;
 import com.codingseahorse.tastylab.requestsModels.MemberRequest;
 import com.codingseahorse.tastylab.service.MemberService;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.http.HttpStatus;
@@ -29,12 +27,15 @@ public class MemberController {
 
         try {
             updatedMember = memberService.editMemberData(memberRequest);
-        }catch (TransactionSystemException exception){
-            throw new TransactionSystemException("Member was not updated. Error while committing the transaction");
+        }catch (TransactionSystemException exception) {
+            throw new TransactionSystemException(
+                    "Member was not updated. Error while committing the transaction");
         }
 
-        if (updatedMember == null){
-            throw new NotFoundException(String.format("Member with the id %s not found", memberRequest.getId()));
+        if (updatedMember == null) {
+            throw new NotFoundException(String.format(
+                    "Member with the id %s not found",
+                    memberRequest.getId()));
         }
 
         return updatedMember;
@@ -45,10 +46,13 @@ public class MemberController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
     public void deleteMember(@PathVariable("memberId") Integer memberId) {
-        try{
+        try {
             memberService.deleteMember(memberId);
-        }catch (DataRetrievalFailureException exception){
-            throw new DataRetrievalFailureException("There is no member with id" + memberId + " in database");
+        }catch (DataRetrievalFailureException exception) {
+            throw new DataRetrievalFailureException(
+                    "There is no member with id"
+                    + memberId +
+                    " in database");
         }
     }
 }

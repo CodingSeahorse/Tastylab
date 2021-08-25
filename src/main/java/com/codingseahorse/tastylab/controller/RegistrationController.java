@@ -24,8 +24,7 @@ public class RegistrationController {
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void signUp (
-            @RequestBody RegistrationRequest registrationRequest
-    ){
+            @RequestBody RegistrationRequest registrationRequest) {
 
         Gender postedGender = Gender.valueOf(registrationRequest.getGender().toUpperCase());
 

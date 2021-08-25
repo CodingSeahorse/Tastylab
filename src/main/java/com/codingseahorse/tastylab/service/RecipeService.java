@@ -33,11 +33,22 @@ public class RecipeService {
 
     // ===== CREATE =====
     public void createRecipe(RecipeDTO recipeDTO) {
-        boolean recipeSearch = recipeRepository.existsByRecipeNameAndCreatorEmail(recipeDTO.getRecipeName(), recipeDTO.getCreator().getEmail());
+        boolean recipeSearch =
+                recipeRepository.existsByRecipeNameAndCreatorEmail(
+                                recipeDTO.getRecipeName(),
+                                recipeDTO.getCreator().getEmail());
+
         if (recipeSearch) {
-            throw new BadRequestException(String.format("You already created the Food with the name:%s", recipeDTO.getRecipeName()));
+            throw new BadRequestException(String.format(
+                    "You already created the Food with the name:%s",
+                    recipeDTO.getRecipeName()));
         }
-        Member findCreator = memberRepository.getMemberByEmailAndFirstName(recipeDTO.getCreator().getEmail(), recipeDTO.getCreator().getFirstName());
+
+        Member findCreator =
+                memberRepository.getMemberByEmailAndFirstName(
+                            recipeDTO.getCreator().getEmail(),
+                            recipeDTO.getCreator().getFirstName());
+
         Recipe newRecipe = new Recipe(
                 LocalDateTime.now(),
                 recipeDTO.getRecipeName(),
@@ -45,16 +56,20 @@ public class RecipeService {
                 recipeDTO.getRecipeSkills(),
                 recipeDTO.getFoods(),
                 findCreator,
-                recipeDTO.getFoodTag()
-        );
+                recipeDTO.getFoodTag());
+
         newRecipe.setRecipeStatus(recipeDTO.getRecipeStatus());
+
         recipeRepository.save(newRecipe);
     }
 
     // ===== READ =====
-    public MemberDTO retrieveRecipesFromMember(String username, PageRequest pageRequest) {
+    public MemberDTO retrieveRecipesFromMember(
+            String username,
+            PageRequest pageRequest) {
 
         Member member = memberRepository.getMemberByMembercardUsername(username);
+
         MemberDTO memberDTO = new MemberDTO(
                 member.getFirstName(),
                 member.getLastName(),
@@ -62,9 +77,14 @@ public class RecipeService {
                 member.getGender()
         );
 
-        List<Recipe> findRecipes = recipeRepository.getAllByCreatorEmail(member.getEmail());
-        List<RecipeDTO> newRecipeList = converter.convertRecipeListToRecipeDTOList(findRecipes);
-        final Page<RecipeDTO> page = converter.convertRecipeDTOListToPageOfRecipeDTO(newRecipeList,pageRequest);
+        List<Recipe> findRecipes =
+                recipeRepository.getAllByCreatorEmail(member.getEmail());
+        List<RecipeDTO> newRecipeList =
+                converter.convertRecipeListToRecipeDTOList(findRecipes);
+        final Page<RecipeDTO> page =
+                converter.convertRecipeDTOListToPageOfRecipeDTO(
+                            newRecipeList,
+                            pageRequest);
 
         memberDTO.setRecipes(page);
 
@@ -74,22 +94,41 @@ public class RecipeService {
     public HomeDTO retrieveStartingContent(
             PageRequest pageRequestExploreRecipe,
             PageRequest pageRequestHighlightRecipe
-    ){
+    ) {
         List<Recipe> exploreRecipeList = recipeRepository.getAllByRecipeStatus(EXPLORE);
         List<Recipe> highlightRecipeList = recipeRepository.getAllByRecipeStatus(HIGHLIGHT);
 
-        if (pageRequestExploreRecipe.getOffset() > 0 && pageRequestExploreRecipe.getPageSize() > exploreRecipeList.size()){
-            throw new BadRequestException(String.format("This page doesn't exists. All elements are already displayed in %s page or pages. Please enter a valid page",pageRequestExploreRecipe.getOffset()));
-        }
-        if (pageRequestHighlightRecipe.getOffset() > 0 && pageRequestHighlightRecipe.getPageSize() > highlightRecipeList.size()){
-            throw new BadRequestException(String.format("This page doesn't exists. All elements are already displayed in %s page or pages. Please enter a valid page",pageRequestHighlightRecipe.getOffset()));
+        if (pageRequestExploreRecipe.getOffset() > 0 &&
+            pageRequestExploreRecipe.getPageSize() > exploreRecipeList.size()) {
+            throw new BadRequestException(String.format(
+                    "This page doesn't exists. " +
+                    "All elements are already displayed in %s page or pages." +
+                    " Please enter a valid page",
+                    pageRequestExploreRecipe.getOffset()));
         }
 
-        List<RecipeDTO> exploreRecipeDTOList = converter.convertRecipeListToRecipeDTOList(exploreRecipeList);
-        List<RecipeDTO> highlightRecipeDTOList = converter.convertRecipeListToRecipeDTOList(highlightRecipeList);
+        if (pageRequestHighlightRecipe.getOffset() > 0 &&
+            pageRequestHighlightRecipe.getPageSize() > highlightRecipeList.size()) {
+            throw new BadRequestException(String.format(
+                    "This page doesn't exists. " +
+                    "All elements are already displayed in %s page or pages." +
+                    " Please enter a valid page",
+                    pageRequestHighlightRecipe.getOffset()));
+        }
 
-        final Page<RecipeDTO> exploreRecipes = converter.convertRecipeDTOListToPageOfRecipeDTO(exploreRecipeDTOList,pageRequestExploreRecipe);
-        final Page<RecipeDTO> highlightRecipes = converter.convertRecipeDTOListToPageOfRecipeDTO(highlightRecipeDTOList,pageRequestHighlightRecipe);
+        List<RecipeDTO> exploreRecipeDTOList =
+                converter.convertRecipeListToRecipeDTOList(exploreRecipeList);
+        List<RecipeDTO> highlightRecipeDTOList =
+                converter.convertRecipeListToRecipeDTOList(highlightRecipeList);
+
+        final Page<RecipeDTO> exploreRecipes =
+                converter.convertRecipeDTOListToPageOfRecipeDTO(
+                            exploreRecipeDTOList,
+                            pageRequestExploreRecipe);
+        final Page<RecipeDTO> highlightRecipes =
+                converter.convertRecipeDTOListToPageOfRecipeDTO(
+                            highlightRecipeDTOList,
+                            pageRequestHighlightRecipe);
 
         HomeDTO homeDTO = new HomeDTO();
 

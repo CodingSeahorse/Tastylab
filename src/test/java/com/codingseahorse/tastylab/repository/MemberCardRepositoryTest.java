@@ -18,17 +18,17 @@ class MemberCardRepositoryTest {
     MemberCard daphneCard;
 
     @BeforeEach
-    public void createMemberCard(){
+    public void createMemberCard() {
         daphneCard = new MemberCard(
                 LocalDateTime.now(),
                 "daphne",
-                "doo"
-        );
+                "doo");
+
         memberCardRepository.save(daphneCard);
     }
 
     @Test
-    public void check_if_getMemberCardByUsername_returns_the_right_MemberCard(){
+    public void check_if_getMemberCardByUsername_returns_the_right_MemberCard() {
         MemberCard getMemberCard = memberCardRepository.getMemberCardByUsername("daphne");
 
         assertThat(getMemberCard)

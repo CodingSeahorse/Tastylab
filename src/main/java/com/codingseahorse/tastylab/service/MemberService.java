@@ -23,7 +23,8 @@ public class MemberService {
 
     // ===== UPDATE =====
     public MemberDTO editMemberData(MemberRequest memberRequest) {
-        Optional<Member> searchedMember = memberRepository.findById(memberRequest.getId());
+        Optional<Member> searchedMember =
+                memberRepository.findById(memberRequest.getId());
 
         if (searchedMember.isEmpty()) {
             return null;
@@ -48,7 +49,7 @@ public class MemberService {
         );
     }
     // ===== DELETE =====
-    public void deleteMember(Integer memberId){
+    public void deleteMember(Integer memberId) {
         memberRepository.deleteById(memberId);
     }
 }

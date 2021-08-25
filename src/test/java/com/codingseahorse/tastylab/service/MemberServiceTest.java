@@ -32,8 +32,7 @@ class MemberServiceTest {
     MemberCard memberCard = new MemberCard(
             LocalDateTime.now(),
             "Eddy",
-            "123"
-    );
+            "123");
 
     Member member = new Member(
             "Edward",
@@ -41,19 +40,17 @@ class MemberServiceTest {
             "Edward.Elric@resembool.org",
             17,
             Gender.MALE,
-            memberCard
-    );
+            memberCard);
     // </editor-fold>
 
     @Test
-    void should_editMemberData_and_return_MemberDTO(){
+    void should_editMemberData_and_return_MemberDTO() {
         // <editor-fold defaultstate="collapsed" desc="created MemberDTO & MemberRequest">
         MemberDTO updatedMember = new MemberDTO(
                 "Edward",
                 "Elric",
                 18,
-                Gender.MALE
-        );
+                Gender.MALE);
 
         MemberRequest memberRequest = new MemberRequest(
                 1,
@@ -61,8 +58,7 @@ class MemberServiceTest {
                 "Elric",
                 "Edward.Elric@resembool.org",
                 18,
-                "Male"
-        );
+                "Male");
         // </editor-fold>
 
         when(memberRepository.findById(anyInt()))
@@ -79,7 +75,7 @@ class MemberServiceTest {
     }
 
     @Test
-    void should_deleteMember(){
+    void should_deleteMember() {
         doNothing().when(memberRepository).deleteById(anyInt());
 
         memberService.deleteMember(1);
@@ -96,7 +92,7 @@ class MemberServiceTest {
     }
 
     @Test
-    void should_return_null_if_searchedMemberIsEmpty(){
+    void should_return_null_if_searchedMemberIsEmpty() {
         // <editor-fold defaultstate="collapsed" desc="created MemberRequest & MemberDTO">
         MemberRequest memberRequest = new MemberRequest(
                 100,
@@ -104,8 +100,8 @@ class MemberServiceTest {
                 "noris",
                 "jack.noris@world.com",
                 120,
-                "Male"
-        );
+                "Male");
+
         MemberDTO result = memberService.editMemberData(memberRequest);
         // </editor-fold>
         assertThat(result)
