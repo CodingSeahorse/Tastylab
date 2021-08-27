@@ -9,6 +9,12 @@ import com.codingseahorse.tastylab.model.recipe.FoodTag;
 import com.codingseahorse.tastylab.model.recipe.RecipeSkills;
 import com.codingseahorse.tastylab.requestsModels.RecipeRequest;
 import com.codingseahorse.tastylab.service.RecipeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -27,9 +33,26 @@ public class RecipeController {
     @Autowired
     RecipeService recipeService;
 
+    // ===== CREATE =====
+    @Operation(summary = "create recipe")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(
+                            responseCode = "201",
+                            description = "successfully created",
+                            content = @Content),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Invalid payload. Please correct your RecipeRequest or url",
+                            content =  @Content),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "Member not found",
+                            content = @Content)})
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createRecipe(
+            @Parameter(description = "RequestBody(RecipeRequest) to pass")
             @RequestBody RecipeRequest recipeRequest) {
 
         RecipeSkills detectedRecipeSkill =
@@ -63,6 +86,24 @@ public class RecipeController {
         recipeService.createRecipe(recipeDTO);
     }
 
+    // ===== READ =====
+    @Operation(summary = "get the starting content for the Home*page")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "found the startingContent",
+                            content = { @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema (implementation = HomeDTO.class))}),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Invalid variables. Please correct your parameters or url",
+                            content =  @Content),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "No pages found",
+                            content = @Content)})
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/home")
     public HomeDTO getStartingContent(
@@ -84,6 +125,23 @@ public class RecipeController {
                 pageRequestHighlight);
     }
 
+    @Operation(summary = "get member recipes")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "found the member recipes",
+                            content = { @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema (implementation = MemberDTO.class))}),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Invalid variables. Please correct your parameters or url",
+                            content =  @Content),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "No recipes found",
+                            content = @Content)})
     @GetMapping("/{username}")
     @ResponseStatus(HttpStatus.OK)
     public MemberDTO getMemberRecipes(

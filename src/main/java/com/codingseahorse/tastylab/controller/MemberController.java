@@ -4,6 +4,12 @@ import com.codingseahorse.tastylab.dto.MemberDTO;
 import com.codingseahorse.tastylab.exception.NotFoundException;
 import com.codingseahorse.tastylab.requestsModels.MemberRequest;
 import com.codingseahorse.tastylab.service.MemberService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.http.HttpStatus;
@@ -19,10 +25,29 @@ public class MemberController {
     MemberService memberService;
 
     // ===== UPDATE =====
+    @Operation (summary = "update member data")
+    @ApiResponses(
+            value = {
+                @ApiResponse(
+                    responseCode = "200",
+                    description = "successfully updated",
+                    content = { @Content(
+                            mediaType = "application/json",
+                            schema = @Schema (implementation = MemberDTO.class))}),
+                @ApiResponse(
+                        responseCode = "400",
+                        description = "Invalid payload. Please correct your MemberRequest or url",
+                        content =  @Content),
+                @ApiResponse(
+                        responseCode = "404",
+                        description = "Member not found",
+                        content = @Content)})
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public MemberDTO updateMemberData(@RequestBody MemberRequest memberRequest) {
+    public MemberDTO updateMemberData(
+            @Parameter (description = "RequestBody(MemberRequest) to pass")
+            @RequestBody MemberRequest memberRequest) {
         MemberDTO updatedMember;
 
         try {
@@ -43,6 +68,17 @@ public class MemberController {
     }
 
     // ===== DELETE =====
+    @Operation (summary = "delete member")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "successfully deleted",
+                            content = @Content),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "id or path invalid",
+                            content = @Content)})
     @DeleteMapping("/{memberId}")
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody

@@ -2,8 +2,6 @@ package com.codingseahorse.tastylab.controller;
 
 import com.codingseahorse.tastylab.dto.RegistrationDTO;
 import com.codingseahorse.tastylab.model.member.Gender;
-import com.codingseahorse.tastylab.repository.MemberCardRepository;
-import com.codingseahorse.tastylab.repository.MemberRepository;
 import com.codingseahorse.tastylab.requestsModels.RegistrationRequest;
 import com.codingseahorse.tastylab.service.WelcomeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,6 +18,21 @@ public class RegistrationController {
     @Autowired
     WelcomeService welcomeService;
 
+    @Operation(summary = "signup")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(
+                            responseCode = "201",
+                            description = "created successfully a new Member",
+                            content = @Content),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Invalid payload. Please correct your RegistrationRequest(form) or url",
+                            content =  @Content),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "No pages found",
+                            content = @Content)})
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
