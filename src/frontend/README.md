@@ -1,8 +1,8 @@
 Version: 1.0 
 
-#🍔Frontend🍔
+# 🍔Frontend🍔
 ___
-###🍓Based on Figma🍓
+### 🍓Based on Figma🍓
 > 
 >
 > Link:
