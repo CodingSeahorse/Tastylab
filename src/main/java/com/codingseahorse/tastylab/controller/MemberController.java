@@ -29,7 +29,8 @@ public class MemberController {
             updatedMember = memberService.editMemberData(memberRequest);
         }catch (TransactionSystemException exception) {
             throw new TransactionSystemException(
-                    "Member was not updated. Error while committing the transaction");
+                    "Member was not updated. " +
+                    "Error while committing the transaction");
         }
 
         if (updatedMember == null) {

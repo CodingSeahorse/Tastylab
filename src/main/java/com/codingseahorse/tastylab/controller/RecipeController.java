@@ -9,13 +9,6 @@ import com.codingseahorse.tastylab.model.recipe.FoodTag;
 import com.codingseahorse.tastylab.model.recipe.RecipeSkills;
 import com.codingseahorse.tastylab.requestsModels.RecipeRequest;
 import com.codingseahorse.tastylab.service.RecipeService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -37,18 +30,26 @@ public class RecipeController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createRecipe(
-            @RequestBody RecipeRequest recipeRequest
-    ) {
-        RecipeSkills detectedRecipeSkill = RecipeSkills.valueOf(recipeRequest.getRecipeSkill().toUpperCase());
-        Collection<Food> foodCollection = Arrays.stream(recipeRequest.getFoods()).map(Food::valueOf).collect(Collectors.toSet());
-        List<FoodTag> foodTagList = Arrays.stream(recipeRequest.getFoodTags()).map(FoodTag::new).collect(Collectors.toList());
+            @RequestBody RecipeRequest recipeRequest) {
+
+        RecipeSkills detectedRecipeSkill =
+                RecipeSkills.valueOf(recipeRequest.getRecipeSkill().toUpperCase());
+
+        Collection<Food> foodCollection =
+                Arrays.stream(recipeRequest.getFoods())
+                        .map(Food::valueOf)
+                        .collect(Collectors.toSet());
+
+        List<FoodTag> foodTagList =
+                Arrays.stream(recipeRequest.getFoodTags())
+                        .map(FoodTag::new)
+                        .collect(Collectors.toList());
 
         MemberDTO creator = new MemberDTO(
                 "scooby",
                 "doo",
                 8,
-                Gender.MALE
-        );
+                Gender.MALE);
 
         RecipeDTO recipeDTO = new RecipeDTO(
                 LocalDateTime.now(),
@@ -57,8 +58,7 @@ public class RecipeController {
                 detectedRecipeSkill,
                 foodCollection,
                 creator,
-                foodTagList
-        );
+                foodTagList);
 
         recipeService.createRecipe(recipeDTO);
     }
@@ -67,19 +67,21 @@ public class RecipeController {
     @GetMapping("/home")
     public HomeDTO getStartingContent(
             @RequestParam Integer[] page,
-            @RequestParam Integer[] size
-    ) {
+            @RequestParam Integer[] size) {
+
         PageRequest pageRequestExplore = PageRequest.of(
                 page[0],
                 size[0],
-                Sort.by("createdAt")
-        );
+                Sort.by("createdAt"));
+
         PageRequest pageRequestHighlight = PageRequest.of(
                 page[1],
                 size[1],
-                Sort.by("createdAt")
-        );
-        return recipeService.retrieveStartingContent(pageRequestExplore,pageRequestHighlight);
+                Sort.by("createdAt"));
+
+        return recipeService.retrieveStartingContent(
+                pageRequestExplore,
+                pageRequestHighlight);
     }
 
     @GetMapping("/{username}")
@@ -88,12 +90,15 @@ public class RecipeController {
             @RequestParam Integer page,
             @RequestParam Integer size,
             @RequestParam String username) {
+
         PageRequest pageRequest = PageRequest.of(
                 page,
                 size,
-                Sort.by("createdAt").ascending()
-        );
-        return recipeService.retrieveRecipesFromMember(username,pageRequest);
+                Sort.by("createdAt").ascending());
+
+        return recipeService.retrieveRecipesFromMember(
+                username,
+                pageRequest);
     }
 }
 
