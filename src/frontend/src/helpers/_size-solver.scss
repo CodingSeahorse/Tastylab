@@ -1,0 +1,16 @@
+@media only screen and (min-width: 1921px) {
+  .landing{
+    &__inspiration{
+      width: 100%;
+      height: 1080px;
+      background:
+              url("../bag/images/inspiration_background_big.png")
+              no-repeat;
+    }
+    &__highlight{
+      background:
+              url("../bag/images/highlight_background_big.png")
+              no-repeat;
+    }
+  }
+}
