@@ -25,6 +25,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
                         name = "email",
                         columnNames = "email")
         })
+@Data
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Member {
