@@ -14,7 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.TransactionSystemException;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import static com.codingseahorse.tastylab.utils.ExceptionUtils.createErrorMessageAndThrowEntityValidationException;
 
 
 @RestController
@@ -47,8 +50,12 @@ public class MemberController {
     @ResponseBody
     public MemberDTO updateMemberData(
             @Parameter (description = "RequestBody(MemberRequest) to pass")
-            @RequestBody MemberRequest memberRequest) {
+            @RequestBody MemberRequest memberRequest, BindingResult bindingResult) {
         MemberDTO updatedMember;
+
+        if (bindingResult.hasErrors()) {
+            createErrorMessageAndThrowEntityValidationException(bindingResult);
+        }
 
         try {
             updatedMember = memberService.editMemberData(memberRequest);
@@ -72,15 +79,15 @@ public class MemberController {
     @ApiResponses(
             value = {
                     @ApiResponse(
-                            responseCode = "404",
-                            description = "successfully deleted",
+                            responseCode = "204",
+                            description = "successfully deleted.No Content",
                             content = @Content),
                     @ApiResponse(
                             responseCode = "400",
                             description = "id or path invalid",
                             content = @Content)})
     @DeleteMapping("/{memberId}")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @ResponseBody
     public void deleteMember(@PathVariable("memberId") Integer memberId) {
         try {

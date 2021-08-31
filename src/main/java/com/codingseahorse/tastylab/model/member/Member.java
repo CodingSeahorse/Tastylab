@@ -12,7 +12,6 @@ import java.util.List;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
@@ -26,7 +25,6 @@ import static javax.persistence.GenerationType.SEQUENCE;
                         name = "email",
                         columnNames = "email")
         })
-@Data
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Member {

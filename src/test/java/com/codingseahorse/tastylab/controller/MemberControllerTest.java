@@ -20,8 +20,7 @@ import java.time.LocalDateTime;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -60,13 +59,51 @@ class MemberControllerTest {
                 .andExpect(status().isOk());
     }
 
+    // TODO:FIX TransactionSystemException
+    /*Test
+    void should_throw_TransactionSystemException() throws Exception{
+        when(memberService.editMemberData(any())).thenThrow(TransactionSystemException.class);
+
+        mockMvc.perform(put("/api/member")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(memberRequest)))
+                .andDo(print())
+                .andExpect(status().isServiceUnavailable());
+    }*/
+
+    @Test
+
+    void should_throw_notFoundException_() throws Exception {
+        when(memberService.editMemberData(any(MemberRequest.class)))
+                .thenReturn(null);
+
+        mockMvc.perform(put("/api/member")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(memberRequest)))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
     @Test
     void should_deleteAMember_and_return_NotFoundStatus() throws Exception{
         doNothing().when(memberService).deleteMember(anyInt());
 
-        mockMvc.perform(delete("/?memberId=1"))
-                .andExpect(status().isNotFound());
+        mockMvc.perform(delete("/api/member/1"))
+                .andExpect(status().isNoContent());
     }
+
+    // TODO:FIX TEST DataRetrievalFailureException
+    /*@Test
+    void should_throw_DataRetrievalFailureException_when_deleteMember() throws Exception {
+        doThrow(EmptyResultDataAccessException.class)
+                .when(memberService)
+                .deleteMember(8);
+
+        mockMvc.perform(delete("/api/member/8"))
+                .andExpect(status().isNotFound());
+    }*/
 
     void createContent(){
         // <editor-fold defaultstate="collapsed" desc="created memberRequest,MemberCardDTO & MemberDTO">
