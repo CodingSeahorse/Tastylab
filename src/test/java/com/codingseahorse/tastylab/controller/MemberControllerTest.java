@@ -144,3 +144,4 @@ class MemberControllerTest {
         // </editor-fold>
     }
 }
+
