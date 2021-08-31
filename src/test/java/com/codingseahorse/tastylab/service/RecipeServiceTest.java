@@ -103,7 +103,7 @@ class RecipeServiceTest {
                 .getMemberByEmailAndFirstName(
                         anyString(),
                         anyString()))
-                    .willReturn(memberReturn);
+                .willReturn(memberReturn);
 
         recipeService.createRecipe(recipeDTO);
 
