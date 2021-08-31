@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import static com.codingseahorse.tastylab.utils.ExceptionUtils.createErrorMessageAndThrowEntityValidationException;
 
 
-
 @RestController
 @RequestMapping("/api/member")
 public class MemberController {
