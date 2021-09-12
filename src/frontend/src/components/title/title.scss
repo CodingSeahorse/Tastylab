@@ -1,0 +1,20 @@
+@import '../../helpers/_colors.scss';
+
+.my-title{
+  &__strip{
+    display: block;
+    width: 6.5rem;
+    height: 0.5rem;
+    margin-bottom: 5rem;
+    background-color: $tasty-color-basic;
+  }
+  &__title{
+      text-transform: uppercase;
+      font-size: 7.2rem;
+      &:last-child{
+        margin-left: 10rem;
+        margin-top: 3rem;
+        margin-bottom: 7.5rem;
+      }
+  }
+}

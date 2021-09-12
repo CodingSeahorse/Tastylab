@@ -160,26 +160,6 @@ class RecipeServiceTest {
     }
 
     @Test
-    void should_throw_exception_if_tagName_alreadyExists() {
-        given(recipeRepository
-                .existsByRecipeNameAndCreatorEmail(
-                    anyString(),
-                    anyString()))
-                .willReturn(false);
-
-        given(memberRepository.getMemberByEmail(anyString()))
-                .willReturn(memberReturn);
-
-        given(foodTagRepository.existsByTagName("tasty"))
-                .willReturn(true);
-
-        assertThatThrownBy(
-                () -> recipeService.createRecipe(recipeDTO))
-                .isInstanceOf(BadRequestException.class)
-                .hasMessageContaining("Already existed FoodTag: " + "tasty");
-    }
-
-    @Test
     void should_retrieveRecipesFromMember() {
         given(memberRepository
                 .getMemberByMembercardUsername(anyString()))
@@ -334,6 +314,7 @@ class RecipeServiceTest {
                                 " Please enter a valid page",
                                 pageRequestExploreException.getOffset());
     }
+
     @Test
     void retrieveStartingContent_should_throw_Exception_if_pageRequestHighlightRecipe_page_count_is_bigger_then_page_size() {
         // <editor-fold defaultstate="collapsed" desc="created PageRequest(normal_data)">
