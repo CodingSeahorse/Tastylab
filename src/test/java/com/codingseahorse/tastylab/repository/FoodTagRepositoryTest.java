@@ -42,5 +42,4 @@ class FoodTagRepositoryTest {
         assertThat(foodTag.getTagName())
                 .isEqualTo("fresh");
     }
-
 }

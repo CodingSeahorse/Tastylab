@@ -429,6 +429,7 @@ class RecipeServiceTest {
                         pageRequestHighlightException.getOffset());
     }
 
+
     @Test
     void should_findRecipeByElements() {
         given(recipeRepository.getRecipesByFoodsCollection(anyCollection()))

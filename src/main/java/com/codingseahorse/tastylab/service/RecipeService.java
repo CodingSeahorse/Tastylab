@@ -79,8 +79,6 @@ public class RecipeService {
             myRecipeTags.add(newFoodTag);
         }
 
-        //foodTagRepository.saveAll(recipeDTO.getFoodTag());
-
         Recipe newRecipe = new Recipe(
                 LocalDateTime.now(),
                 recipeDTO.getRecipeName(),
