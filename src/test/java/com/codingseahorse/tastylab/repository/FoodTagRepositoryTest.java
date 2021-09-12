@@ -34,4 +34,12 @@ class FoodTagRepositoryTest {
         assertThat(existsByTagName)
                 .isTrue();
     }
+
+    @Test
+    void should_getFoodTagByTagName() {
+        FoodTag foodTag = foodTagRepository.getFoodTagByTagName("fresh");
+
+        assertThat(foodTag.getTagName())
+                .isEqualTo("fresh");
+    }
 }
