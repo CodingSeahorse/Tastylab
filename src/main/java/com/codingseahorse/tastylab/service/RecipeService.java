@@ -62,15 +62,24 @@ public class RecipeService {
                             .map(FoodTag::getTagName)
                             .collect(Collectors.toSet());
 
+        Set<FoodTag> myRecipeTags = new HashSet<>();
+
         for(String tags:tagNames) {
             boolean alreadyExists = foodTagRepository.existsByTagName(tags);
 
             if (alreadyExists) {
-                throw new BadRequestException("Already existed FoodTag: " + tags);
+                FoodTag alreadyExistedFoodTag = foodTagRepository.getFoodTagByTagName(tags);
+                myRecipeTags.add(alreadyExistedFoodTag);
             }
+
+            FoodTag newFoodTag = new FoodTag(tags);
+
+            foodTagRepository.save(newFoodTag);
+
+            myRecipeTags.add(newFoodTag);
         }
 
-        foodTagRepository.saveAll(recipeDTO.getFoodTag());
+        //foodTagRepository.saveAll(recipeDTO.getFoodTag());
 
         Recipe newRecipe = new Recipe(
                 LocalDateTime.now(),
@@ -79,7 +88,7 @@ public class RecipeService {
                 recipeDTO.getRecipeSkills(),
                 recipeDTO.getFoods(),
                 findCreator,
-                recipeDTO.getFoodTag());
+                myRecipeTags);
 
         recipeRepository.save(newRecipe);
     }
