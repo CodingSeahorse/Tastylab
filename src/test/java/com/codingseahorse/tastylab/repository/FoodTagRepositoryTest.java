@@ -1,7 +1,6 @@
 package com.codingseahorse.tastylab.repository;
 
 import com.codingseahorse.tastylab.model.recipe.FoodTag;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +35,8 @@ class FoodTagRepositoryTest {
     }
 
     @Test
-    void should_getFoodTagByTagName() {
-        FoodTag foodTag = foodTagRepository.getFoodTagByTagName("fresh");
+    void should_getFirstByTagName() {
+        FoodTag foodTag = foodTagRepository.getFirstByTagName("fresh");
 
         assertThat(foodTag.getTagName())
                 .isEqualTo("fresh");

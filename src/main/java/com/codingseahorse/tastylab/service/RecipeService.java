@@ -68,7 +68,7 @@ public class RecipeService {
             boolean alreadyExists = foodTagRepository.existsByTagName(tags);
 
             if (alreadyExists) {
-                FoodTag alreadyExistedFoodTag = foodTagRepository.getFoodTagByTagName(tags);
+                FoodTag alreadyExistedFoodTag = foodTagRepository.getFirstByTagName(tags);
                 myRecipeTags.add(alreadyExistedFoodTag);
             }
 
