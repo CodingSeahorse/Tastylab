@@ -1,0 +1,18 @@
+@import "../../helpers/colors.scss";
+
+.my-button{
+  width: 27.3rem;
+  height: 5rem;
+  left: 54rem;
+  top: 63.2rem;
+  border-radius: 8rem;
+  color: $tasty-color-basic;
+  background-color: transparent;
+  text-transform: uppercase;
+  &:hover{
+    background-color: $tasty-color-highlight;
+    cursor: pointer;
+    width: 27.8rem;
+    height: 5.5rem;
+  }
+}
