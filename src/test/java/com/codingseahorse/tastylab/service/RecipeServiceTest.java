@@ -1,15 +1,14 @@
 package com.codingseahorse.tastylab.service;
 
-import com.codingseahorse.tastylab.dto.HomeDTO;
-import com.codingseahorse.tastylab.dto.MemberCardDTO;
-import com.codingseahorse.tastylab.dto.MemberDTO;
-import com.codingseahorse.tastylab.dto.RecipeDTO;
+import com.codingseahorse.tastylab.dto.*;
 import com.codingseahorse.tastylab.dto.converter.Converter;
 import com.codingseahorse.tastylab.exception.BadRequestException;
+import com.codingseahorse.tastylab.exception.NotFoundException;
 import com.codingseahorse.tastylab.model.member.Gender;
 import com.codingseahorse.tastylab.model.member.Member;
 import com.codingseahorse.tastylab.model.member.MemberCard;
 import com.codingseahorse.tastylab.model.recipe.*;
+import com.codingseahorse.tastylab.repository.FoodTagRepository;
 import com.codingseahorse.tastylab.repository.MemberRepository;
 import com.codingseahorse.tastylab.repository.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,9 +21,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
@@ -35,7 +32,8 @@ class RecipeServiceTest {
     RecipeRepository recipeRepository;
     @Mock
     MemberRepository memberRepository;
-
+    @Mock
+    FoodTagRepository foodTagRepository;
     @InjectMocks
     RecipeService recipeService;
     @Spy
@@ -43,7 +41,7 @@ class RecipeServiceTest {
 
     // <editor-fold desc="created Collection & Lists">
     Collection<Food> foodCollection = new ArrayList<>();
-    List<FoodTag> foodTagList = new ArrayList<>();
+    Set<FoodTag> foodTags = new HashSet<>();
     List<Recipe> stromaeRecipeList = new ArrayList<>();
     // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="created MemberCardDTO,MemberDTO & RecipeDTO">
@@ -63,13 +61,18 @@ class RecipeServiceTest {
             40,
             RecipeSkills.EASY,
             foodCollection,
-            memberDTO,
-            foodTagList);
+            "sara.lance@gmail.com",
+            foodTags);
     // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="created MemberCard & Member">
     MemberCard memberCardReturn = new MemberCard(
             LocalDateTime.now(),
             "StromaeFreshy",
+            "123");
+
+    MemberCard stromaeMemberCard = new MemberCard(
+            LocalDateTime.now(),
+            "stromae",
             "123");
 
     Member memberReturn = new Member(
@@ -79,7 +82,37 @@ class RecipeServiceTest {
             34,
             Gender.QUEERGENDER,
             memberCardReturn);
+
+    Member stromaeMember = new Member(
+            "Stromae",
+            "Freshy",
+            "Stromae.Freshy@world.org",
+            34,
+            Gender.MALE,
+            stromaeMemberCard);
     // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="created Recipe + PageRequest">
+    PageRequest pageRequestMemberRecipes = PageRequest.of(
+     0,
+     3,
+     Sort.by("createdAt"));
+
+    PageRequest anyPageRequest = PageRequest.of(
+            0,
+            3,
+            Sort.by("createdAt").ascending()
+    );
+
+    Recipe stromaeRecipe = new Recipe(
+            LocalDateTime.now(),
+            "crepe",
+            20,
+            RecipeSkills.EASY,
+            foodCollection,
+            stromaeMember,
+            foodTags);
+    // </editor-fold>
+    String[] foods = {"Egg","Flour","Milk"};
 
     @BeforeEach
     void setup() {
@@ -88,21 +121,20 @@ class RecipeServiceTest {
         foodCollection.add(Food.EGG);
         foodCollection.add(Food.MILK);
 
-        foodTagList.add(new FoodTag("tasty"));
-        foodTagList.add(new FoodTag("muffin"));
+        foodTags.add(new FoodTag("tasty"));
+        foodTags.add(new FoodTag("muffin"));
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="setEmail & MemberCardDTO memberDTO">
-        memberDTO.setEmail("sara.lance@gmail.com");
         memberDTO.setMemberCardDTO(memberCardDTO);
         // </editor-fold>
+        stromaeRecipeList.add(stromaeRecipe);
+        foodTagRepository.saveAll(foodTags);
     }
 
     @Test
     void should_createRecipe() {
         given(memberRepository
-                .getMemberByEmailAndFirstName(
-                        anyString(),
-                        anyString()))
+                .getMemberByEmail(anyString()))
                 .willReturn(memberReturn);
 
         recipeService.createRecipe(recipeDTO);
@@ -128,38 +160,27 @@ class RecipeServiceTest {
     }
 
     @Test
+    void should_throw_exception_if_tagName_alreadyExists() {
+        given(recipeRepository
+                .existsByRecipeNameAndCreatorEmail(
+                    anyString(),
+                    anyString()))
+                .willReturn(false);
+
+        given(memberRepository.getMemberByEmail(anyString()))
+                .willReturn(memberReturn);
+
+        given(foodTagRepository.existsByTagName("tasty"))
+                .willReturn(true);
+
+        assertThatThrownBy(
+                () -> recipeService.createRecipe(recipeDTO))
+                .isInstanceOf(BadRequestException.class)
+                .hasMessageContaining("Already existed FoodTag: " + "tasty");
+    }
+
+    @Test
     void should_retrieveRecipesFromMember() {
-        // <editor-fold defaultstate="collapsed" desc="created MemberCard,Member,Recipe + PageRequest">
-        PageRequest pageRequestMemberRecipes = PageRequest.of(
-         0,
-         3,
-         Sort.by("createdAt"));
-
-        MemberCard stromaeMemberCard = new MemberCard(
-                LocalDateTime.now(),
-                "stromae",
-                "123");
-
-        Member stromaeMember = new Member(
-                "Stromae",
-                "Freshy",
-                "Stromae.Freshy@world.org",
-                34,
-                Gender.MALE,
-                stromaeMemberCard);
-
-        Recipe stromaeRecipe = new Recipe(
-                LocalDateTime.now(),
-                "crepe",
-                20,
-                RecipeSkills.EASY,
-                foodCollection,
-                stromaeMember,
-                foodTagList);
-        // </editor-fold>
-
-        stromaeRecipeList.add(stromaeRecipe);
-
         given(memberRepository
                 .getMemberByMembercardUsername(anyString()))
                     .willReturn(memberReturn);
@@ -226,8 +247,8 @@ class RecipeServiceTest {
                 40,
                 RecipeSkills.MIDDLE,
                 foodCollection,
-                memberDTO,
-                foodTagList);
+                "sara.lance@gmail.com",
+                foodTags);
 
         RecipeDTO recipeDTOforHighlight = new RecipeDTO(
                 LocalDateTime.now(),
@@ -235,8 +256,8 @@ class RecipeServiceTest {
                 40,
                 RecipeSkills.PROFESSIONAL,
                 foodCollection,
-                memberDTO,
-                foodTagList);
+                "sara.lance@gmail.com",
+                foodTags);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created two empty List<RecipeDTO>">
         List<RecipeDTO> recipeDTOListExplore = new ArrayList<>();
@@ -275,7 +296,7 @@ class RecipeServiceTest {
         Member memberX = new Member(
                 memberDTO.getFirstName(),
                 memberDTO.getLastName(),
-                memberDTO.getEmail(),
+                "sara.lance@gmail.com",
                 memberDTO.getAge(),
                 memberDTO.getGender(),
                 memberCardX);
@@ -287,7 +308,7 @@ class RecipeServiceTest {
                 recipeDTO.getRecipeSkills(),
                 recipeDTOforExplore.getFoods(),
                 memberX,
-                foodTagList);
+                foodTags);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="added data to the two returnList">
         returnListExplore.add(recipeX);
@@ -339,8 +360,8 @@ class RecipeServiceTest {
                 40,
                 RecipeSkills.MIDDLE,
                 foodCollection,
-                memberDTO,
-                foodTagList);
+                "sara.lance@gmail.com",
+                foodTags);
 
         RecipeDTO recipeDTOforHighlight = new RecipeDTO(
                 LocalDateTime.now(),
@@ -348,8 +369,8 @@ class RecipeServiceTest {
                 40,
                 RecipeSkills.PROFESSIONAL,
                 foodCollection,
-                memberDTO,
-                foodTagList);
+                "sara.lance@gmail.com",
+                foodTags);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created two empty List<RecipeDTO>">
         List<RecipeDTO> recipeDTOListExplore = new ArrayList<>();
@@ -388,7 +409,7 @@ class RecipeServiceTest {
         Member memberX = new Member(
                 memberDTO.getFirstName(),
                 memberDTO.getLastName(),
-                memberDTO.getEmail(),
+                "sara.lance@gmail.com",
                 memberDTO.getAge(),
                 memberDTO.getGender(),
                 memberCardX);
@@ -400,7 +421,7 @@ class RecipeServiceTest {
                 recipeDTO.getRecipeSkills(),
                 recipeDTOforExplore.getFoods(),
                 memberX,
-                foodTagList);
+                foodTags);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="added data to the two returnList">
         returnListExplore.add(recipeX);
@@ -425,6 +446,32 @@ class RecipeServiceTest {
                         "All elements are already displayed in %s page or pages." +
                         " Please enter a valid page",
                         pageRequestHighlightException.getOffset());
+    }
+
+
+    @Test
+    void should_findRecipeByElements() {
+        given(recipeRepository.getRecipesByFoodsCollection(anyCollection()))
+                .willReturn(stromaeRecipeList);
+
+        LizzyDTO resultRecipes = recipeService.findRecipeByElements(foods,anyPageRequest);
+
+        assertThat(resultRecipes.getResultList())
+                .isNotEmpty()
+                .isNotNull()
+                .isInstanceOf(Page.class);
+    }
+
+    @Test
+    void should_throw_exception_if_food_is_not_found() {
+        given(recipeRepository
+                .getRecipesByFoodsCollection(anyCollection()))
+                .willThrow(IllegalArgumentException.class);
+
+        assertThatThrownBy(
+                () -> recipeService
+                        .findRecipeByElements(foods,anyPageRequest))
+                .isInstanceOf(NotFoundException.class);
     }
 
     @Test

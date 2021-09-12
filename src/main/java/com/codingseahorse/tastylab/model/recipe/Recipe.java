@@ -1,12 +1,15 @@
 package com.codingseahorse.tastylab.model.recipe;
 
 import com.codingseahorse.tastylab.model.member.Member;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -92,16 +95,18 @@ public class Recipe {
     private Member creator;
 
     @NonNull
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
     @JoinTable(
-            name = "tags",
+            name = "recipe_tags",
 
             joinColumns = @JoinColumn(
                     name = "recipe_id",
-                    foreignKey = @ForeignKey(name = "tags_recipe_id_fk")),
+                    foreignKey = @ForeignKey(name = "recipes_id_fk")),
 
             inverseJoinColumns = @JoinColumn(
-                    name = "food_tag_id",
-                    foreignKey = @ForeignKey(name = "tags_food_id_fk")))
-    private List<FoodTag> foodTag;
+                    name = "tag_id",
+                    foreignKey = @ForeignKey(name = "tags_id_fk")))
+    private Set<FoodTag> recipeTag;
 }

@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -20,9 +21,9 @@ public class RecipeDTO {
     private @NonNull LocalDateTime createdAt;
     private @NonNull String recipeName;
     private @NonNull Integer duration;
-    private RecipeStatus recipeStatus;
+    private RecipeStatus recipeStatus = RecipeStatus.NORMAL;
     private @NonNull RecipeSkills recipeSkills;
     private @NonNull Collection<Food> foods;
-    private @NonNull MemberDTO creator;
-    private @NonNull List<FoodTag> foodTag;
+    private @NonNull String creatorEmail;
+    private @NonNull Set<FoodTag> foodTag;
 }

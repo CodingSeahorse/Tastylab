@@ -68,13 +68,8 @@ public class Converter {
                                 recipe.getDuration(),
                                 recipe.getRecipeSkills(),
                                 recipe.getFoods(),
-                                new MemberDTO(
-                                        recipe.getCreator().getFirstName(),
-                                        recipe.getCreator().getLastName(),
-                                        recipe.getCreator().getAge(),
-                                        recipe.getCreator().getGender()
-                                ),
-                                recipe.getFoodTag()
+                                recipe.getCreator().getEmail(),
+                                recipe.getRecipeTag()
                         )).collect(Collectors.toList());
     }
     // </editor-fold>

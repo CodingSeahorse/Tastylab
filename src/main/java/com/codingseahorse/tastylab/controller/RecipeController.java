@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -58,21 +58,16 @@ public class RecipeController {
         RecipeSkills detectedRecipeSkill =
                 RecipeSkills.valueOf(recipeRequest.getRecipeSkill().toUpperCase());
 
-        Collection<Food> foodCollection =
-                Arrays.stream(recipeRequest.getFoods())
-                        .map(Food::valueOf)
-                        .collect(Collectors.toSet());
-
-        List<FoodTag> foodTagList =
+        Set<FoodTag> foodTagSet =
                 Arrays.stream(recipeRequest.getFoodTags())
                         .map(FoodTag::new)
-                        .collect(Collectors.toList());
+                        .collect(Collectors.toSet());
 
-        MemberDTO creator = new MemberDTO(
-                "scooby",
-                "doo",
-                8,
-                Gender.MALE);
+        Collection<Food> foodCollection =
+                Arrays.stream(recipeRequest.getFoods())
+                        .map(String::toUpperCase)
+                        .map(Food::valueOf)
+                        .collect(Collectors.toSet());
 
         RecipeDTO recipeDTO = new RecipeDTO(
                 LocalDateTime.now(),
@@ -80,8 +75,8 @@ public class RecipeController {
                 recipeRequest.getDuration(),
                 detectedRecipeSkill,
                 foodCollection,
-                creator,
-                foodTagList);
+                recipeRequest.getCreatorEmail(),
+                foodTagSet);
 
         recipeService.createRecipe(recipeDTO);
     }
@@ -147,7 +142,7 @@ public class RecipeController {
     public MemberDTO getMemberRecipes(
             @RequestParam Integer page,
             @RequestParam Integer size,
-            @RequestParam String username) {
+            @PathVariable String username) {
 
         PageRequest pageRequest = PageRequest.of(
                 page,

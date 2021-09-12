@@ -19,9 +19,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static com.codingseahorse.tastylab.model.member.Gender.FEMALE;
 import static com.codingseahorse.tastylab.model.member.Gender.MALE;
@@ -39,7 +37,7 @@ class ConverterTest {
 
     // <editor-fold defaultstate="collapsed" desc="created Lists and Collection">
     Collection<Food> foods = new ArrayList<>();
-    List<FoodTag> foodTags = new ArrayList<>();
+    Set<FoodTag> foodTags = new HashSet<>();
     List<Recipe> recipeList = new ArrayList<>();
     List<RecipeDTO> recipeDTOList = new ArrayList<>();
     // </editor-fold>
@@ -82,7 +80,7 @@ class ConverterTest {
             40,
             EASY,
             foods,
-            memberDTO,
+            "oops@gmail.com",
             foodTags);
 
     PageRequest pageRequest = PageRequest.of(
@@ -161,7 +159,7 @@ class ConverterTest {
                 30,
                 MIDDLE,
                 foods,
-                memberDTO,
+                "oops@gmail.com",
                 foodTags));
         // act
         Page<RecipeDTO> convertedRecipeDTOPage =
