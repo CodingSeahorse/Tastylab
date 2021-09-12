@@ -102,8 +102,8 @@ Version 1.0
 >>
 >>   *Path* ⟹ "?foods=Apple,Butter&page=0&size=3"
 >>
->>   *HttpStatus* ⟹ 201 Created
+>>   *HttpStatus* ⟹ 200 Ok
 >>
->>   *Authorized* ⟹ BLOGGER
+>>   *Authorized* ⟹ EVERYONE
 >>
->>   *Description* ⟹ this endpoint *creates* a recipe.
+>>   *Description* ⟹ this endpoint *search* a recipe based on the given foods.
