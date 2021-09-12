@@ -1,14 +1,30 @@
 package com.codingseahorse.tastylab.controller;
 
+import com.codingseahorse.tastylab.dto.MemberCardDTO;
+import com.codingseahorse.tastylab.dto.MemberDTO;
+import com.codingseahorse.tastylab.dto.RecipeDTO;
+import com.codingseahorse.tastylab.dto.converter.Converter;
+import com.codingseahorse.tastylab.model.member.Gender;
+import com.codingseahorse.tastylab.model.recipe.Food;
+import com.codingseahorse.tastylab.model.recipe.FoodTag;
+import com.codingseahorse.tastylab.model.recipe.RecipeSkills;
 import com.codingseahorse.tastylab.requestsModels.RecipeRequest;
 import com.codingseahorse.tastylab.service.RecipeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.time.LocalDateTime;
+import java.util.*;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -22,6 +38,56 @@ class RecipeControllerTest {
     MockMvc mockMvc;
     @Autowired
     ObjectMapper mapper;
+    @Spy
+    Converter converter;
+
+    Collection<Food> foodCollection = new ArrayList<>();
+    Set<FoodTag> foodTags = new HashSet<>();
+    List<RecipeDTO> recipeDTOList = new ArrayList<>();
+    Page<RecipeDTO> recipeDTOPage;
+
+    MemberCardDTO aliciaCard = new MemberCardDTO(
+            "secure",
+            "123"
+    );
+
+    MemberDTO alicia = new MemberDTO(
+            "Alicia",
+            "Sierra",
+            42,
+            Gender.FEMALE
+    );
+
+    RecipeDTO salmon = new RecipeDTO(
+            LocalDateTime.now(),
+            "salmon",
+            45,
+            RecipeSkills.PROFESSIONAL,
+            foodCollection,
+            "Alicia.Sierra@world.com",
+            foodTags
+    );
+
+    PageRequest anyPageRequest = PageRequest.of(
+            0,
+            3,
+            Sort.by("createdAt").ascending()
+    );
+
+    @BeforeEach
+    void setup(){
+        alicia.setMemberCardDTO(aliciaCard);
+        alicia.setEmail("Alicia.Sierra@world.com");
+
+        foodCollection.add(Food.LEMON);
+        foodTags.add(new FoodTag("salmon"));
+
+        recipeDTOList.add(salmon);
+
+        recipeDTOPage = converter.convertRecipeDTOListToPageOfRecipeDTO(recipeDTOList,anyPageRequest);
+
+        alicia.setRecipes(recipeDTOPage);
+    }
 
     @Test
     void check_if_the_endpoint_createRecipe_works_correctly() throws Exception {
@@ -39,7 +105,8 @@ class RecipeControllerTest {
                 30,
                 "Easy",
                 foods,
-                foodTags);
+                foodTags,
+                "Alicia.Sierra@world.com");
 
         mockMvc.perform(post("/api/recipe")
                 .contentType(MediaType.APPLICATION_JSON)

@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -25,10 +23,12 @@ class RecipeRepositoryTest {
     MemberCardRepository memberCardRepository;
     @Autowired
     MemberRepository memberRepository;
+    @Autowired
+    FoodTagRepository foodTagRepository;
 
     // <editor-fold defaultstate="collapsed" desc="FoodCollection & FoodTags">
     Collection<Food> foodCollection = new ArrayList<>();
-    List<FoodTag> foodTags = new ArrayList<>();
+    Set<FoodTag> foodTags = new HashSet<>();
     // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="MemberCard, Member & Recipe">
     MemberCard memberCard = new MemberCard(
@@ -52,6 +52,16 @@ class RecipeRepositoryTest {
             foodCollection,
             shaggy,
             foodTags);
+
+    Recipe scoobyPancake = new Recipe(
+            LocalDateTime.now(),
+            "scooby-pancake",
+            20,
+            RecipeSkills.EASY,
+            foodCollection,
+            shaggy,
+            foodTags
+    );
     // </editor-fold>
 
     @BeforeEach
@@ -69,6 +79,8 @@ class RecipeRepositoryTest {
         memberCardRepository.save(memberCard);
         memberRepository.save(shaggy);
         recipeRepository.save(shaggysCrepe);
+        recipeRepository.save(scoobyPancake);
+        foodTagRepository.saveAll(foodTags);
         // </editor-fold>
     }
 
@@ -85,10 +97,10 @@ class RecipeRepositoryTest {
 
     @Test
     void should_getAllByCreatorEmail() {
-        List<Recipe> getRecipeByCreatorMemberIdList =
+        List<Recipe> getRecipeByCreatorEmail =
                 recipeRepository.getAllByCreatorEmail(shaggy.getEmail());
 
-        assertThat(getRecipeByCreatorMemberIdList)
+        assertThat(getRecipeByCreatorEmail)
                 .isNotNull()
                 .isNotEmpty()
                 .contains(shaggysCrepe);
@@ -118,5 +130,17 @@ class RecipeRepositoryTest {
         assertThat(existedRecipe)
                 .isNotNull()
                 .isTrue();
+    }
+
+    @Test
+    void should_getRecipesByFoods() {
+        List<Recipe> findRecipes =
+                recipeRepository.getRecipesByFoodsCollection(foodCollection);
+
+        assertThat(findRecipes)
+                .isNotEmpty()
+                .isNotNull()
+                .contains(shaggysCrepe)
+                .contains(scoobyPancake);
     }
 }

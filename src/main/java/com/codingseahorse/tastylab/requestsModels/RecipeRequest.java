@@ -11,4 +11,5 @@ public class RecipeRequest {
     String recipeSkill;
     String[] foods;
     String[] foodTags;
+    String creatorEmail;
 }

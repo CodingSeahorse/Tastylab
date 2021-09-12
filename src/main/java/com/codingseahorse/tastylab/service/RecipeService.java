@@ -1,12 +1,17 @@
 package com.codingseahorse.tastylab.service;
 
 import com.codingseahorse.tastylab.dto.HomeDTO;
+import com.codingseahorse.tastylab.dto.LizzyDTO;
 import com.codingseahorse.tastylab.dto.MemberDTO;
 import com.codingseahorse.tastylab.dto.RecipeDTO;
 import com.codingseahorse.tastylab.dto.converter.Converter;
 import com.codingseahorse.tastylab.exception.BadRequestException;
+import com.codingseahorse.tastylab.exception.NotFoundException;
 import com.codingseahorse.tastylab.model.member.Member;
+import com.codingseahorse.tastylab.model.recipe.Food;
+import com.codingseahorse.tastylab.model.recipe.FoodTag;
 import com.codingseahorse.tastylab.model.recipe.Recipe;
+import com.codingseahorse.tastylab.repository.FoodTagRepository;
 import com.codingseahorse.tastylab.repository.MemberRepository;
 import com.codingseahorse.tastylab.repository.RecipeRepository;
 import lombok.NoArgsConstructor;
@@ -16,7 +21,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.codingseahorse.tastylab.model.recipe.RecipeStatus.EXPLORE;
 import static com.codingseahorse.tastylab.model.recipe.RecipeStatus.HIGHLIGHT;
@@ -29,6 +35,8 @@ public class RecipeService {
     @Autowired
     MemberRepository memberRepository;
     @Autowired
+    FoodTagRepository foodTagRepository;
+    @Autowired
     Converter converter;
 
     // ===== CREATE =====
@@ -36,7 +44,7 @@ public class RecipeService {
         boolean recipeSearch =
                 recipeRepository.existsByRecipeNameAndCreatorEmail(
                                 recipeDTO.getRecipeName(),
-                                recipeDTO.getCreator().getEmail());
+                                recipeDTO.getCreatorEmail());
 
         if (recipeSearch) {
             throw new BadRequestException(String.format(
@@ -45,9 +53,24 @@ public class RecipeService {
         }
 
         Member findCreator =
-                memberRepository.getMemberByEmailAndFirstName(
-                            recipeDTO.getCreator().getEmail(),
-                            recipeDTO.getCreator().getFirstName());
+                memberRepository.getMemberByEmail(recipeDTO.getCreatorEmail());
+
+        Set<String> tagNames =
+                recipeDTO
+                        .getFoodTag()
+                        .stream()
+                            .map(FoodTag::getTagName)
+                            .collect(Collectors.toSet());
+
+        for(String tags:tagNames) {
+            boolean alreadyExists = foodTagRepository.existsByTagName(tags);
+
+            if (alreadyExists) {
+                throw new BadRequestException("Already existed FoodTag: " + tags);
+            }
+        }
+
+        foodTagRepository.saveAll(recipeDTO.getFoodTag());
 
         Recipe newRecipe = new Recipe(
                 LocalDateTime.now(),
@@ -57,8 +80,6 @@ public class RecipeService {
                 recipeDTO.getFoods(),
                 findCreator,
                 recipeDTO.getFoodTag());
-
-        newRecipe.setRecipeStatus(recipeDTO.getRecipeStatus());
 
         recipeRepository.save(newRecipe);
     }
@@ -79,8 +100,10 @@ public class RecipeService {
 
         List<Recipe> findRecipes =
                 recipeRepository.getAllByCreatorEmail(member.getEmail());
+
         List<RecipeDTO> newRecipeList =
                 converter.convertRecipeListToRecipeDTOList(findRecipes);
+
         final Page<RecipeDTO> page =
                 converter.convertRecipeDTOListToPageOfRecipeDTO(
                             newRecipeList,
@@ -95,8 +118,10 @@ public class RecipeService {
             PageRequest pageRequestExploreRecipe,
             PageRequest pageRequestHighlightRecipe
     ) {
-        List<Recipe> exploreRecipeList = recipeRepository.getAllByRecipeStatus(EXPLORE);
-        List<Recipe> highlightRecipeList = recipeRepository.getAllByRecipeStatus(HIGHLIGHT);
+        List<Recipe> exploreRecipeList =
+                recipeRepository.getAllByRecipeStatus(EXPLORE);
+        List<Recipe> highlightRecipeList =
+                recipeRepository.getAllByRecipeStatus(HIGHLIGHT);
 
         if (pageRequestExploreRecipe.getOffset() > 0 &&
             pageRequestExploreRecipe.getPageSize() > exploreRecipeList.size()) {
@@ -136,5 +161,35 @@ public class RecipeService {
         homeDTO.setHighlightRecipes(highlightRecipes);
 
         return homeDTO;
+    }
+
+    public LizzyDTO findRecipeByElements(String[] food, PageRequest pageRequest){
+        try {
+            Collection<Food> searchFoodList = Arrays
+                    .stream(food)
+                    .map(String::toUpperCase)
+                    .map(Food::valueOf)
+                    .collect(Collectors.toList());
+
+            List<Recipe> searchedRecipes =
+                    recipeRepository.getRecipesByFoodsCollection(searchFoodList);
+
+            List<RecipeDTO> searchedRecipesConverted =
+                    converter.convertRecipeListToRecipeDTOList(searchedRecipes);
+
+            final Page<RecipeDTO> resultRecipes =
+                    converter.convertRecipeDTOListToPageOfRecipeDTO(
+                            searchedRecipesConverted,
+                            pageRequest);
+
+            LizzyDTO lizzyDTO = new LizzyDTO();
+            lizzyDTO.setResultList(resultRecipes);
+
+            return lizzyDTO;
+        }catch (IllegalArgumentException e){
+            throw new NotFoundException(
+                    "Food not found." +
+                    Arrays.toString(e.getStackTrace()));
+        }
     }
 }
