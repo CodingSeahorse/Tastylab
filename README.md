@@ -104,6 +104,6 @@ Version 1.0
 >>
 >>   *HttpStatus* ⟹ 200 Ok
 >>
->>   *Authorized* ⟹ EVERYONE
+>>   *Authorized* ⟹ everyone
 >>
 >>   *Description* ⟹ this endpoint *search* a recipe based on the given foods.
