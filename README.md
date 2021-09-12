@@ -40,7 +40,7 @@ Version 1.0
 >>
 >>   *Description* ⟹ this endpoint *delete* member.
 ### 🍪 LoginController 🍪
-> ***Parent-Path*** : "api/welcome/login"
+> ***Parent-Path*** : "/api/welcome/login"
 > ___
 >>   **POST** ~ Request Payload(LoginRequest)
 >>
@@ -52,7 +52,7 @@ Version 1.0
 >>
 >>   *Description* ⟹ this endpoint *sends* the username & password to authenticate.
 ### 🍪 RegistrationController 🍪
-> ***Parent-Path*** : "api/welcome/signup"
+> ***Parent-Path*** : "/api/welcome/signup"
 > ___
 >>  **POST** ~ Request Payload(RegistrationRequest)
 >>
@@ -64,7 +64,7 @@ Version 1.0
 >>
 >>   *Description* ⟹ this endpoint *sends* a form to create new member.
 ### 🍪 RecipeController 🍪
-> ***Parent-Path*** : "api/recipe"
+> ***Parent-Path*** : "/api/recipe"
 > ___
 >>   **POST** ~ Request Payload(RecipeRequest)
 >>
@@ -95,3 +95,15 @@ Version 1.0
 >>   *Authorized* ⟹ BLOGGER
 >>
 >>   *Description* ⟹ this endpoint *sends* the member recipe.
+### 🍪 LizzyController 🍪
+> ***Parent-Path*** : "/api/lizzy"
+> ___
+>>   **POST**
+>>
+>>   *Path* ⟹ "?foods=Apple,Butter&page=0&size=3"
+>>
+>>   *HttpStatus* ⟹ 201 Created
+>>
+>>   *Authorized* ⟹ BLOGGER
+>>
+>>   *Description* ⟹ this endpoint *creates* a recipe.
