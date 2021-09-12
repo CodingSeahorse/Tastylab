@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FoodTagRepository extends JpaRepository<FoodTag,Long> {
     boolean existsByTagName(String tagName);
-    FoodTag getFoodTagByTagName(String tagName);
+    FoodTag getFirstByTagName(String tagName);
 }
