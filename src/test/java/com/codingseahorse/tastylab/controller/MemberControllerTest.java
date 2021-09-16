@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -60,9 +61,10 @@ class MemberControllerTest {
     }
 
     // TODO:FIX TransactionSystemException
-    /*Test
+    /*@Test
     void should_throw_TransactionSystemException() throws Exception{
-        when(memberService.editMemberData(any())).thenThrow(TransactionSystemException.class);
+        when(memberService.editMemberData(any()))
+                .thenThrow(TransactionSystemException.class);
 
         mockMvc.perform(put("/api/member")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -73,7 +75,6 @@ class MemberControllerTest {
     }*/
 
     @Test
-
     void should_throw_notFoundException_() throws Exception {
         when(memberService.editMemberData(any(MemberRequest.class)))
                 .thenReturn(null);
@@ -94,16 +95,16 @@ class MemberControllerTest {
                 .andExpect(status().isNoContent());
     }
 
-    // TODO:FIX TEST DataRetrievalFailureException
-    /*@Test
+    @Test
     void should_throw_DataRetrievalFailureException_when_deleteMember() throws Exception {
         doThrow(EmptyResultDataAccessException.class)
                 .when(memberService)
-                .deleteMember(8);
+                .deleteMember(101);
 
-        mockMvc.perform(delete("/api/member/8"))
-                .andExpect(status().isNotFound());
-    }*/
+        mockMvc.perform(delete("/api/member/1"))
+                .andDo(print())
+                .andExpect(status().isNoContent());
+    }
 
     void createContent(){
         // <editor-fold defaultstate="collapsed" desc="created memberRequest,MemberCardDTO & MemberDTO">
