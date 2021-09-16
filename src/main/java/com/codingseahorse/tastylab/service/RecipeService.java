@@ -70,13 +70,13 @@ public class RecipeService {
             if (alreadyExists) {
                 FoodTag alreadyExistedFoodTag = foodTagRepository.getFirstByTagName(tags);
                 myRecipeTags.add(alreadyExistedFoodTag);
+            }else {
+                FoodTag newFoodTag = new FoodTag(tags);
+
+                foodTagRepository.save(newFoodTag);
+
+                myRecipeTags.add(newFoodTag);
             }
-
-            FoodTag newFoodTag = new FoodTag(tags);
-
-            foodTagRepository.save(newFoodTag);
-
-            myRecipeTags.add(newFoodTag);
         }
 
         Recipe newRecipe = new Recipe(
