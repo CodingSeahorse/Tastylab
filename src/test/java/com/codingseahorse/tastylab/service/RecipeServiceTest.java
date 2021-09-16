@@ -113,6 +113,8 @@ class RecipeServiceTest {
             foodTags);
     // </editor-fold>
     String[] foods = {"Egg","Flour","Milk"};
+    FoodTag tastyTag = new FoodTag("tasty");
+    FoodTag muffinTag = new FoodTag("muffin");
 
     @BeforeEach
     void setup() {
@@ -121,8 +123,8 @@ class RecipeServiceTest {
         foodCollection.add(Food.EGG);
         foodCollection.add(Food.MILK);
 
-        foodTags.add(new FoodTag("tasty"));
-        foodTags.add(new FoodTag("muffin"));
+        foodTags.add(tastyTag);
+        foodTags.add(muffinTag);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="setEmail & MemberCardDTO memberDTO">
         memberDTO.setMemberCardDTO(memberCardDTO);
@@ -157,6 +159,26 @@ class RecipeServiceTest {
                 .hasMessageContaining(
                         "You already created the Food with the name:%s",
                         recipeDTO.getRecipeName());
+    }
+
+    @Test
+    void should_check_if_tag_already_exists() {
+        given(memberRepository.getMemberByEmail(anyString()))
+                .willReturn(memberReturn);
+
+        given(foodTagRepository.existsByTagName("tasty"))
+                .willReturn(true);
+
+        given(foodTagRepository.getFirstByTagName(anyString()))
+                .willReturn(tastyTag);
+
+        recipeService.createRecipe(recipeDTO);
+
+        verify(foodTagRepository,times(1))
+                .existsByTagName("tasty");
+
+        verify(foodTagRepository,times(1))
+                .getFirstByTagName("tasty");
     }
 
     @Test
