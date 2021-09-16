@@ -3,7 +3,6 @@ package com.codingseahorse.tastylab.controller;
 import com.codingseahorse.tastylab.dto.HomeDTO;
 import com.codingseahorse.tastylab.dto.MemberDTO;
 import com.codingseahorse.tastylab.dto.RecipeDTO;
-import com.codingseahorse.tastylab.model.member.Gender;
 import com.codingseahorse.tastylab.model.recipe.Food;
 import com.codingseahorse.tastylab.model.recipe.FoodTag;
 import com.codingseahorse.tastylab.model.recipe.RecipeSkills;
