@@ -126,5 +126,12 @@ class RecipeControllerTest {
                     .andExpect(status().isOk());
     }
 
-    //TODO: WRITE getMemberRecipes() TEST
+    @Test
+    void check_if_the_endpoint_getMember_recipe_works_correctly() throws Exception {
+        mockMvc.perform(get("/api/recipe/shaggyDoo")
+                .queryParam("page","0")
+                .queryParam("size","3"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
 }
