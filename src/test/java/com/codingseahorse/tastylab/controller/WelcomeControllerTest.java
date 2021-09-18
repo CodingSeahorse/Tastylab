@@ -33,7 +33,7 @@ class WelcomeControllerTest {
                 81,
                 "Female");
 
-        mockMvc.perform(post("/api/welcome")
+        mockMvc.perform(post("/api/welcome/signup")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(mapper.writeValueAsString(registrationRequest)))
