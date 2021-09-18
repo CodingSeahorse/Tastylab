@@ -13,8 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/welcome/signup")
-public class RegistrationController {
+@RequestMapping("/api/welcome")
+public class WelcomeController {
     @Autowired
     WelcomeService welcomeService;
 

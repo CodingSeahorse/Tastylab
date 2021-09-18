@@ -1,6 +1,7 @@
 package com.codingseahorse.tastylab.controller;
 
 import com.codingseahorse.tastylab.dto.HomeDTO;
+import com.codingseahorse.tastylab.dto.LizzyDTO;
 import com.codingseahorse.tastylab.dto.MemberDTO;
 import com.codingseahorse.tastylab.dto.RecipeDTO;
 import com.codingseahorse.tastylab.model.recipe.Food;
@@ -151,6 +152,19 @@ public class RecipeController {
         return recipeService.retrieveRecipesFromMember(
                 username,
                 pageRequest);
+    }
+
+    @PostMapping("/lizzy")
+    @ResponseStatus(HttpStatus.OK)
+    public LizzyDTO calculateRecipe(@RequestParam String[] foods,
+                              @RequestParam Integer page,
+                              @RequestParam Integer size){
+        PageRequest pageRequest = PageRequest.of(
+                page,
+                size,
+                Sort.by("createdAt").ascending()
+        );
+        return recipeService.findRecipeByElements(foods,pageRequest);
     }
 }
 

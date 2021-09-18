@@ -127,6 +127,16 @@ class RecipeControllerTest {
     }
 
     @Test
+    void check_if_calculateRecipe_works_correctly() throws Exception {
+        mockMvc.perform(post("/api/recipe/lizzy")
+                        .queryParam("foods", "Egg", "Flour","Milk")
+                        .queryParam("page","0")
+                        .queryParam("size","3"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
     void check_if_the_endpoint_getMember_recipe_works_correctly() throws Exception {
         mockMvc.perform(get("/api/recipe/shaggyDoo")
                 .queryParam("page","0")
