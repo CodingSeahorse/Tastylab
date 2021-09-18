@@ -1,7 +1,5 @@
 package com.codingseahorse.tastylab.controller;
 
-import com.codingseahorse.tastylab.dto.RegistrationDTO;
-import com.codingseahorse.tastylab.model.member.Gender;
 import com.codingseahorse.tastylab.requestsModels.RegistrationRequest;
 import com.codingseahorse.tastylab.service.WelcomeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,8 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(RegistrationController.class)
-class RegistrationControllerTest {
+@WebMvcTest(WelcomeController.class)
+class WelcomeControllerTest {
     @MockBean
     WelcomeService welcomeService;
     @Autowired
@@ -35,21 +33,10 @@ class RegistrationControllerTest {
                 81,
                 "Female");
 
-        RegistrationDTO registrationDTO = new RegistrationDTO(
-                "Tina",
-                "123",
-                "Tina",
-                "Turner",
-                "Tina.Turner@world.com",
-                81,
-                Gender.FEMALE);
-
-        welcomeService.registerMember(registrationDTO);
-
-        mockMvc.perform(post("/api/welcome/signup")
-                .accept(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(registrationRequest)))
+        mockMvc.perform(post("/api/welcome")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(registrationRequest)))
                 .andExpect(status().isCreated());
     }
 }

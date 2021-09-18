@@ -17,6 +17,7 @@ Version 1.0
 
 ##  🍓 API Design 🍓
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/14005996-7b14cfb8-2158-43ca-8f24-545be03abce1?action=collection%2Ffork&collection-url=entityId%3D14005996-7b14cfb8-2158-43ca-8f24-545be03abce1%26entityType%3Dcollection%26workspaceId%3Dd407fb37-3eb7-4d42-bf97-96e77786073e)
+
 ### 🍪 MemberController 🍪
 > ***Parent-Path*** : "/api/member"
 > ___
@@ -39,30 +40,30 @@ Version 1.0
 >>   *Authorized* ⟹ only Blogger
 >>
 >>   *Description* ⟹ this endpoint *delete* member.
-### 🍪 LoginController 🍪
-> ***Parent-Path*** : "/api/welcome/login"
+
+### 🍪 WelcomeController 🍪
+> ***Parent-Path*** : "/api/welcome"
 > ___
 >>   **POST** ~ Request Payload(LoginRequest)
 >>
->>   *Path* ⟹ ""
+>>   *Path* ⟹ "/login"
 >>
 >>   *HttpStatus* ⟹ 200 Ok
 >>
 >>   *Authorized* ⟹ everyone
 >>
 >>   *Description* ⟹ this endpoint *sends* the username & password to authenticate.
-### 🍪 RegistrationController 🍪
-> ***Parent-Path*** : "/api/welcome/signup"
 > ___
 >>  **POST** ~ Request Payload(RegistrationRequest)
 >>
->>   *Path* ⟹ ""
+>>   *Path* ⟹ "/signup"
 >>
 >>   *HttpStatus* ⟹ 200 Ok
 >>
 >>   *Authorized* ⟹ everyone
 >>
 >>   *Description* ⟹ this endpoint *sends* a form to create new member.
+
 ### 🍪 RecipeController 🍪
 > ***Parent-Path*** : "/api/recipe"
 > ___
@@ -95,12 +96,10 @@ Version 1.0
 >>   *Authorized* ⟹ BLOGGER
 >>
 >>   *Description* ⟹ this endpoint *sends* the member recipe.
-### 🍪 LizzyController 🍪
-> ***Parent-Path*** : "/api/lizzy"
 > ___
 >>   **POST**
 >>
->>   *Path* ⟹ "?foods=Apple,Butter&page=0&size=3"
+>>   *Path* ⟹ "/lizzy?foods=Apple,Butter&page=0&size=3"
 >>
 >>   *HttpStatus* ⟹ 200 Ok
 >>
