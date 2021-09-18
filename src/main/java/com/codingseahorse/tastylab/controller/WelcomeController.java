@@ -2,6 +2,7 @@ package com.codingseahorse.tastylab.controller;
 
 import com.codingseahorse.tastylab.dto.RegistrationDTO;
 import com.codingseahorse.tastylab.model.member.Gender;
+import com.codingseahorse.tastylab.requestsModels.LoginRequest;
 import com.codingseahorse.tastylab.requestsModels.RegistrationRequest;
 import com.codingseahorse.tastylab.service.WelcomeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -33,9 +34,8 @@ public class WelcomeController {
                             responseCode = "404",
                             description = "No pages found",
                             content = @Content)})
-    @PostMapping
+    @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
     public void signUp (
             @RequestBody RegistrationRequest registrationRequest) {
 
@@ -51,5 +51,11 @@ public class WelcomeController {
                 postedGender);
 
         welcomeService.registerMember(form);
+    }
+
+    @PostMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
+    public void login(@RequestBody LoginRequest loginRequest){
+
     }
 }

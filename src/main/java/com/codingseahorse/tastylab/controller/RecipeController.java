@@ -154,6 +154,21 @@ public class RecipeController {
                 pageRequest);
     }
 
+    @Operation(summary = "find recipes with lizzy")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "successfully loaded",
+                            content = @Content),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Invalid payload. Please correct your RecipeRequest or url",
+                            content =  @Content),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "no recipes found",
+                            content = @Content)})
     @PostMapping("/lizzy")
     @ResponseStatus(HttpStatus.OK)
     public LizzyDTO calculateRecipe(@RequestParam String[] foods,

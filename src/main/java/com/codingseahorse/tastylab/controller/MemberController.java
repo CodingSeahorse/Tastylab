@@ -47,7 +47,6 @@ public class MemberController {
                         content = @Content)})
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     public MemberDTO updateMemberData(
             @Parameter (description = "RequestBody(MemberRequest) to pass")
             @RequestBody MemberRequest memberRequest, BindingResult bindingResult) {
@@ -88,7 +87,6 @@ public class MemberController {
                             content = @Content)})
     @DeleteMapping("/{memberId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @ResponseBody
     public void deleteMember(@PathVariable("memberId") Integer memberId) {
         try {
             memberService.deleteMember(memberId);
