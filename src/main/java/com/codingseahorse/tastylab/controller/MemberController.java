@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 import static com.codingseahorse.tastylab.utils.ExceptionUtils.createErrorMessageAndThrowEntityValidationException;
 
-
 @RestController
 @RequestMapping("/api/member")
 public class MemberController {
@@ -48,7 +47,7 @@ public class MemberController {
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public MemberDTO updateMemberData(
-            @Parameter (description = "RequestBody(MemberRequest) to pass")
+            @Parameter (description = "memberRequest-body to pass")
             @RequestBody MemberRequest memberRequest, BindingResult bindingResult) {
         MemberDTO updatedMember;
 
@@ -87,7 +86,9 @@ public class MemberController {
                             content = @Content)})
     @DeleteMapping("/{memberId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteMember(@PathVariable("memberId") Integer memberId) {
+    public void deleteMember(
+            @Parameter (description = "will delete member with memberId")
+            @PathVariable("memberId") Integer memberId) {
         try {
             memberService.deleteMember(memberId);
         }catch (DataRetrievalFailureException exception) {

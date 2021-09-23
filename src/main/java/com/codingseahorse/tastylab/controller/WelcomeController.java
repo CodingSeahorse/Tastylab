@@ -2,10 +2,10 @@ package com.codingseahorse.tastylab.controller;
 
 import com.codingseahorse.tastylab.dto.RegistrationDTO;
 import com.codingseahorse.tastylab.model.member.Gender;
-import com.codingseahorse.tastylab.requestsModels.LoginRequest;
 import com.codingseahorse.tastylab.requestsModels.RegistrationRequest;
 import com.codingseahorse.tastylab.service.WelcomeService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -37,6 +37,7 @@ public class WelcomeController {
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public void signUp (
+            @Parameter(description = "send a request-body(RegistrationRequest) to sign-up")
             @RequestBody RegistrationRequest registrationRequest) {
 
         Gender postedGender = Gender.valueOf(registrationRequest.getGender().toUpperCase());
@@ -51,11 +52,5 @@ public class WelcomeController {
                 postedGender);
 
         welcomeService.registerMember(form);
-    }
-
-    @PostMapping("/login")
-    @ResponseStatus(HttpStatus.OK)
-    public void login(@RequestBody LoginRequest loginRequest){
-
     }
 }
