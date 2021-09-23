@@ -52,7 +52,7 @@ public class RecipeController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createRecipe(
-            @Parameter(description = "RequestBody(RecipeRequest) to pass")
+            @Parameter(description = "send a request-body(RecipeRequest) to create a Recipe")
             @RequestBody RecipeRequest recipeRequest) {
 
         RecipeSkills detectedRecipeSkill =
@@ -102,7 +102,9 @@ public class RecipeController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/home")
     public HomeDTO getStartingContent(
+            @Parameter (description = "will set page number in a Array")
             @RequestParam Integer[] page,
+            @Parameter (description = "will set size of elements per page in a Array")
             @RequestParam Integer[] size) {
 
         PageRequest pageRequestExplore = PageRequest.of(
@@ -140,8 +142,11 @@ public class RecipeController {
     @GetMapping("/{username}")
     @ResponseStatus(HttpStatus.OK)
     public MemberDTO getMemberRecipes(
+            @Parameter (description = "will set page number")
             @RequestParam Integer page,
+            @Parameter (description = "will set size of elements per page")
             @RequestParam Integer size,
+            @Parameter (description = "will set a username")
             @PathVariable String username) {
 
         PageRequest pageRequest = PageRequest.of(
@@ -171,9 +176,13 @@ public class RecipeController {
                             content = @Content)})
     @PostMapping("/lizzy")
     @ResponseStatus(HttpStatus.OK)
-    public LizzyDTO calculateRecipe(@RequestParam String[] foods,
-                              @RequestParam Integer page,
-                              @RequestParam Integer size){
+    public LizzyDTO calculateRecipe(
+            @Parameter (description = "will set the food-list")
+            @RequestParam String[] foods,
+            @Parameter (description = "will set page number")
+            @RequestParam Integer page,
+            @Parameter (description = "will set size of elements per page")
+            @RequestParam Integer size) {
         PageRequest pageRequest = PageRequest.of(
                 page,
                 size,
@@ -182,6 +191,3 @@ public class RecipeController {
         return recipeService.findRecipeByElements(foods,pageRequest);
     }
 }
-
-
-
