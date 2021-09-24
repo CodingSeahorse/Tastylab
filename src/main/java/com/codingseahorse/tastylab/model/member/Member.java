@@ -84,7 +84,8 @@ public class Member {
     private Gender gender;
 
     @NonNull
-    @OneToOne(cascade = ALL)
+    @OneToOne(
+            cascade = ALL)
     @JoinColumn(
             name = "memberCardId",
             referencedColumnName = "member_card_id")

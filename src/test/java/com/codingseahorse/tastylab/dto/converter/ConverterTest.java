@@ -23,6 +23,7 @@ import java.util.*;
 
 import static com.codingseahorse.tastylab.model.member.Gender.FEMALE;
 import static com.codingseahorse.tastylab.model.member.Gender.MALE;
+import static com.codingseahorse.tastylab.model.member.MembershipRole.*;
 import static com.codingseahorse.tastylab.model.recipe.RecipeSkills.EASY;
 import static com.codingseahorse.tastylab.model.recipe.RecipeSkills.MIDDLE;
 import static org.assertj.core.api.Assertions.*;
@@ -45,7 +46,12 @@ class ConverterTest {
     MemberCard memberCard = new MemberCard(
             LocalDateTime.now(),
             "britneyS",
-            "12345");
+            "12345",
+            ADMIN.getGrantedAuthorities(),
+            true,
+            true,
+            true,
+            true);
 
     Member member = new Member(
             "Britney",

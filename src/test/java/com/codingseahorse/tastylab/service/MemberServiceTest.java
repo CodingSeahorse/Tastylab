@@ -16,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import static com.codingseahorse.tastylab.model.member.MembershipRole.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -32,7 +33,12 @@ class MemberServiceTest {
     MemberCard memberCard = new MemberCard(
             LocalDateTime.now(),
             "Eddy",
-            "123");
+            "123",
+            ADMIN.getGrantedAuthorities(),
+            true,
+            true,
+            true,
+            true);
 
     Member member = new Member(
             "Edward",

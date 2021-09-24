@@ -15,6 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
@@ -31,6 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(RecipeController.class)
+@AutoConfigureMockMvc(addFilters = false)
 class RecipeControllerTest {
     @MockBean
     RecipeService recipeService;
@@ -41,11 +43,13 @@ class RecipeControllerTest {
     @Spy
     Converter converter;
 
+    // <editor-fold defaultstate="collapsed" desc="FoodCollection,FoodTags,List<RecipeDTO>,Page<RecipeDTO>">
     Collection<Food> foodCollection = new ArrayList<>();
     Set<FoodTag> foodTags = new HashSet<>();
     List<RecipeDTO> recipeDTOList = new ArrayList<>();
     Page<RecipeDTO> recipeDTOPage;
-
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="MemberCardDTO,MemberDTO,RecipeDTO,PageRequest">
     MemberCardDTO aliciaCard = new MemberCardDTO(
             "secure",
             "123"
@@ -73,20 +77,25 @@ class RecipeControllerTest {
             3,
             Sort.by("createdAt").ascending()
     );
+    // </editor-fold>
 
     @BeforeEach
     void setup(){
+        // <editor-fold defaultstate="collapsed" desc="setMemberCardDTO&Email of alicia">
         alicia.setMemberCardDTO(aliciaCard);
         alicia.setEmail("Alicia.Sierra@world.com");
-
+        // </editor-fold>
+        // <editor-fold defaultstate="collapsed" desc="add data to foodCollection and foodTags">
         foodCollection.add(Food.LEMON);
         foodTags.add(new FoodTag("salmon"));
-
+        // </editor-fold>
+        // <editor-fold defaultstate="collapsed" desc="add Recipe to List|setRecipes to alicia">
         recipeDTOList.add(salmon);
 
         recipeDTOPage = converter.convertRecipeDTOListToPageOfRecipeDTO(recipeDTOList,anyPageRequest);
 
         alicia.setRecipes(recipeDTOPage);
+        // </editor-fold>
     }
 
     @Test
@@ -100,6 +109,7 @@ class RecipeControllerTest {
         foodTags[0] = "tasty";
         foodTags[1] = "pizza";
         // </editor-fold>
+        // <editor-fold defaultstate="collapsed" desc="RecipeRequest Model">
         RecipeRequest recipeRequest = new RecipeRequest(
                 "pizza",
                 30,
@@ -107,7 +117,7 @@ class RecipeControllerTest {
                 foods,
                 foodTags,
                 "Alicia.Sierra@world.com");
-
+        // </editor-fold>
         mockMvc.perform(post("/api/recipe")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)

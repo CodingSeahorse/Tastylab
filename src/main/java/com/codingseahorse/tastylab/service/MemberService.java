@@ -6,8 +6,6 @@ import com.codingseahorse.tastylab.model.member.Member;
 import com.codingseahorse.tastylab.repository.MemberRepository;
 import com.codingseahorse.tastylab.requestsModels.MemberRequest;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

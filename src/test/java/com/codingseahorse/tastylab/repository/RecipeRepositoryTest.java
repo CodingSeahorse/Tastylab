@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import static com.codingseahorse.tastylab.model.member.MembershipRole.ADMIN;
 import static org.assertj.core.api.Assertions.*;
 
 @DataJpaTest
@@ -34,7 +35,12 @@ class RecipeRepositoryTest {
     MemberCard memberCard = new MemberCard(
             LocalDateTime.now(),
             "shaggy",
-            "123");
+            "123",
+            ADMIN.getGrantedAuthorities(),
+            true,
+            true,
+            true,
+            true);
 
     Member shaggy = new Member(
             "shaggy",
@@ -75,6 +81,7 @@ class RecipeRepositoryTest {
         foodTags.add(new FoodTag("crepe"));
         foodTags.add(new FoodTag("tasty"));
         // </editor-fold>
+        memberCard.setMembershipRole(ADMIN);
         // <editor-fold defaultstate="collapsed" desc="save MemberCard,Member,MembersRecipe">
         memberCardRepository.save(memberCard);
         memberRepository.save(shaggy);

@@ -23,6 +23,7 @@ import org.springframework.data.domain.Sort;
 import java.time.LocalDateTime;
 import java.util.*;
 
+import static com.codingseahorse.tastylab.model.member.MembershipRole.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
 
@@ -68,12 +69,22 @@ class RecipeServiceTest {
     MemberCard memberCardReturn = new MemberCard(
             LocalDateTime.now(),
             "StromaeFreshy",
-            "123");
+            "123",
+            TASTER.getGrantedAuthorities(),
+            true,
+            true,
+            true,
+            true);
 
     MemberCard stromaeMemberCard = new MemberCard(
             LocalDateTime.now(),
             "stromae",
-            "123");
+            "123",
+            TASTER.getGrantedAuthorities(),
+            true,
+            true,
+            true,
+            true);
 
     Member memberReturn = new Member(
             "Stromae",
@@ -93,9 +104,9 @@ class RecipeServiceTest {
     // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="created Recipe + PageRequest">
     PageRequest pageRequestMemberRecipes = PageRequest.of(
-     0,
-     3,
-     Sort.by("createdAt"));
+            0,
+            3,
+            Sort.by("createdAt"));
 
     PageRequest anyPageRequest = PageRequest.of(
             0,
@@ -151,7 +162,7 @@ class RecipeServiceTest {
                 .existsByRecipeNameAndCreatorEmail(
                         "Muffin",
                         "sara.lance@gmail.com"))
-                    .willReturn(true);
+                .willReturn(true);
 
         assertThatThrownBy(
                 () -> recipeService.createRecipe(recipeDTO))
@@ -185,10 +196,10 @@ class RecipeServiceTest {
     void should_retrieveRecipesFromMember() {
         given(memberRepository
                 .getMemberByMembercardUsername(anyString()))
-                    .willReturn(memberReturn);
+                .willReturn(memberReturn);
         given(recipeRepository
                 .getAllByCreatorEmail(anyString()))
-                    .willReturn(stromaeRecipeList);
+                .willReturn(stromaeRecipeList);
 
         MemberDTO result =
                 recipeService
@@ -272,13 +283,13 @@ class RecipeServiceTest {
         // <editor-fold defaultstate="collapsed" desc="created two Page<RecipeDTO> (explore&highlight)">
         Page<RecipeDTO> recipeDTOPageExplore =
                 converter.convertRecipeDTOListToPageOfRecipeDTO(
-                                recipeDTOListExplore,
-                                pageRequestExplore);
+                        recipeDTOListExplore,
+                        pageRequestExplore);
 
         Page<RecipeDTO> recipeDTOPageHighlight =
                 converter.convertRecipeDTOListToPageOfRecipeDTO(
-                                recipeDTOListHighlight,
-                                pageRequestHighlight);
+                        recipeDTOListHighlight,
+                        pageRequestHighlight);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created HomeDTO & added the two Page<RecipeDTO>">
         HomeDTO homeDTO = new HomeDTO();
@@ -293,7 +304,12 @@ class RecipeServiceTest {
         MemberCard memberCardX = new MemberCard(
                 LocalDateTime.now(),
                 memberCardDTO.getUsername(),
-                memberCardDTO.getPassword());
+                memberCardDTO.getPassword(),
+                TASTER.getGrantedAuthorities(),
+                true,
+                true,
+                true,
+                true);
 
         Member memberX = new Member(
                 memberDTO.getFirstName(),
@@ -319,10 +335,10 @@ class RecipeServiceTest {
 
         given(recipeRepository
                 .getAllByRecipeStatus(RecipeStatus.EXPLORE))
-                    .willReturn(returnListExplore);
+                .willReturn(returnListExplore);
         given(recipeRepository
                 .getAllByRecipeStatus(RecipeStatus.HIGHLIGHT))
-                    .willReturn(returnListHighlight);
+                .willReturn(returnListHighlight);
 
         assertThatThrownBy(
                 () -> recipeService
@@ -331,10 +347,10 @@ class RecipeServiceTest {
                                 pageRequestHighlight))
                 .isInstanceOf(BadRequestException.class)
                 .hasMessageContaining(
-                      "This page doesn't exists." +
+                        "This page doesn't exists." +
                                 " All elements are already displayed in %s page or pages." +
                                 " Please enter a valid page",
-                                pageRequestExploreException.getOffset());
+                        pageRequestExploreException.getOffset());
     }
 
     @Test
@@ -386,13 +402,13 @@ class RecipeServiceTest {
         // <editor-fold defaultstate="collapsed" desc="created two Page<RecipeDTO> (explore&highlight)">
         Page<RecipeDTO> recipeDTOPageExplore =
                 converter.convertRecipeDTOListToPageOfRecipeDTO(
-                            recipeDTOListExplore,
-                            pageRequestExplore);
+                        recipeDTOListExplore,
+                        pageRequestExplore);
 
         Page<RecipeDTO> recipeDTOPageHighlight =
                 converter.convertRecipeDTOListToPageOfRecipeDTO(
-                            recipeDTOListHighlight,
-                            pageRequestHighlight);
+                        recipeDTOListHighlight,
+                        pageRequestHighlight);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created HomeDTO & added the two Page<RecipeDTO>">
         HomeDTO homeDTO = new HomeDTO();
@@ -407,7 +423,12 @@ class RecipeServiceTest {
         MemberCard memberCardX = new MemberCard(
                 LocalDateTime.now(),
                 memberCardDTO.getUsername(),
-                memberCardDTO.getPassword());
+                memberCardDTO.getPassword(),
+                TASTER.getGrantedAuthorities(),
+                true,
+                true,
+                true,
+                true);
 
         Member memberX = new Member(
                 memberDTO.getFirstName(),
@@ -433,10 +454,10 @@ class RecipeServiceTest {
 
         given(recipeRepository
                 .getAllByRecipeStatus(RecipeStatus.EXPLORE))
-                    .willReturn(returnListExplore);
+                .willReturn(returnListExplore);
         given(recipeRepository
                 .getAllByRecipeStatus(RecipeStatus.HIGHLIGHT))
-                    .willReturn(returnListHighlight);
+                .willReturn(returnListHighlight);
 
         assertThatThrownBy(
                 () -> recipeService
@@ -445,9 +466,9 @@ class RecipeServiceTest {
                                 pageRequestHighlightException))
                 .isInstanceOf(BadRequestException.class)
                 .hasMessageContaining(
-              "This page doesn't exists. " +
-                        "All elements are already displayed in %s page or pages." +
-                        " Please enter a valid page",
+                        "This page doesn't exists. " +
+                                "All elements are already displayed in %s page or pages." +
+                                " Please enter a valid page",
                         pageRequestHighlightException.getOffset());
     }
 

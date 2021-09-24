@@ -13,6 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/api/welcome")
 public class WelcomeController {
@@ -52,5 +56,28 @@ public class WelcomeController {
                 postedGender);
 
         welcomeService.registerMember(form);
+    }
+
+    @Operation(summary = "refresh the token")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "refreshed token successfully",
+                            content = @Content),
+                    @ApiResponse(
+                            responseCode = "403",
+                            description = "Access_Token is Invalid",
+                            content =  @Content),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "No pages found",
+                            content = @Content)})
+    @GetMapping("/token-refresh")
+    @ResponseStatus(HttpStatus.OK)
+    public void refreshToken (
+            HttpServletRequest request,
+            HttpServletResponse response) throws IOException {
+        welcomeService.refreshMyToken(request,response);
     }
 }
