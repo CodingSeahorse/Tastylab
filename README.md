@@ -18,6 +18,8 @@ Version 1.0
 ##  🍓 API Design 🍓
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/14005996-7b14cfb8-2158-43ca-8f24-545be03abce1?action=collection%2Ffork&collection-url=entityId%3D14005996-7b14cfb8-2158-43ca-8f24-545be03abce1%26entityType%3Dcollection%26workspaceId%3Dd407fb37-3eb7-4d42-bf97-96e77786073e)
 
+#### swagger: http://localhost:8080/swagger-ui/index.html
+###### (note: replace port, if needed)
 ### 🍪 MemberController 🍪
 > ***Parent-Path*** : "/api/member"
 > ___
