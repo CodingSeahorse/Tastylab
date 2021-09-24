@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDateTime;
 
+import static com.codingseahorse.tastylab.model.member.MembershipRole.*;
 import static org.assertj.core.api.Assertions.*;
 
 @DataJpaTest
@@ -22,8 +23,13 @@ class MemberCardRepositoryTest {
         daphneCard = new MemberCard(
                 LocalDateTime.now(),
                 "daphne",
-                "doo");
-
+                "doo",
+                BLOGGER.getGrantedAuthorities(),
+                true,
+                true,
+                true,
+                true);
+        daphneCard.setMembershipRole(BLOGGER);
         memberCardRepository.save(daphneCard);
     }
 

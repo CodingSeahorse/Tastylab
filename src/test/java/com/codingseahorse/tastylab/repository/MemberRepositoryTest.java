@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDateTime;
 
+import static com.codingseahorse.tastylab.model.member.MembershipRole.*;
 import static org.assertj.core.api.Assertions.*;
 
 @DataJpaTest
@@ -29,8 +30,13 @@ class MemberRepositoryTest {
         scoobyDooCard = new MemberCard(
                 LocalDateTime.now(),
                 "scooby",
-                "dooo");
-
+                "dooo",
+                TASTER.getGrantedAuthorities(),
+                true,
+                true,
+                true,
+                true);
+        scoobyDooCard.setMembershipRole(TASTER);
         memberCardRepository.save(scoobyDooCard);
         // </editor-fold>
         // <editor-fold defaultstate="collapsed" desc="created Member">
@@ -73,8 +79,8 @@ class MemberRepositoryTest {
     void should_getMemberByMembercardUsernameAndMembercardPassword_return_Member() {
         Member searchedMember =
                 memberRepository.getMemberByMembercardUsernameAndMembercardPassword(
-                            scoobyDooCard.getUsername(),
-                            scoobyDooCard.getPassword());
+                        scoobyDooCard.getUsername(),
+                        scoobyDooCard.getPassword());
 
         assertThat(searchedMember)
                 .isNotNull()

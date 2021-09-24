@@ -4,10 +4,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Set;
 
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -21,7 +26,7 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class MemberCard {
+public class MemberCard implements UserDetails {
     @Id
     @GeneratedValue(
             strategy = AUTO)
@@ -51,4 +56,72 @@ public class MemberCard {
             nullable = false,
             columnDefinition = "TEXT")
     private String password;
+
+    @Column(
+            name = "membership",
+            nullable = false,
+            columnDefinition = "TEXT")
+    private MembershipRole membershipRole;
+
+    // ===== Variables for OVERRIDES =====
+    // <editor-fold defaultstate="collapsed" desc="Variables for OVERRIDES">
+    @NonNull
+    @ElementCollection(
+            targetClass = GrantedAuthority.class,
+            fetch = EAGER)
+    @CollectionTable(
+            name = "membercard_grantedAuthorities"
+    )
+    @Column(
+            name = "grantedAuthorities"
+    )
+    private Set<? extends GrantedAuthority> grantedAuthorities;
+
+    @NonNull
+    @Column(
+            name = "is_account_non_expired")
+    private Boolean isAccountNonExpired;
+
+    @NonNull
+    @Column(
+            name = "is_account_non_locked")
+    private Boolean isAccountNonLocked;
+
+    @NonNull
+    @Column(
+            name = "is_credentials_non_expired")
+    private Boolean isCredentialsNonExpired;
+
+    @NonNull
+    @Column(
+            name = "is_enabled")
+    private Boolean isEnabled;
+    //</editor-fold>
+    // ===== OVERRIDES =====
+    // <editor-fold defaultstate="collapsed" desc="OVERRIDES">
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return grantedAuthorities;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return isAccountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return isAccountNonLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return isCredentialsNonExpired;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+    //</editor-fold>
 }

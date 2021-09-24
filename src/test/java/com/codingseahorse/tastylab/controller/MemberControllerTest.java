@@ -15,10 +15,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
 
+import static com.codingseahorse.tastylab.model.member.MembershipRole.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
@@ -27,6 +29,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@ActiveProfiles("test")
 @WebMvcTest(MemberController.class)
 class MemberControllerTest {
     @MockBean
@@ -53,9 +56,9 @@ class MemberControllerTest {
                 .thenReturn(memberDTO);
 
         mockMvc.perform(put("/api/member")
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(memberRequest)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(memberRequest)))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
@@ -80,9 +83,9 @@ class MemberControllerTest {
                 .thenReturn(null);
 
         mockMvc.perform(put("/api/member")
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(memberRequest)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(memberRequest)))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }
@@ -129,7 +132,12 @@ class MemberControllerTest {
         memberCard = new MemberCard(
                 LocalDateTime.now(),
                 "tayblue",
-                "123");
+                "123",
+                ADMIN.getGrantedAuthorities(),
+                true,
+                true,
+                true,
+                true);
 
         member = new Member(
                 "taylor",
