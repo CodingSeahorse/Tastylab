@@ -46,16 +46,6 @@ Version 1.0
 ### 🍪 WelcomeController 🍪
 > ***Parent-Path*** : "/api/welcome"
 > ___
->>   **POST** ~ Request Payload(LoginRequest)
->>
->>   *Path* ⟹ "/login"
->>
->>   *HttpStatus* ⟹ 200 Ok
->>
->>   *Authorized* ⟹ everyone
->>
->>   *Description* ⟹ this endpoint *sends* the username & password to authenticate.
-> ___
 >>  **POST** ~ Request Payload(RegistrationRequest)
 >>
 >>   *Path* ⟹ "/signup"
@@ -65,6 +55,26 @@ Version 1.0
 >>   *Authorized* ⟹ everyone
 >>
 >>   *Description* ⟹ this endpoint *sends* a form to create new member.
+> ___
+>>  **POST**
+>>
+>>   *Path* ⟹ "/login?username=""&password"" "
+>>
+>>   *HttpStatus* ⟹ 200 Ok
+>>
+>>   *Authorized* ⟹ only Blogger
+>>
+>>   *Description* ⟹ this endpoint *sends* login data and *return* a valid token.
+> ___
+>>   **GET**
+>>
+>>   *Path* ⟹ "/refresh-token"
+>>
+>>   *HttpStatus* ⟹ 200 Ok
+>>
+>>   *Authorized* ⟹ only Blogger
+>>
+>>   *Description* ⟹ this endpoint *sends* the username & password to authenticate.
 
 ### 🍪 RecipeController 🍪
 > ***Parent-Path*** : "/api/recipe"
