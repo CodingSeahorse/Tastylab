@@ -44,25 +44,36 @@ public class JwtTokenVerifier extends OncePerRequestFilter {
             if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
                 try {
                     String token = authorizationHeader.substring("Bearer ".length());
+
                     Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
                     JWTVerifier verifier = JWT.require(algorithm).build();
                     DecodedJWT decodedJWT = verifier.verify(token);
+
                     String username = decodedJWT.getSubject();
                     String[] roles = decodedJWT.getClaim("membership").asArray(String.class);
+
                     Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+
                     stream(roles).forEach(role -> {
                         authorities.add(new SimpleGrantedAuthority(role));
                     });
+
                     UsernamePasswordAuthenticationToken authenticationToken =
                             new UsernamePasswordAuthenticationToken(username, null, authorities);
+
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+
                     filterChain.doFilter(request, response);
                 } catch (Exception exception) {
                     response.setHeader("error", exception.getMessage());
                     response.setStatus(FORBIDDEN.value());
+
                     Map<String, String> error = new HashMap<>();
+
                     error.put("error_message", exception.getMessage());
+
                     response.setContentType(APPLICATION_JSON_VALUE);
+
                     new ObjectMapper().writeValue(response.getOutputStream(), error);
                 }
             } else {
