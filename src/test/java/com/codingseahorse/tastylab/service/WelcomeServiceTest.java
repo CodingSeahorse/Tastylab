@@ -19,7 +19,6 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.test.context.support.WithMockUser;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

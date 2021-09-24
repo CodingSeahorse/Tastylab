@@ -4,6 +4,7 @@ import com.codingseahorse.tastylab.jwt.JwtTokenVerifier;
 import com.codingseahorse.tastylab.jwt.JwtUsernamePasswordAuthenticationFilter;
 import com.codingseahorse.tastylab.service.WelcomeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -17,14 +18,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import static com.codingseahorse.tastylab.model.member.MembershipRole.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
+@Profile(value = {"development", "production"})
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@Profile(value = {"development", "production"})
 public class TastylabSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
-    private final WelcomeService welcomeService;
+    private final WelcomeService welcomeService = new WelcomeService();
     private JwtUsernamePasswordAuthenticationFilter authenticationFilter;
 
     @Override

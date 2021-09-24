@@ -3,6 +3,7 @@ package com.codingseahorse.tastylab.jwt;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import java.util.Set;
 
 import static java.sql.Date.valueOf;
 
+@Profile(value = {"development", "production"})
 @Component
 @NoArgsConstructor
 public class JwtManager {
