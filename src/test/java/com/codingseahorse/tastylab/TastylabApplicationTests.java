@@ -1,21 +1,19 @@
 package com.codingseahorse.tastylab;
 
-import com.codingseahorse.tastylab.controller.RecipeController;
+import com.codingseahorse.tastylab.dto.converter.Converter;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+@ActiveProfiles("test")
 @SpringBootTest
 class TastylabApplicationTests {
-
-	@Autowired
-    RecipeController recipeController;
+/*
+	Converter converter = new Converter();
 
 	@Test
 	void contextLoads() {
-		assertThat(recipeController).isNotNull();
-	}
-
+		Assertions.assertThat(converter).isNotNull();
+	}*/
 }
