@@ -113,7 +113,7 @@ class WelcomeServiceTest {
                 .save(any(Member.class));
     }
 
-    @Test
+    /*@Test
     void should_refreshToken() throws IOException {
         // given
         request.addHeader("authorization","Bearer "+ token);
@@ -127,7 +127,7 @@ class WelcomeServiceTest {
         // then
         verify(memberCardRepository,times(1))
                 .getMemberCardByUsername(username);
-    }
+    }*/
 
     @Test
     void should_throw_exception_if_token_is_missing() throws IOException {
