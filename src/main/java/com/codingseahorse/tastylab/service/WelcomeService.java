@@ -10,7 +10,6 @@ import com.codingseahorse.tastylab.exception.NotFoundException;
 import com.codingseahorse.tastylab.jwt.JwtManager;
 import com.codingseahorse.tastylab.model.member.Member;
 import com.codingseahorse.tastylab.model.member.MemberCard;
-import com.codingseahorse.tastylab.model.member.MembershipRole;
 import com.codingseahorse.tastylab.repository.MemberCardRepository;
 import com.codingseahorse.tastylab.repository.MemberRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -125,7 +124,8 @@ public class WelcomeService implements UserDetailsService {
 
                 response.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
-                new ObjectMapper().writeValue(response.getOutputStream(), tokens);
+                new ObjectMapper().writeValue(
+                        response.getOutputStream(), tokens);
             }catch (Exception exception) {
                 response.setHeader("error", exception.getMessage());
                 response.setStatus(FORBIDDEN.value());
@@ -135,7 +135,8 @@ public class WelcomeService implements UserDetailsService {
 
                 response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
 
-                new ObjectMapper().writeValue(response.getOutputStream(), error);
+                new ObjectMapper().writeValue(
+                        response.getOutputStream(), error);
             }
         } else {
             throw new RuntimeException("Refresh token is missing");
@@ -144,10 +145,18 @@ public class WelcomeService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        MemberCard memberCard = memberCardRepository.getMemberCardByUsername(username);
+        MemberCard memberCard =
+                memberCardRepository.getMemberCardByUsername(username);
+
         if (memberCard == null){
-            throw new NotFoundException(String.format("User with the username: %s not found",username));
+            throw new NotFoundException(String.format(
+                    "User with the username: %s not found",
+                    username));
         }
-        return new User(memberCard.getUsername(),memberCard.getPassword(),memberCard.getGrantedAuthorities());
+
+        return new User(
+                memberCard.getUsername(),
+                memberCard.getPassword(),
+                memberCard.getGrantedAuthorities());
     }
 }
