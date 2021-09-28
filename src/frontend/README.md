@@ -6,3 +6,6 @@ ___
 > - axios
 > - react-router-dom
 > - node-sass
+
+###### © Images from Unsplash.com or from Shutterstock.com
+###### © Icons from flaticon.com, Icons8.com
