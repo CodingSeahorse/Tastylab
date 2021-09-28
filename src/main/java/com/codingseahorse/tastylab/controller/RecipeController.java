@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/recipe")
+@CrossOrigin(origins = "http://localhost:3000")
 public class RecipeController {
     @Autowired
     RecipeService recipeService;

@@ -4,7 +4,6 @@ import com.codingseahorse.tastylab.jwt.JwtTokenVerifier;
 import com.codingseahorse.tastylab.jwt.JwtUsernamePasswordAuthenticationFilter;
 import com.codingseahorse.tastylab.service.WelcomeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
 
 import static com.codingseahorse.tastylab.model.member.MembershipRole.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
@@ -22,10 +22,10 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class TastylabSecurityConfig extends WebSecurityConfigurerAdapter {
+public class TastylabSecurityConfig extends WebSecurityConfigurerAdapter{
 
     private final PasswordEncoder passwordEncoder;
-    private final WelcomeService welcomeService = new WelcomeService();
+    private final WelcomeService welcomeService;
     private JwtUsernamePasswordAuthenticationFilter authenticationFilter;
 
     @Override
@@ -41,6 +41,8 @@ public class TastylabSecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationFilter.setFilterProcessesUrl("/api/welcome/login");
 
         http
+                .cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+                .and()
                 .csrf().disable()
                 .sessionManagement()
                     .sessionCreationPolicy(STATELESS)
@@ -70,6 +72,7 @@ public class TastylabSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated();
     }
+
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
