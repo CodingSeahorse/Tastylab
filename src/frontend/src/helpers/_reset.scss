@@ -1,0 +1,36 @@
+@import "./color.scss";
+
+*,
+*::before,
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'cormorantGaramond';
+  color: $tasty-color-basic;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-size: 1.8rem;
+  box-sizing: border-box;
+}
+
+.App {
+  position: relative;
+}
+
+@font-face {
+  font-family: 'cormorantGaramond';
+  src:
+          local('cormorantGaramond'),
+          url('../bag/fonts/cormorantGaramond/CormorantGaramond-Light.ttf')
+          format('truetype');
+}
