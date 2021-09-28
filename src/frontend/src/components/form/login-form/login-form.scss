@@ -1,0 +1,28 @@
+@import '../../../helpers/color';
+
+.login__input-area{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 50rem;
+  border-right: 1px solid $tasty-color-basic;
+
+  &__title{
+    font-size: 2.4rem;
+    text-decoration: underline;
+  }
+
+  &__btn{
+    margin-top: 5rem;
+    &__switch{
+      margin-top: 2rem;
+      a{
+        color: $tasty-color-basic;
+        &:hover{
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

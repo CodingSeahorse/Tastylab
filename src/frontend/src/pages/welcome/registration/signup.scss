@@ -1,0 +1,18 @@
+.signup{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    // ===== Title Area =====
+    &__description-container{
+        margin-right: 10rem;
+            &__text{
+            p:first-child{
+                margin-bottom: 2rem;
+            }
+            p:last-child{
+                margin-top: 2rem ;
+            }
+        }
+    }
+}
