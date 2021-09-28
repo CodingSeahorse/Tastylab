@@ -21,6 +21,7 @@ import static com.codingseahorse.tastylab.utils.ExceptionUtils.createErrorMessag
 
 @RestController
 @RequestMapping("/api/member")
+@CrossOrigin(origins = "http://localhost:3000")
 public class MemberController {
 
     @Autowired

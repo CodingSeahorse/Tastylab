@@ -19,6 +19,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/welcome")
+@CrossOrigin(origins = "http://localhost:3000")
 public class WelcomeController {
     @Autowired
     WelcomeService welcomeService;
