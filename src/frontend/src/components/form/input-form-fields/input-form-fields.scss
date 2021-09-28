@@ -1,0 +1,27 @@
+@import '../../../helpers/color';
+
+// ===== RESET FOCUS =====
+textarea:focus, input:focus{
+  outline: none;
+}
+
+.form-input{
+  width: 300px;
+  height: 65px;
+  padding-top: 4rem;
+  color: $tasty-color-basic;
+  font-size: 1.8rem;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  &::placeholder{
+    font-size: 1.8rem;
+    color: $tasty-color-font-darken;
+  }
+  &__subtitle{
+    color: $tasty-color-highlight;
+  }
+}
+

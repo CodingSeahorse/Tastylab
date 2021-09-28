@@ -1,0 +1,103 @@
+@import '../../helpers/color';
+
+.landing{
+  // ===== INSPIRATION AREA =====
+  &__inspiration{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 96.0rem;
+    background:
+      url("../../bag/images/inspiration_background.png")
+      no-repeat;
+    // == DESCRIPTION CONTAINER ==
+    &__description-container{
+      margin-left: 12.0rem;
+      &__content{
+        &__text{
+          p:first-child{
+            margin-bottom: 2rem;
+          }
+          p:last-child{
+            margin-top:2rem;
+          }
+        }
+      }
+      &__content{
+        margin-top: 2rem;
+        &__btn{
+          input{
+            width: 4.8rem;
+            height: 4.8rem;
+            margin-top: 2.6rem;
+            margin-right: 2.5rem;
+          }
+          &__facebook{
+            background:
+                    url("../../bag/icons/facebook_icon.png")
+                    no-repeat;
+            background-size: cover;
+          }
+          &__instagram{
+            background:
+                    url("../../bag/icons/instagram_icon.png")
+                    no-repeat;
+          }
+          &__twitter{
+            background:
+                    url("../../bag/icons/twitter_icon.png")
+                    no-repeat;
+            background-size: contain;
+          }
+          &__pinterest{
+            background:
+                    url("../../bag/icons/pinterest_icon.png")
+                    no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+    // TODO: REPLACE "card-container" WITH CAROUSEL
+    &__card-container{
+      display: block;
+      width: 106.0rem;
+      height: 47.5rem;
+      margin-left: 12rem;
+      background-color: blue;
+    }
+  }
+
+  // ===== HIGHLIGHT AREA =====
+  &__highlight{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    width: 100%;
+    height: 96.0rem;
+    background:
+      url("../../bag/images/highlight_background.png")
+      no-repeat;
+
+    &__description-container__content{
+      &__text{
+        p:first-child{
+          margin-bottom: 2rem;
+        }
+        p:last-child{
+          margin-top: 2rem ;
+        }
+      }
+    }
+    // TODO: REPLACE "card-container" WITH CAROUSEL
+    &__card-container{
+      display: block;
+      width: 106.0rem;
+      height: 47.5rem;
+      margin-left: 12rem;
+      background-color: blue;
+    }
+  }
+}
