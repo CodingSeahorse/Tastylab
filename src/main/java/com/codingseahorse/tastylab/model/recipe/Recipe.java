@@ -1,14 +1,11 @@
 package com.codingseahorse.tastylab.model.recipe;
 
 import com.codingseahorse.tastylab.model.member.Member;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static javax.persistence.GenerationType.SEQUENCE;
