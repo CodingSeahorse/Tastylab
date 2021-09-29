@@ -1,5 +1,13 @@
 @import '../../../helpers/color';
-
+.error-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  width: 40rem;
+  padding:1rem;
+  background-color: #480404;
+}
 .login__input-area{
   display: flex;
   justify-content: center;
