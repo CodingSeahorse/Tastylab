@@ -18,7 +18,7 @@ textarea:focus, input:focus{
   border-right: none;
   &::placeholder{
     font-size: 1.8rem;
-    color: $tasty-color-font-darken;
+    color: $tasty-color-gray-one;
   }
   &__subtitle{
     color: $tasty-color-highlight;
