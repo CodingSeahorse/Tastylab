@@ -71,11 +71,24 @@ const LoginForm = () => {
                 {showMessage(user.loggedIn,user.showSuccessMessage,user.showErrorMessage)}
                 <h3 className="login__input-area__title">Login</h3>
                 <form className="login__input-area__form" onSubmit={onSubmit} method="post">
-                    <FormInput type="text" placeholder="Username" name="username" value={user.username} onChange={handleChange}/>
-                    <FormInput type="password" placeholder="Password" name="password" value={user.password} onChange={handleChange}/>
+                    <FormInput
+                        type="text"
+                        placeholder="Username"
+                        name="username"
+                        value={user.username}
+                        onChange={handleChange}/>
+                    <FormInput
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={user.password}
+                        onChange={handleChange}/>
                     <div className="login__input-area__btn">
                         <MyButton value="submit"/>
-                        <p className="login__input-area__btn__switch">Don't have a account? <Link to="/welcome/signup">click here</Link></p>
+                        <p className="login__input-area__btn__switch">
+                            Don't have a account?
+                            <Link to="/welcome/signup">click here</Link>
+                        </p>
                     </div>
                 </form>
             </div>
