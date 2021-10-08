@@ -1,363 +1,2314 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>JAVA</ID>
-  <OriginalElement>com.codingseahorse.tastylab.controller.MemberController</OriginalElement>
+  <OriginalElement>D:/tastylab</OriginalElement>
   <nodes>
-    <node x="1764.5" y="1844.5">com.codingseahorse.tastylab.service.RecipeService</node>
-    <node x="2905.6368662102122" y="55.5">com.codingseahorse.tastylab.model.recipe.RecipeSkills</node>
-    <node x="1085.3771588946452" y="2191.0">com.codingseahorse.tastylab.controller.RegistrationController</node>
-    <node x="740.0" y="1767.0">com.codingseahorse.tastylab.requestsModels.RegistrationRequest</node>
-    <node x="288.25215889464516" y="2180.0">com.codingseahorse.tastylab.controller.MemberController</node>
-    <node x="1673.25" y="1077.0">com.codingseahorse.tastylab.model.member.MemberCard</node>
-    <node x="2257.0118662102122" y="790.0">com.codingseahorse.tastylab.repository.RecipeRepository</node>
-    <node x="0.0" y="1407.0">com.codingseahorse.tastylab.requestsModels.MemberRequest</node>
-    <node x="1684.011866210212" y="1418.5">com.codingseahorse.tastylab.dto.converter.Converter</node>
-    <node x="928.011866210212" y="1474.0">com.codingseahorse.tastylab.repository.MemberRepository</node>
-    <node x="197.0" y="1922.5">com.codingseahorse.tastylab.exception.NotFoundException</node>
-    <node x="2703.2618662102122" y="1789.0">com.codingseahorse.tastylab.requestsModels.RecipeRequest</node>
-    <node x="0.0" y="2337.0">com.codingseahorse.tastylab.requestsModels.LoginRequest</node>
-    <node x="2065.28125" y="2169.0">com.codingseahorse.tastylab.controller.RecipeController</node>
-    <node x="1575.6666666666667" y="679.0">com.codingseahorse.tastylab.model.member.Member</node>
-    <node x="1631.8571428571431" y="0.0">com.codingseahorse.tastylab.model.recipe.FoodTag</node>
-    <node x="2087.277564458424" y="55.5">com.codingseahorse.tastylab.model.recipe.Food</node>
-    <node x="415.0" y="1855.5">com.codingseahorse.tastylab.service.MemberService</node>
-    <node x="1458.011866210212" y="1518.0">com.codingseahorse.tastylab.exception.BadRequestException</node>
-    <node x="1239.1607142857147" y="623.1428571428572">com.codingseahorse.tastylab.model.member.Gender</node>
-    <node x="1184.0" y="1866.5">com.codingseahorse.tastylab.service.WelcomeService</node>
-    <node x="1669.0" y="348.0">com.codingseahorse.tastylab.model.recipe.Recipe</node>
-    <node x="2587.3868662102122" y="55.5">com.codingseahorse.tastylab.model.recipe.RecipeStatus</node>
+    <node x="1966.9118243243245" y="959.0">com.codingseahorse.tastylab.dto.HomeDTO</node>
+    <node x="0.0" y="1999.0">com.codingseahorse.tastylab.controller.RecipeControllerTest</node>
+    <node x="1541.0" y="2158.0">com.codingseahorse.tastylab.exception.NotFoundException</node>
+    <node x="4662.579954954956" y="1764.0">com.codingseahorse.tastylab.config.PasswordConfig</node>
+    <node x="461.66182432432447" y="349.0">com.codingseahorse.tastylab.model.recipe.Food</node>
+    <node x="4789.880292792793" y="959.0">com.codingseahorse.tastylab.repository.MemberCardRepository</node>
+    <node x="3941.704954954955" y="1999.0">com.codingseahorse.tastylab.config.TastylabSecurityConfig</node>
+    <node x="1832.9118243243245" y="959.0">com.codingseahorse.tastylab.dto.LizzyDTO</node>
+    <node x="1128.630292792793" y="349.0">com.codingseahorse.tastylab.model.recipe.RecipeStatus</node>
+    <node x="821.7049549549552" y="1764.0">com.codingseahorse.tastylab.service.RecipeService</node>
+    <node x="1769.0" y="2158.0">com.codingseahorse.tastylab.jwt.JwtTokenVerifier</node>
+    <node x="2719.704954954955" y="1764.0">com.codingseahorse.tastylab.requestsModels.MemberRequest</node>
+    <node x="1297.130292792793" y="959.0">com.codingseahorse.tastylab.dto.MemberDTO</node>
+    <node x="1975.0" y="2158.0">com.codingseahorse.tastylab.config.SpringfoxConfig</node>
+    <node x="3938.675337837838" y="2082.0">com.codingseahorse.tastylab.controller.WelcomeControllerTest</node>
+    <node x="846.6302927927929" y="649.0">com.codingseahorse.tastylab.model.recipe.FoodTag</node>
+    <node x="2242.1302927927927" y="1764.0">com.codingseahorse.tastylab.repository.RecipeRepositoryTest</node>
+    <node x="4017.218468468469" y="1764.0">com.codingseahorse.tastylab.service.WelcomeService</node>
+    <node x="2068.454954954955" y="174.0">com.codingseahorse.tastylab.model.member.Gender</node>
+    <node x="1363.9549549549552" y="1764.0">com.codingseahorse.tastylab.repository.FoodTagRepositoryTest</node>
+    <node x="658.7049549549552" y="1764.0">com.codingseahorse.tastylab.dto.converter.ConverterTest</node>
+    <node x="5234.093468468469" y="349.0">com.codingseahorse.tastylab.dto.RegistrationDTO</node>
+    <node x="2950.704954954955" y="1999.0">com.codingseahorse.tastylab.service.RecipeServiceTest</node>
+    <node x="2375.0" y="2158.0">com.codingseahorse.tastylab.utils.ExceptionUtils</node>
+    <node x="1643.9118243243245" y="959.0">com.codingseahorse.tastylab.repository.RecipeRepository</node>
+    <node x="2825.454954954955" y="174.0">com.codingseahorse.tastylab.model.member.MemberCard</node>
+    <node x="471.63029279279294" y="959.0">com.codingseahorse.tastylab.dto.converter.Converter</node>
+    <node x="1312.0" y="2158.0">com.codingseahorse.tastylab.TastylabApplication</node>
+    <node x="3141.704954954955" y="1999.0">com.codingseahorse.tastylab.controller.RecipeController</node>
+    <node x="2566.0" y="2158.0">com.codingseahorse.tastylab.requestsModels.LoginRequest</node>
+    <node x="2537.454954954955" y="349.0">com.codingseahorse.tastylab.model.member.Member</node>
+    <node x="629.6302927927929" y="784.0">com.codingseahorse.tastylab.dto.MemberCardDTO</node>
+    <node x="3518.704954954955" y="1999.0">com.codingseahorse.tastylab.controller.MemberControllerTest</node>
+    <node x="2109.9118243243247" y="959.0">com.codingseahorse.tastylab.repository.FoodTagRepository</node>
+    <node x="4476.755292792793" y="959.0">com.codingseahorse.tastylab.jwt.JwtManager</node>
+    <node x="298.0" y="2158.0">MavenWrapperDownloader</node>
+    <node x="4854.704954954956" y="1764.0">com.codingseahorse.tastylab.repository.MemberCardRepositoryTest</node>
+    <node x="0.0" y="2158.0">com.codingseahorse.tastylab.config.TastylabSecurityConfigDisable</node>
+    <node x="4411.329954954956" y="1999.0">com.codingseahorse.tastylab.service.WelcomeServiceTest</node>
+    <node x="819.6302927927929" y="784.0">com.codingseahorse.tastylab.dto.RecipeDTO</node>
+    <node x="3261.175337837838" y="1764.0">com.codingseahorse.tastylab.repository.MemberRepositoryTest</node>
+    <node x="3739.704954954955" y="1999.0">com.codingseahorse.tastylab.service.MemberServiceTest</node>
+    <node x="978.6302927927929" y="349.0">com.codingseahorse.tastylab.model.recipe.RecipeSkills</node>
+    <node x="1082.0" y="2158.0">com.codingseahorse.tastylab.requestsModels.RegistrationRequest</node>
+    <node x="3324.704954954955" y="1999.0">com.codingseahorse.tastylab.controller.MemberController</node>
+    <node x="3825.454954954955" y="0.0">com.codingseahorse.tastylab.model.member.MemberPermission</node>
+    <node x="3604.75" y="1764.0">com.codingseahorse.tastylab.jwt.JwtUsernamePasswordAuthenticationFilter</node>
+    <node x="2914.4118243243247" y="959.0">com.codingseahorse.tastylab.repository.MemberRepository</node>
+    <node x="3832.454954954955" y="81.0">com.codingseahorse.tastylab.model.member.MembershipRole</node>
+    <node x="2180.0" y="2158.0">com.codingseahorse.tastylab.requestsModels.RecipeRequest</node>
+    <node x="2458.1302927927927" y="1764.0">com.codingseahorse.tastylab.service.MemberService</node>
+    <node x="841.0" y="2158.0">com.codingseahorse.tastylab.exception.BadRequestException</node>
+    <node x="1338.130292792793" y="544.0">com.codingseahorse.tastylab.model.recipe.Recipe</node>
+    <node x="4210.329954954956" y="1999.0">com.codingseahorse.tastylab.controller.WelcomeController</node>
+    <node x="579.0" y="2158.0">com.codingseahorse.tastylab.TastylabApplicationTests</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.codingseahorse.tastylab.service.MemberService" target="com.codingseahorse.tastylab.model.member.Gender" relationship="DEPENDENCY">
-      <point x="-38.0" y="-61.5" />
-      <point x="529.0" y="657.0" />
-      <point x="424.12715889464516" y="657.0" />
-      <point x="424.12715889464516" y="647.0" />
-      <point x="1281.9107142857147" y="647.0" />
-      <point x="-42.75" y="50.5" />
+    <edge source="com.codingseahorse.tastylab.dto.MemberDTO" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="DEPENDENCY">
+      <point x="34.5" y="-15.5" />
+      <point x="1400.630292792793" y="927.0" />
+      <point x="1218.2049549549552" y="927.0" />
+      <point x="1218.2049549549552" y="857.0" />
+      <point x="1212.9549549549552" y="857.0" />
+      <point x="1212.9549549549552" y="837.0" />
+      <point x="914.8802927927929" y="837.0" />
+      <point x="31.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.repository.MemberRepository" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
-      <point x="0.0" y="-72.0" />
-      <point x="1182.511866210212" y="1045.0" />
-      <point x="1637.3333333333335" y="1045.0" />
-      <point x="-123.33333333333326" y="172.0" />
+    <edge source="com.codingseahorse.tastylab.repository.MemberCardRepositoryTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="59.25" y="-15.5" />
+      <point x="5032.454954954956" y="1592.0" />
+      <point x="5307.329954954956" y="1592.0" />
+      <point x="5307.329954954956" y="1282.0" />
+      <point x="5223.593468468469" y="1282.0" />
+      <point x="5223.593468468469" y="307.0" />
+      <point x="2688.454954954955" y="307.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.MemberController" target="com.codingseahorse.tastylab.requestsModels.MemberRequest" relationship="DEPENDENCY">
-      <point x="-120.375" y="-50.5" />
-      <point x="328.37715889464516" y="2148.0" />
-      <point x="186.5" y="2148.0" />
-      <point x="0.0" y="139.0" />
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepositoryTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
+      <point x="51.5" y="-15.5" />
+      <point x="3415.675337837838" y="1732.0" />
+      <point x="4361.130292792793" y="1732.0" />
+      <point x="4361.130292792793" y="482.0" />
+      <point x="2666.954954954955" y="482.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="27.0" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.model.recipe.FoodTag" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_MANY">
-      <point x="0.0" y="117.0" />
-      <point x="1724.8571428571431" y="244.73913043478262" />
-      <point x="1708.2857142857144" y="244.73913043478262" />
-      <point x="-235.71428571428555" y="-138.5" />
+    <edge source="com.codingseahorse.tastylab.dto.MemberDTO" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="TO_ONE">
+      <point x="-34.5" y="-15.5" />
+      <point x="1331.630292792793" y="937.0" />
+      <point x="787.6302927927929" y="937.0" />
+      <point x="787.6302927927929" y="867.0" />
+      <point x="450.63029279279294" y="867.0" />
+      <point x="450.63029279279294" y="857.0" />
+      <point x="671.8802927927929" y="857.0" />
+      <point x="-42.25" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="TO_MANY">
-      <point x="-78.57142857142821" y="-138.5" />
-      <point x="1865.4285714285718" y="286.0" />
-      <point x="2127.277564458424" y="286.0" />
-      <point x="-40.0" y="50.5" />
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.service.MemberService" relationship="DEPENDENCY">
+      <point x="50.25" y="-15.5" />
+      <point x="3669.454954954955" y="1917.0" />
+      <point x="2805.6302927927927" y="1917.0" />
+      <point x="2805.6302927927927" y="1907.0" />
+      <point x="2574.3802927927927" y="1907.0" />
+      <point x="38.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_MANY">
-      <point x="-157.14285714285688" y="-138.5" />
-      <point x="62.0" y="117.0" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.service.MemberService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
-      <point x="114.0" y="-61.5" />
-      <point x="681.0" y="1746.0" />
-      <point x="1182.511866210212" y="1746.0" />
-      <point x="0.0" y="72.0" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
-      <point x="-120.3125" y="-72.5" />
-      <point x="1836.6875" y="1716.0" />
-      <point x="1447.511866210212" y="1716.0" />
-      <point x="1447.511866210212" y="1055.0" />
-      <point x="1182.511866210212" y="1055.0" />
-      <point x="1182.511866210212" y="1045.0" />
-      <point x="1637.3333333333335" y="1045.0" />
-      <point x="-123.33333333333326" y="172.0" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.repository.RecipeRepository" target="com.codingseahorse.tastylab.model.recipe.RecipeStatus" relationship="DEPENDENCY">
-      <point x="92.5" y="-61.0" />
-      <point x="2534.5118662102122" y="657.0" />
-      <point x="2769.6368662102122" y="657.0" />
-      <point x="60.75" y="61.5" />
+    <edge source="com.codingseahorse.tastylab.dto.MemberDTO" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="TO_MANY">
+      <point x="-34.5" y="-15.5" />
+      <point x="1331.630292792793" y="937.0" />
+      <point x="787.6302927927929" y="937.0" />
+      <point x="787.6302927927929" y="837.0" />
+      <point x="851.3802927927929" y="837.0" />
+      <point x="-31.75" y="15.5" />
     </edge>
     <edge source="com.codingseahorse.tastylab.controller.MemberController" target="com.codingseahorse.tastylab.service.MemberService" relationship="TO_ONE">
-      <point x="40.125" y="-50.5" />
-      <point x="488.87715889464516" y="2148.0" />
-      <point x="491.0" y="2148.0" />
-      <point x="-76.0" y="61.5" />
+      <point x="43.5" y="-15.5" />
+      <point x="3455.204954954955" y="1867.0" />
+      <point x="2564.3802927927927" y="1867.0" />
+      <point x="2564.3802927927927" y="1847.0" />
+      <point x="2496.8802927927927" y="1847.0" />
+      <point x="-38.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.repository.RecipeRepository" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="DEPENDENCY">
-      <point x="-92.5" y="-61.0" />
-      <point x="2349.5118662102122" y="657.0" />
-      <point x="2127.333333333333" y="657.0" />
-      <point x="183.33333333333326" y="138.5" />
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.service.RecipeService" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1947.0" />
+      <point x="857.7049549549552" y="1947.0" />
+      <point x="-36.0" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.model.member.MemberCard" target="com.codingseahorse.tastylab.model.member.Member" relationship="TO_ONE">
-      <point x="70.25" y="-139.0" />
-      <point x="123.33333333333326" y="172.0" />
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1042.0" />
+      <point x="2655.954954954955" y="1042.0" />
+      <point x="2655.954954954955" y="307.0" />
+      <point x="2688.454954954955" y="307.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.model.member.Member" relationship="CREATE">
-      <point x="-138.375" y="-50.5" />
-      <point x="1230.125" y="1736.0" />
-      <point x="795.8979922279785" y="1736.0" />
-      <point x="795.8979922279785" y="1055.0" />
-      <point x="1182.511866210212" y="1055.0" />
-      <point x="1182.511866210212" y="1045.0" />
-      <point x="1637.3333333333335" y="1045.0" />
-      <point x="-123.33333333333326" y="172.0" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
-      <point x="0.0" y="172.0" />
-      <point x="1760.6666666666667" y="1055.0" />
-      <point x="1743.5" y="1055.0" />
-      <point x="-70.25" y="-139.0" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="CREATE">
-      <point x="72.1875" y="-72.5" />
-      <point x="2029.1875" y="1726.0" />
-      <point x="2246.5118662102122" y="1726.0" />
-      <point x="2246.5118662102122" y="657.0" />
-      <point x="2127.333333333333" y="657.0" />
-      <point x="183.33333333333326" y="138.5" />
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1062.0" />
+      <point x="809.1302927927929" y="1062.0" />
+      <point x="809.1302927927929" y="607.0" />
+      <point x="1445.630292792793" y="607.0" />
+      <point x="1445.630292792793" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
     </edge>
     <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.RecipeSkills" relationship="TO_ONE">
-      <point x="235.714285714286" y="-138.5" />
-      <point x="2179.7142857142862" y="306.0" />
-      <point x="2954.1368662102122" y="306.0" />
-      <point x="-48.5" y="50.5" />
+      <point x="-24.25" y="-15.5" />
+      <point x="1362.380292792793" y="522.0" />
+      <point x="771.6302927927929" y="522.0" />
+      <point x="771.6302927927929" y="412.0" />
+      <point x="1011.1302927927929" y="412.0" />
+      <point x="-32.5" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RegistrationController" target="com.codingseahorse.tastylab.requestsModels.RegistrationRequest" relationship="DEPENDENCY">
-      <point x="-28.125" y="-39.5" />
-      <point x="1169.7521588946452" y="2118.0" />
-      <point x="952.0" y="2118.0" />
-      <point x="0.0" y="150.0" />
+    <edge source="com.codingseahorse.tastylab.controller.WelcomeController" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="DEPENDENCY">
+      <point x="-45.25" y="-15.5" />
+      <point x="4255.579954954956" y="1887.0" />
+      <point x="3996.25" y="1887.0" />
+      <point x="3996.25" y="1837.0" />
+      <point x="4057.718468468469" y="1837.0" />
+      <point x="-40.5" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.exception.BadRequestException" relationship="CREATE">
-      <point x="-72.1875" y="-72.5" />
-      <point x="1884.8125" y="1736.0" />
-      <point x="1560.511866210212" y="1736.0" />
-      <point x="0.0" y="28.0" />
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.config.PasswordConfig" relationship="DEPENDENCY">
+      <point x="-47.25" y="-15.5" />
+      <point x="4458.579954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1827.0" />
+      <point x="4702.079954954956" y="1827.0" />
+      <point x="-39.5" y="15.5" />
     </edge>
     <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="TO_ONE">
-      <point x="-24.0625" y="-72.5" />
-      <point x="1932.9375" y="1706.0" />
-      <point x="1822.011866210212" y="1706.0" />
-      <point x="-138.0" y="127.5" />
+      <point x="-36.0" y="-15.5" />
+      <point x="857.7049549549552" y="1722.0" />
+      <point x="1466.130292792793" y="1722.0" />
+      <point x="1466.130292792793" y="1112.0" />
+      <point x="282.4118243243247" y="1112.0" />
+      <point x="282.4118243243247" y="1092.0" />
+      <point x="500.63029279279294" y="1092.0" />
+      <point x="-29.0" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RegistrationController" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="CREATE">
-      <point x="28.125" y="-39.5" />
-      <point x="1226.0021588946452" y="2148.0" />
-      <point x="1276.25" y="2148.0" />
-      <point x="-92.25" y="50.5" />
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1062.0" />
+      <point x="1445.630292792793" y="1062.0" />
+      <point x="1445.630292792793" y="732.0" />
+      <point x="1906.0000000000002" y="732.0" />
+      <point x="1906.0000000000002" y="702.0" />
+      <point x="929.8802927927929" y="702.0" />
+      <point x="27.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="DEPENDENCY">
-      <point x="28.916666666666515" y="-61.5" />
-      <point x="2267.6979166666665" y="2128.0" />
-      <point x="2637.5118662102122" y="2128.0" />
-      <point x="2637.5118662102122" y="326.0" />
-      <point x="2207.277564458424" y="326.0" />
-      <point x="40.0" y="50.5" />
+    <edge source="com.codingseahorse.tastylab.controller.WelcomeControllerTest" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="DEPENDENCY">
+      <point x="-52.0" y="-15.5" />
+      <point x="3990.675337837838" y="2061.0" />
+      <point x="3802.050337837838" y="2061.0" />
+      <point x="3802.050337837838" y="2051.0" />
+      <point x="2940.204954954955" y="2051.0" />
+      <point x="2940.204954954955" y="1887.0" />
+      <point x="3996.25" y="1887.0" />
+      <point x="3996.25" y="1837.0" />
+      <point x="4057.718468468469" y="1837.0" />
+      <point x="-40.5" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
-      <point x="-168.4375" y="-72.5" />
-      <point x="1788.5625" y="1746.0" />
-      <point x="1182.511866210212" y="1746.0" />
-      <point x="0.0" y="72.0" />
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="TO_ONE">
+      <point x="-50.25" y="-15.5" />
+      <point x="3568.954954954955" y="1927.0" />
+      <point x="2501.0052927927927" y="1927.0" />
+      <point x="2501.0052927927927" y="1857.0" />
+      <point x="2447.6302927927927" y="1857.0" />
+      <point x="2447.6302927927927" y="1352.0" />
+      <point x="2688.454954954955" y="1352.0" />
+      <point x="2688.454954954955" y="897.0" />
+      <point x="450.63029279279317" y="897.0" />
+      <point x="450.63029279279294" y="857.0" />
+      <point x="671.8802927927929" y="857.0" />
+      <point x="-42.25" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.dto.converter.Converter" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
-      <point x="0.0" y="-127.5" />
-      <point x="1960.011866210212" y="1386.0" />
-      <point x="1813.75" y="1386.0" />
-      <point x="0.0" y="139.0" />
+    <edge source="com.codingseahorse.tastylab.dto.RecipeDTO" target="com.codingseahorse.tastylab.model.recipe.RecipeStatus" relationship="TO_ONE">
+      <point x="-31.75" y="-15.5" />
+      <point x="851.3802927927929" y="762.0" />
+      <point x="771.6302927927929" y="762.0" />
+      <point x="771.6302927927929" y="702.0" />
+      <point x="782.1302927927929" y="702.0" />
+      <point x="782.1302927927929" y="402.0" />
+      <point x="1162.880292792793" y="402.0" />
+      <point x="-34.25" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.MemberService" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
-      <point x="38.0" y="-61.5" />
-      <point x="605.0" y="1736.0" />
-      <point x="767.4525582901547" y="1736.0" />
-      <point x="767.4525582901547" y="1055.0" />
-      <point x="1182.511866210212" y="1055.0" />
-      <point x="1182.511866210212" y="1045.0" />
-      <point x="1637.3333333333335" y="1045.0" />
-      <point x="-123.33333333333326" y="172.0" />
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_ONE">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="461.13029279279294" y="1082.0" />
+      <point x="461.13029279279294" y="627.0" />
+      <point x="919.8802927927929" y="627.0" />
+      <point x="919.8802927927929" y="597.0" />
+      <point x="1362.380292792793" y="597.0" />
+      <point x="-24.25" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.MemberController" target="com.codingseahorse.tastylab.service.MemberService" relationship="CREATE">
-      <point x="120.375" y="-50.5" />
-      <point x="569.1271588946452" y="2148.0" />
-      <point x="643.0" y="2148.0" />
-      <point x="76.0" y="61.5" />
+    <edge source="com.codingseahorse.tastylab.jwt.JwtUsernamePasswordAuthenticationFilter" target="com.codingseahorse.tastylab.jwt.JwtManager" relationship="DEPENDENCY">
+      <point x="-82.75" y="-15.5" />
+      <point x="3687.5" y="1502.0" />
+      <point x="4540.005292792793" y="1502.0" />
+      <point x="4540.005292792793" y="1322.0" />
+      <point x="4509.755292792793" y="1322.0" />
+      <point x="-33.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_MANY">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="461.13029279279294" y="1082.0" />
+      <point x="461.13029279279294" y="742.0" />
+      <point x="739.6302927927929" y="742.0" />
+      <point x="739.6302927927929" y="712.0" />
+      <point x="874.3802927927929" y="712.0" />
+      <point x="-27.75" y="15.5" />
     </edge>
     <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.member.Member" relationship="TO_ONE">
-      <point x="0.0" y="138.5" />
-      <point x="1944.0" y="657.0" />
-      <point x="1884.0" y="657.0" />
-      <point x="123.33333333333326" y="-172.0" />
+      <point x="-24.25" y="-15.5" />
+      <point x="1362.380292792793" y="522.0" />
+      <point x="771.6302927927929" y="522.0" />
+      <point x="771.6302927927929" y="462.0" />
+      <point x="2564.454954954955" y="462.0" />
+      <point x="-27.0" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.model.recipe.RecipeStatus" relationship="DEPENDENCY">
-      <point x="168.4375" y="-72.5" />
-      <point x="2125.4375" y="1746.0" />
-      <point x="2806.559307920057" y="1746.0" />
-      <point x="2806.559307920057" y="316.0" />
-      <point x="2769.6368662102122" y="316.0" />
-      <point x="60.75" y="61.5" />
+    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="DEPENDENCY">
+      <point x="-40.5" y="-15.5" />
+      <point x="4057.718468468469" y="1722.0" />
+      <point x="4545.005292792793" y="1722.0" />
+      <point x="4545.005292792793" y="1352.0" />
+      <point x="3008.9118243243247" y="1352.0" />
+      <point x="3008.9118243243247" y="1322.0" />
+      <point x="3048.6618243243247" y="1322.0" />
+      <point x="44.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_MANY">
-      <point x="0.0" y="-172.0" />
-      <point x="-183.33333333333326" y="138.5" />
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="135.5" y="1867.0" />
+      <point x="135.5" y="617.0" />
+      <point x="415.16182432432447" y="617.0" />
+      <point x="415.16182432432447" y="492.0" />
+      <point x="2564.454954954955" y="492.0" />
+      <point x="-27.0" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.exception.BadRequestException" relationship="CREATE">
-      <point x="46.125" y="-50.5" />
-      <point x="1414.625" y="1736.0" />
-      <point x="1560.511866210212" y="1736.0" />
-      <point x="0.0" y="28.0" />
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="DEPENDENCY">
+      <point x="47.5" y="-15.5" />
+      <point x="142.5" y="1977.0" />
+      <point x="80.5" y="1977.0" />
+      <point x="80.5" y="1927.0" />
+      <point x="102.5" y="1927.0" />
+      <point x="102.5" y="1652.0" />
+      <point x="1886.2049549549552" y="1652.0" />
+      <point x="1886.2049549549552" y="1042.0" />
+      <point x="1400.630292792793" y="1042.0" />
+      <point x="34.5" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.dto.converter.Converter" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
-      <point x="-184.0" y="-127.5" />
-      <point x="1776.011866210212" y="1376.0" />
-      <point x="1625.25" y="1376.0" />
-      <point x="1625.25" y="1055.0" />
-      <point x="1182.511866210212" y="1055.0" />
-      <point x="1182.511866210212" y="1045.0" />
-      <point x="1637.3333333333335" y="1045.0" />
-      <point x="-123.33333333333326" y="172.0" />
+    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="27.0" y="-15.5" />
+      <point x="2618.454954954955" y="297.0" />
+      <point x="2994.954954954955" y="297.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="CREATE">
-      <point x="138.375" y="-50.5" />
-      <point x="1506.875" y="1726.0" />
-      <point x="1673.511866210212" y="1726.0" />
-      <point x="1673.511866210212" y="1386.0" />
-      <point x="1813.75" y="1386.0" />
-      <point x="0.0" y="139.0" />
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="TO_MANY">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="336.16182432432447" y="1082.0" />
+      <point x="336.16182432432447" y="867.0" />
+      <point x="319.91182432432447" y="867.0" />
+      <point x="319.91182432432447" y="512.0" />
+      <point x="409.66182432432447" y="512.0" />
+      <point x="409.66182432432447" y="422.0" />
+      <point x="483.16182432432447" y="422.0" />
+      <point x="-21.5" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RegistrationController" target="com.codingseahorse.tastylab.model.member.Gender" relationship="DEPENDENCY">
-      <point x="-84.375" y="-39.5" />
-      <point x="1113.5021588946452" y="2128.0" />
-      <point x="404.5" y="2128.0" />
-      <point x="404.5" y="657.0" />
-      <point x="424.12715889464516" y="657.0" />
-      <point x="424.12715889464516" y="647.0" />
-      <point x="1281.9107142857147" y="647.0" />
-      <point x="-42.75" y="50.5" />
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.service.RecipeService" relationship="DEPENDENCY">
+      <point x="47.5" y="-15.5" />
+      <point x="142.5" y="1977.0" />
+      <point x="80.5" y="1977.0" />
+      <point x="80.5" y="1957.0" />
+      <point x="986.7049549549552" y="1957.0" />
+      <point x="986.7049549549552" y="1857.0" />
+      <point x="929.7049549549552" y="1857.0" />
+      <point x="36.0" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.model.member.Gender" relationship="DEPENDENCY">
-      <point x="-144.58333333333348" y="-61.5" />
-      <point x="2094.1979166666665" y="2108.0" />
-      <point x="404.5" y="2108.0" />
-      <point x="404.5" y="657.0" />
-      <point x="424.12715889464516" y="657.0" />
-      <point x="424.12715889464516" y="647.0" />
-      <point x="1281.9107142857147" y="647.0" />
-      <point x="-42.75" y="50.5" />
+    <edge source="com.codingseahorse.tastylab.service.MemberServiceTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
+      <point x="-45.5" y="-15.5" />
+      <point x="3785.204954954955" y="1907.0" />
+      <point x="2907.704954954955" y="1907.0" />
+      <point x="2907.704954954955" y="1612.0" />
+      <point x="2802.5" y="1612.0" />
+      <point x="2802.5" y="1322.0" />
+      <point x="2959.1618243243247" y="1322.0" />
+      <point x="-44.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RegistrationController" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="TO_ONE">
-      <point x="84.375" y="-39.5" />
-      <point x="1282.2521588946452" y="2148.0" />
-      <point x="1460.75" y="2148.0" />
-      <point x="92.25" y="50.5" />
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="DEPENDENCY">
+      <point x="-47.25" y="-15.5" />
+      <point x="4458.579954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1847.0" />
+      <point x="3996.25" y="1847.0" />
+      <point x="3996.25" y="1837.0" />
+      <point x="4057.718468468469" y="1837.0" />
+      <point x="-40.5" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
-      <point x="-46.125" y="-50.5" />
-      <point x="1322.375" y="1746.0" />
-      <point x="1182.511866210212" y="1746.0" />
-      <point x="0.0" y="72.0" />
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="TO_MANY">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="598.1302927927929" y="1082.0" />
+      <point x="598.1302927927929" y="917.0" />
+      <point x="787.6302927927929" y="917.0" />
+      <point x="787.6302927927929" y="837.0" />
+      <point x="851.3802927927929" y="837.0" />
+      <point x="-31.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.service.MemberService" target="com.codingseahorse.tastylab.requestsModels.MemberRequest" relationship="DEPENDENCY">
-      <point x="-114.0" y="-61.5" />
-      <point x="453.0" y="1746.0" />
-      <point x="186.5" y="1746.0" />
-      <point x="0.0" y="139.0" />
+    <edge source="com.codingseahorse.tastylab.controller.WelcomeControllerTest" target="com.codingseahorse.tastylab.config.TastylabSecurityConfig" relationship="TO_ONE">
+      <point x="52.0" y="-15.5" />
+      <point x="4094.675337837838" y="2061.0" />
+      <point x="4479.630292792793" y="2061.0" />
+      <point x="4479.630292792793" y="2051.0" />
+      <point x="4093.954954954955" y="2051.0" />
+      <point x="50.75" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
-      <point x="-86.75" y="-61.5" />
-      <point x="2152.03125" y="2098.0" />
-      <point x="729.5" y="2098.0" />
-      <point x="729.5" y="256.0" />
-      <point x="1662.8571428571431" y="256.0" />
-      <point x="-62.0" y="117.0" />
+    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="DEPENDENCY">
+      <point x="-40.5" y="-15.5" />
+      <point x="4057.718468468469" y="1722.0" />
+      <point x="4545.005292792793" y="1722.0" />
+      <point x="4545.005292792793" y="1532.0" />
+      <point x="4565.755292792793" y="1532.0" />
+      <point x="4565.755292792793" y="1292.0" />
+      <point x="4842.380292792793" y="1292.0" />
+      <point x="-52.5" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.dto.converter.Converter" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="DEPENDENCY">
-      <point x="184.0" y="-127.5" />
-      <point x="2144.0118662102122" y="1386.0" />
-      <point x="2045.2025582901547" y="1386.0" />
-      <point x="2045.2025582901547" y="657.0" />
-      <point x="2127.333333333333" y="657.0" />
-      <point x="183.33333333333326" y="138.5" />
+    <edge source="com.codingseahorse.tastylab.dto.RecipeDTO" target="com.codingseahorse.tastylab.model.recipe.RecipeSkills" relationship="DEPENDENCY">
+      <point x="31.75" y="-15.5" />
+      <point x="914.8802927927929" y="752.0" />
+      <point x="798.1302927927929" y="752.0" />
+      <point x="798.1302927927929" y="442.0" />
+      <point x="1076.130292792793" y="442.0" />
+      <point x="32.5" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.member.Gender" relationship="TO_ONE">
-      <point x="-123.33333333333326" y="-172.0" />
-      <point x="1367.4107142857147" y="679.0" />
-      <point x="42.75" y="50.5" />
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="TO_ONE">
+      <point x="-47.5" y="-15.5" />
+      <point x="47.5" y="1142.0" />
+      <point x="282.4118243243247" y="1142.0" />
+      <point x="282.4118243243247" y="1092.0" />
+      <point x="500.63029279279294" y="1092.0" />
+      <point x="-29.0" y="15.5" />
     </edge>
-    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="DEPENDENCY">
-      <point x="2.2737367544323206E-13" y="-138.5" />
-      <point x="1944.0000000000002" y="326.0" />
-      <point x="2207.277564458424" y="326.0" />
-      <point x="40.0" y="50.5" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.RecipeStatus" relationship="DEPENDENCY">
-      <point x="157.14285714285734" y="-138.5" />
-      <point x="2101.1428571428573" y="316.0" />
-      <point x="2769.6368662102122" y="316.0" />
-      <point x="60.75" y="61.5" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.service.RecipeService" relationship="TO_ONE">
-      <point x="-28.916666666666515" y="-61.5" />
-      <point x="2209.8645833333335" y="2088.0" />
-      <point x="1957.0" y="2088.0" />
-      <point x="0.0" y="72.5" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.controller.MemberController" target="com.codingseahorse.tastylab.exception.NotFoundException" relationship="CREATE">
-      <point x="-40.125" y="-50.5" />
-      <point x="408.62715889464516" y="2138.0" />
-      <point x="295.5" y="2138.0" />
-      <point x="0.0" y="28.0" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.requestsModels.RecipeRequest" relationship="DEPENDENCY">
-      <point x="86.75" y="-61.5" />
-      <point x="2325.53125" y="2138.0" />
-      <point x="2871.7618662102122" y="2138.0" />
-      <point x="0.0" y="128.0" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="CREATE">
-      <point x="24.0625" y="-72.5" />
-      <point x="1981.0625" y="1716.0" />
-      <point x="2098.0118662102122" y="1716.0" />
-      <point x="138.0" y="127.5" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.model.recipe.RecipeSkills" relationship="DEPENDENCY">
-      <point x="144.58333333333348" y="-61.5" />
-      <point x="2383.3645833333335" y="2148.0" />
-      <point x="3051.1368662102122" y="2148.0" />
-      <point x="48.5" y="50.5" />
-    </edge>
-    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.RecipeStatus" relationship="TO_ONE">
-      <point x="78.5714285714289" y="-138.5" />
-      <point x="2022.571428571429" y="296.0" />
-      <point x="2648.1368662102122" y="296.0" />
-      <point x="-60.75" y="61.5" />
+    <edge source="com.codingseahorse.tastylab.controller.MemberController" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="DEPENDENCY">
+      <point x="-43.5" y="-15.5" />
+      <point x="3368.204954954955" y="1937.0" />
+      <point x="1605.4549549549552" y="1937.0" />
+      <point x="1605.4549549549552" y="1652.0" />
+      <point x="1886.2049549549552" y="1652.0" />
+      <point x="1886.2049549549552" y="1042.0" />
+      <point x="1400.630292792793" y="1042.0" />
+      <point x="34.5" y="15.5" />
     </edge>
     <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.repository.RecipeRepository" relationship="TO_ONE">
-      <point x="120.3125" y="-72.5" />
-      <point x="2077.3125" y="1736.0" />
-      <point x="2442.0118662102122" y="1736.0" />
-      <point x="0.0" y="61.0" />
+      <point x="-36.0" y="-15.5" />
+      <point x="857.7049549549552" y="1722.0" />
+      <point x="1466.130292792793" y="1722.0" />
+      <point x="1466.130292792793" y="1032.0" />
+      <point x="1685.9118243243245" y="1032.0" />
+      <point x="-42.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1042.0" />
+      <point x="2666.954954954955" y="1042.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="TO_ONE">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1122.0" />
+      <point x="282.4118243243247" y="1122.0" />
+      <point x="282.4118243243247" y="1092.0" />
+      <point x="500.63029279279294" y="1092.0" />
+      <point x="-29.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="TO_MANY">
+      <point x="-47.5" y="-15.5" />
+      <point x="47.5" y="917.0" />
+      <point x="787.6302927927929" y="917.0" />
+      <point x="787.6302927927929" y="837.0" />
+      <point x="851.3802927927929" y="837.0" />
+      <point x="-31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberServiceTest" target="com.codingseahorse.tastylab.service.MemberService" relationship="DEPENDENCY">
+      <point x="45.5" y="-15.5" />
+      <point x="3876.204954954955" y="1897.0" />
+      <point x="2929.704954954955" y="1897.0" />
+      <point x="2929.704954954955" y="1887.0" />
+      <point x="2574.3802927927927" y="1887.0" />
+      <point x="38.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="TO_ONE">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="450.63029279279294" y="1082.0" />
+      <point x="450.63029279279294" y="857.0" />
+      <point x="671.8802927927929" y="857.0" />
+      <point x="-42.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.config.TastylabSecurityConfig" target="com.codingseahorse.tastylab.jwt.JwtUsernamePasswordAuthenticationFilter" relationship="TO_ONE">
+      <point x="50.75" y="-15.5" />
+      <point x="4093.954954954955" y="1977.0" />
+      <point x="4202.579954954956" y="1977.0" />
+      <point x="4202.579954954956" y="1857.0" />
+      <point x="3853.0" y="1857.0" />
+      <point x="82.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="DEPENDENCY">
+      <point x="36.0" y="-15.5" />
+      <point x="929.7049549549552" y="1702.0" />
+      <point x="1622.9118243243245" y="1702.0" />
+      <point x="1622.9118243243245" y="1262.0" />
+      <point x="1886.2049549549552" y="1262.0" />
+      <point x="1886.2049549549552" y="1042.0" />
+      <point x="1400.630292792793" y="1042.0" />
+      <point x="34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="DEPENDENCY">
+      <point x="47.5" y="-15.5" />
+      <point x="142.5" y="1977.0" />
+      <point x="80.5" y="1977.0" />
+      <point x="80.5" y="1927.0" />
+      <point x="102.5" y="1927.0" />
+      <point x="102.5" y="907.0" />
+      <point x="1212.9549549549552" y="907.0" />
+      <point x="1212.9549549549552" y="837.0" />
+      <point x="914.8802927927929" y="837.0" />
+      <point x="31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_MANY">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="135.5" y="1867.0" />
+      <point x="135.5" y="722.0" />
+      <point x="341.66182432432447" y="722.0" />
+      <point x="341.66182432432447" y="627.0" />
+      <point x="919.8802927927929" y="627.0" />
+      <point x="919.8802927927929" y="597.0" />
+      <point x="1362.380292792793" y="597.0" />
+      <point x="-24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.LizzyDTO" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="DEPENDENCY">
+      <point x="28.5" y="-15.5" />
+      <point x="1918.4118243243245" y="907.0" />
+      <point x="1212.9549549549552" y="907.0" />
+      <point x="1212.9549549549552" y="837.0" />
+      <point x="914.8802927927929" y="837.0" />
+      <point x="31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberServiceTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="45.5" y="-15.5" />
+      <point x="3876.204954954955" y="1897.0" />
+      <point x="2929.704954954955" y="1897.0" />
+      <point x="2929.704954954955" y="1857.0" />
+      <point x="3183.8802927927927" y="1857.0" />
+      <point x="3183.8802927927927" y="1492.0" />
+      <point x="3994.675337837838" y="1492.0" />
+      <point x="3994.675337837838" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="1331.7049549549552" y="1867.0" />
+      <point x="1331.7049549549552" y="1352.0" />
+      <point x="2302.4118243243247" y="1352.0" />
+      <point x="2302.4118243243247" y="617.0" />
+      <point x="1811.5000000000002" y="617.0" />
+      <point x="1811.5000000000002" y="597.0" />
+      <point x="1410.880292792793" y="597.0" />
+      <point x="24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.HomeDTO" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="DEPENDENCY">
+      <point x="30.75" y="-15.5" />
+      <point x="2059.1618243243247" y="907.0" />
+      <point x="1212.9549549549552" y="907.0" />
+      <point x="1212.9549549549552" y="837.0" />
+      <point x="914.8802927927929" y="837.0" />
+      <point x="31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="997.2049549549552" y="1867.0" />
+      <point x="997.2049549549552" y="1202.0" />
+      <point x="1633.4118243243245" y="1202.0" />
+      <point x="1633.4118243243245" y="887.0" />
+      <point x="1286.630292792793" y="887.0" />
+      <point x="1286.630292792793" y="847.0" />
+      <point x="756.3802927927929" y="847.0" />
+      <point x="42.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.requestsModels.MemberRequest" relationship="DEPENDENCY">
+      <point x="50.25" y="-15.5" />
+      <point x="3669.454954954955" y="1917.0" />
+      <point x="2805.6302927927927" y="1917.0" />
+      <point x="2805.6302927927927" y="1847.0" />
+      <point x="2840.454954954955" y="1847.0" />
+      <point x="40.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="DEPENDENCY">
+      <point x="-47.25" y="-15.5" />
+      <point x="4458.579954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1827.0" />
+      <point x="4652.079954954956" y="1827.0" />
+      <point x="4652.079954954956" y="1502.0" />
+      <point x="4565.755292792793" y="1502.0" />
+      <point x="4565.755292792793" y="1292.0" />
+      <point x="4842.380292792793" y="1292.0" />
+      <point x="-52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
+      <point x="-36.0" y="-15.5" />
+      <point x="857.7049549549552" y="1722.0" />
+      <point x="1466.130292792793" y="1722.0" />
+      <point x="1466.130292792793" y="1382.0" />
+      <point x="2802.5" y="1382.0" />
+      <point x="2802.5" y="1322.0" />
+      <point x="2959.1618243243247" y="1322.0" />
+      <point x="-44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.dto.LizzyDTO" relationship="DEPENDENCY">
+      <point x="36.0" y="-15.5" />
+      <point x="929.7049549549552" y="1702.0" />
+      <point x="1622.9118243243245" y="1702.0" />
+      <point x="1622.9118243243245" y="1282.0" />
+      <point x="1914.7049549549552" y="1282.0" />
+      <point x="1914.7049549549552" y="1012.0" />
+      <point x="1889.9118243243245" y="1012.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="TO_ONE">
+      <point x="-47.5" y="-15.5" />
+      <point x="47.5" y="897.0" />
+      <point x="450.63029279279294" y="897.0" />
+      <point x="450.63029279279294" y="857.0" />
+      <point x="671.8802927927929" y="857.0" />
+      <point x="-42.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="146.0" y="1867.0" />
+      <point x="146.0" y="1712.0" />
+      <point x="272.4118243243247" y="1712.0" />
+      <point x="272.4118243243247" y="1102.0" />
+      <point x="1331.630292792793" y="1102.0" />
+      <point x="-34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="TO_ONE">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1042.0" />
+      <point x="2564.454954954955" y="1042.0" />
+      <point x="-27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.repository.FoodTagRepository" relationship="DEPENDENCY">
+      <point x="36.0" y="-15.5" />
+      <point x="929.7049549549552" y="1702.0" />
+      <point x="1622.9118243243245" y="1702.0" />
+      <point x="1622.9118243243245" y="1342.0" />
+      <point x="2225.9118243243247" y="1342.0" />
+      <point x="2225.9118243243247" y="1042.0" />
+      <point x="2246.4118243243247" y="1042.0" />
+      <point x="45.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1062.0" />
+      <point x="1202.2049549549552" y="1062.0" />
+      <point x="1202.2049549549552" y="907.0" />
+      <point x="1212.9549549549552" y="907.0" />
+      <point x="1212.9549549549552" y="837.0" />
+      <point x="914.8802927927929" y="837.0" />
+      <point x="31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberServiceTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
+      <point x="45.5" y="-15.5" />
+      <point x="3876.204954954955" y="1897.0" />
+      <point x="2929.704954954955" y="1897.0" />
+      <point x="2929.704954954955" y="1482.0" />
+      <point x="3994.675337837838" y="1482.0" />
+      <point x="3994.675337837838" y="482.0" />
+      <point x="2666.954954954955" y="482.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.jwt.JwtManager" relationship="DEPENDENCY">
+      <point x="-40.5" y="-15.5" />
+      <point x="4057.718468468469" y="1722.0" />
+      <point x="4545.005292792793" y="1722.0" />
+      <point x="4545.005292792793" y="1342.0" />
+      <point x="4540.005292792793" y="1342.0" />
+      <point x="4540.005292792793" y="1322.0" />
+      <point x="4509.755292792793" y="1322.0" />
+      <point x="-33.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.repository.FoodTagRepository" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="976.2049549549552" y="1867.0" />
+      <point x="976.2049549549552" y="1232.0" />
+      <point x="1876.2049549549552" y="1232.0" />
+      <point x="1876.2049549549552" y="1022.0" />
+      <point x="2155.4118243243247" y="1022.0" />
+      <point x="-45.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="50.25" y="-15.5" />
+      <point x="3669.454954954955" y="1917.0" />
+      <point x="2805.6302927927927" y="1917.0" />
+      <point x="2805.6302927927927" y="1847.0" />
+      <point x="2891.204954954955" y="1847.0" />
+      <point x="2891.204954954955" y="1452.0" />
+      <point x="3190.9118243243247" y="1452.0" />
+      <point x="3190.9118243243247" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.service.RecipeService" relationship="DEPENDENCY">
+      <point x="40.75" y="-15.5" />
+      <point x="3263.954954954955" y="1947.0" />
+      <point x="1594.4549549549552" y="1947.0" />
+      <point x="1594.4549549549552" y="1937.0" />
+      <point x="986.7049549549552" y="1937.0" />
+      <point x="986.7049549549552" y="1857.0" />
+      <point x="929.7049549549552" y="1857.0" />
+      <point x="36.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="DEPENDENCY">
+      <point x="47.5" y="-15.5" />
+      <point x="142.5" y="1977.0" />
+      <point x="80.5" y="1977.0" />
+      <point x="80.5" y="1927.0" />
+      <point x="58.5" y="1927.0" />
+      <point x="58.5" y="502.0" />
+      <point x="798.1302927927929" y="502.0" />
+      <point x="798.1302927927929" y="422.0" />
+      <point x="526.1618243243245" y="422.0" />
+      <point x="21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.repository.RecipeRepository" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="1189.7049549549552" y="1867.0" />
+      <point x="1189.7049549549552" y="1292.0" />
+      <point x="1983.9549549549552" y="1292.0" />
+      <point x="1983.9549549549552" y="1032.0" />
+      <point x="1769.9118243243245" y="1032.0" />
+      <point x="42.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.FoodTag" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_MANY">
+      <point x="-27.75" y="-15.5" />
+      <point x="874.3802927927929" y="627.0" />
+      <point x="919.8802927927929" y="627.0" />
+      <point x="919.8802927927929" y="597.0" />
+      <point x="1362.380292792793" y="597.0" />
+      <point x="-24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
+      <point x="38.75" y="-15.5" />
+      <point x="2574.3802927927927" y="1612.0" />
+      <point x="2802.5" y="1612.0" />
+      <point x="2802.5" y="1322.0" />
+      <point x="2959.1618243243247" y="1322.0" />
+      <point x="-44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_MANY">
+      <point x="-24.25" y="15.5" />
+      <point x="1362.380292792793" y="597.0" />
+      <point x="919.8802927927929" y="597.0" />
+      <point x="919.8802927927929" y="627.0" />
+      <point x="874.3802927927929" y="627.0" />
+      <point x="-27.75" y="-15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1172.0" />
+      <point x="1456.130292792793" y="1172.0" />
+      <point x="1456.130292792793" y="1072.0" />
+      <point x="558.6302927927929" y="1072.0" />
+      <point x="29.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
+      <point x="47.5" y="-15.5" />
+      <point x="142.5" y="1977.0" />
+      <point x="80.5" y="1977.0" />
+      <point x="80.5" y="732.0" />
+      <point x="1906.0000000000002" y="732.0" />
+      <point x="1906.0000000000002" y="702.0" />
+      <point x="929.8802927927929" y="702.0" />
+      <point x="27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="135.5" y="1867.0" />
+      <point x="135.5" y="877.0" />
+      <point x="331.16182432432447" y="877.0" />
+      <point x="331.16182432432447" y="742.0" />
+      <point x="739.6302927927929" y="742.0" />
+      <point x="739.6302927927929" y="712.0" />
+      <point x="874.3802927927929" y="712.0" />
+      <point x="-27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="-27.0" y="-15.5" />
+      <point x="2564.454954954955" y="327.0" />
+      <point x="1424.130292792793" y="327.0" />
+      <point x="1424.130292792793" y="287.0" />
+      <point x="2688.454954954955" y="287.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1252.0" />
+      <point x="1886.2049549549552" y="1252.0" />
+      <point x="1886.2049549549552" y="1042.0" />
+      <point x="1400.630292792793" y="1042.0" />
+      <point x="34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.MemberDTO" target="com.codingseahorse.tastylab.model.member.Gender" relationship="TO_ONE">
+      <point x="-34.5" y="-15.5" />
+      <point x="1331.630292792793" y="937.0" />
+      <point x="787.6302927927929" y="937.0" />
+      <point x="787.6302927927929" y="877.0" />
+      <point x="968.1302927927929" y="877.0" />
+      <point x="968.1302927927929" y="257.0" />
+      <point x="1446.2049549549552" y="257.0" />
+      <point x="1446.2049549549552" y="237.0" />
+      <point x="2093.454954954955" y="237.0" />
+      <point x="-25.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RegistrationDTO" target="com.codingseahorse.tastylab.model.member.MembershipRole" relationship="TO_ONE">
+      <point x="-40.5" y="-15.5" />
+      <point x="5274.593468468469" y="327.0" />
+      <point x="5310.093468468469" y="327.0" />
+      <point x="5310.093468468469" y="287.0" />
+      <point x="5412.343468468469" y="287.0" />
+      <point x="5412.343468468469" y="153.0" />
+      <point x="3909.454954954955" y="153.0" />
+      <point x="3909.454954954955" y="133.0" />
+      <point x="3873.704954954955" y="133.0" />
+      <point x="-41.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="1120.4549549549552" y="1867.0" />
+      <point x="1120.4549549549552" y="1652.0" />
+      <point x="1886.2049549549552" y="1652.0" />
+      <point x="1886.2049549549552" y="1042.0" />
+      <point x="1400.630292792793" y="1042.0" />
+      <point x="34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
+      <point x="-51.5" y="-15.5" />
+      <point x="3312.675337837838" y="1742.0" />
+      <point x="4350.130292792793" y="1742.0" />
+      <point x="4350.130292792793" y="1372.0" />
+      <point x="2802.5" y="1372.0" />
+      <point x="2802.5" y="1322.0" />
+      <point x="2959.1618243243247" y="1322.0" />
+      <point x="-44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1412.0" />
+      <point x="3008.9118243243247" y="1412.0" />
+      <point x="3008.9118243243247" y="1322.0" />
+      <point x="3048.6618243243247" y="1322.0" />
+      <point x="44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="997.2049549549552" y="1867.0" />
+      <point x="997.2049549549552" y="1162.0" />
+      <point x="1456.130292792793" y="1162.0" />
+      <point x="1456.130292792793" y="1072.0" />
+      <point x="558.6302927927929" y="1072.0" />
+      <point x="29.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RecipeDTO" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_MANY">
+      <point x="-31.75" y="-15.5" />
+      <point x="851.3802927927929" y="762.0" />
+      <point x="771.6302927927929" y="762.0" />
+      <point x="771.6302927927929" y="722.0" />
+      <point x="739.6302927927929" y="722.0" />
+      <point x="739.6302927927929" y="712.0" />
+      <point x="874.3802927927929" y="712.0" />
+      <point x="-27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.RecipeStatus" relationship="DEPENDENCY">
+      <point x="24.25" y="-15.5" />
+      <point x="1410.880292792793" y="522.0" />
+      <point x="1424.130292792793" y="522.0" />
+      <point x="1424.130292792793" y="412.0" />
+      <point x="1231.380292792793" y="412.0" />
+      <point x="34.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.service.RecipeService" relationship="TO_ONE">
+      <point x="-40.75" y="-15.5" />
+      <point x="3182.454954954955" y="1877.0" />
+      <point x="857.7049549549552" y="1877.0" />
+      <point x="-36.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.repository.RecipeRepository" relationship="TO_ONE">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1092.0" />
+      <point x="1466.130292792793" y="1092.0" />
+      <point x="1466.130292792793" y="1032.0" />
+      <point x="1685.9118243243245" y="1032.0" />
+      <point x="-42.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepositoryTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="TO_ONE">
+      <point x="-51.5" y="-15.5" />
+      <point x="3312.675337837838" y="1742.0" />
+      <point x="4350.130292792793" y="1742.0" />
+      <point x="4350.130292792793" y="492.0" />
+      <point x="2564.454954954955" y="492.0" />
+      <point x="-27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1512.0" />
+      <point x="4565.755292792793" y="1512.0" />
+      <point x="4565.755292792793" y="1292.0" />
+      <point x="4842.380292792793" y="1292.0" />
+      <point x="-52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.config.TastylabSecurityConfig" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="TO_ONE">
+      <point x="50.75" y="-15.5" />
+      <point x="4093.954954954955" y="1977.0" />
+      <point x="4202.579954954956" y="1977.0" />
+      <point x="4202.579954954956" y="1877.0" />
+      <point x="4479.630292792793" y="1877.0" />
+      <point x="4479.630292792793" y="1827.0" />
+      <point x="4138.718468468469" y="1827.0" />
+      <point x="40.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="1091.7049549549552" y="1867.0" />
+      <point x="1091.7049549549552" y="1222.0" />
+      <point x="1822.4118243243245" y="1222.0" />
+      <point x="1822.4118243243245" y="732.0" />
+      <point x="1906.0000000000002" y="732.0" />
+      <point x="1906.0000000000002" y="702.0" />
+      <point x="929.8802927927929" y="702.0" />
+      <point x="27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.dto.HomeDTO" relationship="DEPENDENCY">
+      <point x="40.75" y="-15.5" />
+      <point x="3263.954954954955" y="1947.0" />
+      <point x="1594.4549549549552" y="1947.0" />
+      <point x="1594.4549549549552" y="1312.0" />
+      <point x="2053.204954954955" y="1312.0" />
+      <point x="2053.204954954955" y="1012.0" />
+      <point x="2028.4118243243245" y="1012.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.config.PasswordConfig" relationship="TO_ONE">
+      <point x="47.25" y="-15.5" />
+      <point x="4553.079954954956" y="1957.0" />
+      <point x="5366.880292792793" y="1957.0" />
+      <point x="5366.880292792793" y="1817.0" />
+      <point x="4781.079954954956" y="1817.0" />
+      <point x="39.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="DEPENDENCY">
+      <point x="-38.75" y="-15.5" />
+      <point x="2496.8802927927927" y="1642.0" />
+      <point x="2752.079954954955" y="1642.0" />
+      <point x="2752.079954954955" y="1422.0" />
+      <point x="3008.9118243243247" y="1422.0" />
+      <point x="3008.9118243243247" y="1322.0" />
+      <point x="3048.6618243243247" y="1322.0" />
+      <point x="44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.WelcomeControllerTest" target="com.codingseahorse.tastylab.config.TastylabSecurityConfig" relationship="DEPENDENCY">
+      <point x="-52.0" y="-15.5" />
+      <point x="3990.675337837838" y="2061.0" />
+      <point x="3802.050337837838" y="2061.0" />
+      <point x="3802.050337837838" y="2051.0" />
+      <point x="3992.454954954955" y="2051.0" />
+      <point x="-50.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberController" target="com.codingseahorse.tastylab.service.MemberService" relationship="DEPENDENCY">
+      <point x="-43.5" y="-15.5" />
+      <point x="3368.204954954955" y="1937.0" />
+      <point x="1605.4549549549552" y="1937.0" />
+      <point x="1605.4549549549552" y="1917.0" />
+      <point x="2574.3802927927927" y="1917.0" />
+      <point x="38.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="TO_ONE">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1132.0" />
+      <point x="272.4118243243247" y="1132.0" />
+      <point x="272.4118243243247" y="1102.0" />
+      <point x="1331.630292792793" y="1102.0" />
+      <point x="-34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="DEPENDENCY">
+      <point x="-47.25" y="-15.5" />
+      <point x="4458.579954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1827.0" />
+      <point x="4641.579954954956" y="1827.0" />
+      <point x="4641.579954954956" y="1632.0" />
+      <point x="3008.9118243243247" y="1632.0" />
+      <point x="3008.9118243243247" y="1322.0" />
+      <point x="3048.6618243243247" y="1322.0" />
+      <point x="44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberServiceTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="DEPENDENCY">
+      <point x="45.5" y="-15.5" />
+      <point x="3876.204954954955" y="1897.0" />
+      <point x="2929.704954954955" y="1897.0" />
+      <point x="2929.704954954955" y="1857.0" />
+      <point x="2918.704954954955" y="1857.0" />
+      <point x="2918.704954954955" y="1632.0" />
+      <point x="3008.9118243243247" y="1632.0" />
+      <point x="3008.9118243243247" y="1322.0" />
+      <point x="3048.6618243243247" y="1322.0" />
+      <point x="44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.HomeDTO" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="TO_MANY">
+      <point x="-30.75" y="-15.5" />
+      <point x="1997.6618243243245" y="917.0" />
+      <point x="787.6302927927929" y="917.0" />
+      <point x="787.6302927927929" y="837.0" />
+      <point x="851.3802927927929" y="837.0" />
+      <point x="-31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RegistrationDTO" target="com.codingseahorse.tastylab.model.member.MembershipRole" relationship="DEPENDENCY">
+      <point x="40.5" y="-15.5" />
+      <point x="5355.593468468469" y="327.0" />
+      <point x="5320.593468468469" y="327.0" />
+      <point x="5320.593468468469" y="297.0" />
+      <point x="5423.343468468469" y="297.0" />
+      <point x="5423.343468468469" y="143.0" />
+      <point x="3919.954954954955" y="143.0" />
+      <point x="3919.954954954955" y="133.0" />
+      <point x="3956.204954954955" y="133.0" />
+      <point x="41.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberService" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="DEPENDENCY">
+      <point x="-38.75" y="-15.5" />
+      <point x="2496.8802927927927" y="1642.0" />
+      <point x="2752.079954954955" y="1642.0" />
+      <point x="2752.079954954955" y="1052.0" />
+      <point x="1886.2049549549552" y="1052.0" />
+      <point x="1886.2049549549552" y="1042.0" />
+      <point x="1400.630292792793" y="1042.0" />
+      <point x="34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RecipeDTO" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="TO_MANY">
+      <point x="-31.75" y="-15.5" />
+      <point x="851.3802927927929" y="762.0" />
+      <point x="771.6302927927929" y="762.0" />
+      <point x="771.6302927927929" y="702.0" />
+      <point x="750.1302927927929" y="702.0" />
+      <point x="750.1302927927929" y="512.0" />
+      <point x="409.66182432432447" y="512.0" />
+      <point x="409.66182432432447" y="422.0" />
+      <point x="483.16182432432447" y="422.0" />
+      <point x="-21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="DEPENDENCY">
+      <point x="47.5" y="-15.5" />
+      <point x="142.5" y="1977.0" />
+      <point x="80.5" y="1977.0" />
+      <point x="80.5" y="1927.0" />
+      <point x="102.5" y="1927.0" />
+      <point x="102.5" y="1162.0" />
+      <point x="1456.130292792793" y="1162.0" />
+      <point x="1456.130292792793" y="1072.0" />
+      <point x="558.6302927927929" y="1072.0" />
+      <point x="29.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.RecipeSkills" relationship="DEPENDENCY">
+      <point x="24.25" y="-15.5" />
+      <point x="1410.880292792793" y="522.0" />
+      <point x="1424.130292792793" y="522.0" />
+      <point x="1424.130292792793" y="422.0" />
+      <point x="1076.130292792793" y="422.0" />
+      <point x="32.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1042.0" />
+      <point x="2666.954954954955" y="1042.0" />
+      <point x="2666.954954954955" y="732.0" />
+      <point x="1906.0000000000002" y="732.0" />
+      <point x="1906.0000000000002" y="702.0" />
+      <point x="929.8802927927929" y="702.0" />
+      <point x="27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1042.0" />
+      <point x="2666.954954954955" y="1042.0" />
+      <point x="2666.954954954955" y="502.0" />
+      <point x="798.1302927927929" y="502.0" />
+      <point x="798.1302927927929" y="422.0" />
+      <point x="526.1618243243245" y="422.0" />
+      <point x="21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1392.0" />
+      <point x="2802.5" y="1392.0" />
+      <point x="2802.5" y="1322.0" />
+      <point x="2959.1618243243247" y="1322.0" />
+      <point x="-44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="TO_ONE">
+      <point x="-47.5" y="-15.5" />
+      <point x="47.5" y="1712.0" />
+      <point x="272.4118243243247" y="1712.0" />
+      <point x="272.4118243243247" y="1102.0" />
+      <point x="1331.630292792793" y="1102.0" />
+      <point x="-34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.dto.RegistrationDTO" relationship="TO_ONE">
+      <point x="47.25" y="-15.5" />
+      <point x="4553.079954954956" y="1957.0" />
+      <point x="5366.880292792793" y="1957.0" />
+      <point x="5366.880292792793" y="1817.0" />
+      <point x="5450.968468468469" y="1817.0" />
+      <point x="5450.968468468469" y="522.0" />
+      <point x="5355.593468468469" y="522.0" />
+      <point x="40.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="1583.4549549549552" y="1867.0" />
+      <point x="1583.4549549549552" y="1632.0" />
+      <point x="3008.9118243243247" y="1632.0" />
+      <point x="3008.9118243243247" y="1322.0" />
+      <point x="3048.6618243243247" y="1322.0" />
+      <point x="44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.repository.RecipeRepository" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1072.0" />
+      <point x="1983.9549549549552" y="1072.0" />
+      <point x="1983.9549549549552" y="1032.0" />
+      <point x="1769.9118243243245" y="1032.0" />
+      <point x="42.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1062.0" />
+      <point x="619.1302927927929" y="1062.0" />
+      <point x="619.1302927927929" y="502.0" />
+      <point x="798.1302927927929" y="502.0" />
+      <point x="798.1302927927929" y="422.0" />
+      <point x="526.1618243243245" y="422.0" />
+      <point x="21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.config.TastylabSecurityConfig" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="DEPENDENCY">
+      <point x="-50.75" y="-15.5" />
+      <point x="3992.454954954955" y="1977.0" />
+      <point x="4033.204954954955" y="1977.0" />
+      <point x="4033.204954954955" y="1867.0" />
+      <point x="3996.25" y="1867.0" />
+      <point x="3996.25" y="1837.0" />
+      <point x="4057.718468468469" y="1837.0" />
+      <point x="-40.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.RecipeStatus" relationship="TO_ONE">
+      <point x="-24.25" y="-15.5" />
+      <point x="1362.380292792793" y="522.0" />
+      <point x="771.6302927927929" y="522.0" />
+      <point x="771.6302927927929" y="452.0" />
+      <point x="782.1302927927929" y="452.0" />
+      <point x="782.1302927927929" y="402.0" />
+      <point x="1162.880292792793" y="402.0" />
+      <point x="-34.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="DEPENDENCY">
+      <point x="50.25" y="-15.5" />
+      <point x="3669.454954954955" y="1917.0" />
+      <point x="2805.6302927927927" y="1917.0" />
+      <point x="2805.6302927927927" y="1847.0" />
+      <point x="2709.204954954955" y="1847.0" />
+      <point x="2709.204954954955" y="1652.0" />
+      <point x="1886.2049549549552" y="1652.0" />
+      <point x="1886.2049549549552" y="1042.0" />
+      <point x="1400.630292792793" y="1042.0" />
+      <point x="34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="DEPENDENCY">
+      <point x="40.75" y="-15.5" />
+      <point x="3263.954954954955" y="1947.0" />
+      <point x="1594.4549549549552" y="1947.0" />
+      <point x="1594.4549549549552" y="1652.0" />
+      <point x="1886.2049549549552" y="1652.0" />
+      <point x="1886.2049549549552" y="1042.0" />
+      <point x="1400.630292792793" y="1042.0" />
+      <point x="34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.FoodTagRepositoryTest" target="com.codingseahorse.tastylab.repository.FoodTagRepository" relationship="DEPENDENCY">
+      <point x="52.25" y="-15.5" />
+      <point x="1520.7049549549552" y="1682.0" />
+      <point x="2334.9118243243247" y="1682.0" />
+      <point x="2334.9118243243247" y="1212.0" />
+      <point x="2225.9118243243247" y="1212.0" />
+      <point x="2225.9118243243247" y="1042.0" />
+      <point x="2246.4118243243247" y="1042.0" />
+      <point x="45.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="976.2049549549552" y="1867.0" />
+      <point x="976.2049549549552" y="1612.0" />
+      <point x="2802.5" y="1612.0" />
+      <point x="2802.5" y="1322.0" />
+      <point x="2959.1618243243247" y="1322.0" />
+      <point x="-44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.Converter" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="529.6302927927929" y="907.0" />
+      <point x="1212.9549549549552" y="907.0" />
+      <point x="1212.9549549549552" y="837.0" />
+      <point x="914.8802927927929" y="837.0" />
+      <point x="31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="135.5" y="1867.0" />
+      <point x="135.5" y="722.0" />
+      <point x="341.66182432432447" y="722.0" />
+      <point x="341.66182432432447" y="627.0" />
+      <point x="919.8802927927929" y="627.0" />
+      <point x="919.8802927927929" y="597.0" />
+      <point x="1362.380292792793" y="597.0" />
+      <point x="-24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="DEPENDENCY">
+      <point x="51.5" y="-15.5" />
+      <point x="3415.675337837838" y="1732.0" />
+      <point x="4361.130292792793" y="1732.0" />
+      <point x="4361.130292792793" y="1362.0" />
+      <point x="3008.9118243243247" y="1362.0" />
+      <point x="3008.9118243243247" y="1322.0" />
+      <point x="3048.6618243243247" y="1322.0" />
+      <point x="44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="156.0" y="1867.0" />
+      <point x="156.0" y="1142.0" />
+      <point x="282.4118243243247" y="1142.0" />
+      <point x="282.4118243243247" y="1092.0" />
+      <point x="500.63029279279294" y="1092.0" />
+      <point x="-29.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RegistrationDTO" target="com.codingseahorse.tastylab.model.member.Gender" relationship="TO_ONE">
+      <point x="-40.5" y="-15.5" />
+      <point x="5274.593468468469" y="327.0" />
+      <point x="5310.093468468469" y="327.0" />
+      <point x="5310.093468468469" y="247.0" />
+      <point x="1446.2049549549552" y="247.0" />
+      <point x="1446.2049549549552" y="237.0" />
+      <point x="2093.454954954955" y="237.0" />
+      <point x="-25.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="TO_ONE">
+      <point x="-50.25" y="-15.5" />
+      <point x="3568.954954954955" y="1927.0" />
+      <point x="2501.0052927927927" y="1927.0" />
+      <point x="2501.0052927927927" y="1857.0" />
+      <point x="2447.6302927927927" y="1857.0" />
+      <point x="2447.6302927927927" y="1362.0" />
+      <point x="2688.454954954955" y="1362.0" />
+      <point x="2688.454954954955" y="492.0" />
+      <point x="2564.454954954955" y="492.0" />
+      <point x="-27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="DEPENDENCY">
+      <point x="47.5" y="-15.5" />
+      <point x="142.5" y="1977.0" />
+      <point x="80.5" y="1977.0" />
+      <point x="80.5" y="1927.0" />
+      <point x="102.5" y="1927.0" />
+      <point x="102.5" y="887.0" />
+      <point x="1286.630292792793" y="887.0" />
+      <point x="1286.630292792793" y="847.0" />
+      <point x="756.3802927927929" y="847.0" />
+      <point x="42.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.dto.MemberDTO" relationship="TO_ONE">
+      <point x="-50.25" y="-15.5" />
+      <point x="3568.954954954955" y="1927.0" />
+      <point x="2501.0052927927927" y="1927.0" />
+      <point x="2501.0052927927927" y="1857.0" />
+      <point x="1616.4549549549552" y="1857.0" />
+      <point x="1616.4549549549552" y="1712.0" />
+      <point x="272.4118243243247" y="1712.0" />
+      <point x="272.4118243243247" y="1102.0" />
+      <point x="1331.630292792793" y="1102.0" />
+      <point x="-34.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_MANY">
+      <point x="-27.0" y="15.5" />
+      <point x="2564.454954954955" y="462.0" />
+      <point x="771.6302927927929" y="462.0" />
+      <point x="771.6302927927929" y="522.0" />
+      <point x="1362.380292792793" y="522.0" />
+      <point x="-24.25" y="-15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.config.TastylabSecurityConfig" target="com.codingseahorse.tastylab.jwt.JwtUsernamePasswordAuthenticationFilter" relationship="DEPENDENCY">
+      <point x="-50.75" y="-15.5" />
+      <point x="3992.454954954955" y="1977.0" />
+      <point x="4033.204954954955" y="1977.0" />
+      <point x="4033.204954954955" y="1877.0" />
+      <point x="3687.5" y="1877.0" />
+      <point x="-82.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
+      <point x="47.25" y="-15.5" />
+      <point x="4553.079954954956" y="1957.0" />
+      <point x="5366.880292792793" y="1957.0" />
+      <point x="5366.880292792793" y="1817.0" />
+      <point x="5102.204954954956" y="1817.0" />
+      <point x="5102.204954954956" y="1612.0" />
+      <point x="2802.5" y="1612.0" />
+      <point x="2802.5" y="1322.0" />
+      <point x="2959.1618243243247" y="1322.0" />
+      <point x="-44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="1331.7049549549552" y="1867.0" />
+      <point x="1331.7049549549552" y="1362.0" />
+      <point x="2302.4118243243247" y="1362.0" />
+      <point x="2302.4118243243247" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="135.5" y="1867.0" />
+      <point x="135.5" y="897.0" />
+      <point x="450.63029279279294" y="897.0" />
+      <point x="450.63029279279294" y="857.0" />
+      <point x="671.8802927927929" y="857.0" />
+      <point x="-42.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="TO_MANY">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1042.0" />
+      <point x="2564.454954954955" y="1042.0" />
+      <point x="2564.454954954955" y="512.0" />
+      <point x="409.66182432432424" y="512.0" />
+      <point x="409.66182432432447" y="422.0" />
+      <point x="483.16182432432447" y="422.0" />
+      <point x="-21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_MANY">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1042.0" />
+      <point x="2451.25" y="1042.0" />
+      <point x="2451.25" y="742.0" />
+      <point x="739.6302927927929" y="742.0" />
+      <point x="739.6302927927929" y="712.0" />
+      <point x="874.3802927927929" y="712.0" />
+      <point x="-27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.requestsModels.MemberRequest" relationship="TO_ONE">
+      <point x="-50.25" y="-15.5" />
+      <point x="3568.954954954955" y="1927.0" />
+      <point x="2501.0052927927927" y="1927.0" />
+      <point x="2501.0052927927927" y="1857.0" />
+      <point x="2759.954954954955" y="1857.0" />
+      <point x="-40.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="997.2049549549552" y="1867.0" />
+      <point x="997.2049549549552" y="1192.0" />
+      <point x="1633.4118243243245" y="1192.0" />
+      <point x="1633.4118243243245" y="907.0" />
+      <point x="1212.9549549549552" y="907.0" />
+      <point x="1212.9549549549552" y="837.0" />
+      <point x="914.8802927927929" y="837.0" />
+      <point x="31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.repository.FoodTagRepository" relationship="TO_ONE">
+      <point x="-36.0" y="-15.5" />
+      <point x="857.7049549549552" y="1722.0" />
+      <point x="1466.130292792793" y="1722.0" />
+      <point x="1466.130292792793" y="1242.0" />
+      <point x="1876.2049549549552" y="1242.0" />
+      <point x="1876.2049549549552" y="1022.0" />
+      <point x="2155.4118243243247" y="1022.0" />
+      <point x="-45.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="-47.25" y="-15.5" />
+      <point x="4458.579954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1827.0" />
+      <point x="4831.079954954956" y="1827.0" />
+      <point x="4831.079954954956" y="1572.0" />
+      <point x="5192.593468468469" y="1572.0" />
+      <point x="5192.593468468469" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="DEPENDENCY">
+      <point x="36.0" y="-15.5" />
+      <point x="929.7049549549552" y="1702.0" />
+      <point x="1622.9118243243245" y="1702.0" />
+      <point x="1622.9118243243245" y="1402.0" />
+      <point x="3008.9118243243247" y="1402.0" />
+      <point x="3008.9118243243247" y="1322.0" />
+      <point x="3048.6618243243247" y="1322.0" />
+      <point x="44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="TO_ONE">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="598.1302927927929" y="1082.0" />
+      <point x="598.1302927927929" y="917.0" />
+      <point x="787.6302927927929" y="917.0" />
+      <point x="787.6302927927929" y="837.0" />
+      <point x="851.3802927927929" y="837.0" />
+      <point x="-31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberServiceTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="TO_ONE">
+      <point x="-45.5" y="-15.5" />
+      <point x="3785.204954954955" y="1907.0" />
+      <point x="2907.704954954955" y="1907.0" />
+      <point x="2907.704954954955" y="1462.0" />
+      <point x="3961.675337837838" y="1462.0" />
+      <point x="3961.675337837838" y="492.0" />
+      <point x="2564.454954954955" y="492.0" />
+      <point x="-27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.dto.RegistrationDTO" relationship="DEPENDENCY">
+      <point x="-47.25" y="-15.5" />
+      <point x="4458.579954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1967.0" />
+      <point x="4746.829954954956" y="1827.0" />
+      <point x="4836.329954954956" y="1827.0" />
+      <point x="4836.329954954956" y="1582.0" />
+      <point x="5203.093468468469" y="1582.0" />
+      <point x="5203.093468468469" y="522.0" />
+      <point x="5274.593468468469" y="522.0" />
+      <point x="-40.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="TO_MANY">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="135.5" y="1867.0" />
+      <point x="135.5" y="512.0" />
+      <point x="409.66182432432447" y="512.0" />
+      <point x="409.66182432432447" y="422.0" />
+      <point x="483.16182432432447" y="422.0" />
+      <point x="-21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1042.0" />
+      <point x="2677.454954954955" y="1042.0" />
+      <point x="2677.454954954955" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.dto.converter.Converter" relationship="DEPENDENCY">
+      <point x="36.0" y="-15.5" />
+      <point x="929.7049549549552" y="1702.0" />
+      <point x="1622.9118243243245" y="1702.0" />
+      <point x="1622.9118243243245" y="1102.0" />
+      <point x="1456.130292792793" y="1102.0" />
+      <point x="1456.130292792793" y="1072.0" />
+      <point x="558.6302927927929" y="1072.0" />
+      <point x="29.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="TO_ONE">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="1476.630292792793" y="1082.0" />
+      <point x="1476.630292792793" y="492.0" />
+      <point x="2564.454954954955" y="492.0" />
+      <point x="-27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="997.2049549549552" y="1867.0" />
+      <point x="997.2049549549552" y="1212.0" />
+      <point x="1633.4118243243245" y="1212.0" />
+      <point x="1633.4118243243245" y="502.0" />
+      <point x="798.1302927927929" y="502.0" />
+      <point x="798.1302927927929" y="422.0" />
+      <point x="526.1618243243245" y="422.0" />
+      <point x="21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.service.RecipeService" relationship="TO_ONE">
+      <point x="-47.5" y="-15.5" />
+      <point x="47.5" y="1937.0" />
+      <point x="857.7049549549552" y="1937.0" />
+      <point x="-36.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="292.9118243243247" y="1082.0" />
+      <point x="292.9118243243247" y="307.0" />
+      <point x="2688.454954954955" y="307.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_MANY">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="135.5" y="1867.0" />
+      <point x="135.5" y="877.0" />
+      <point x="331.16182432432447" y="877.0" />
+      <point x="331.16182432432447" y="742.0" />
+      <point x="739.6302927927929" y="742.0" />
+      <point x="739.6302927927929" y="712.0" />
+      <point x="874.3802927927929" y="712.0" />
+      <point x="-27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.service.RecipeService" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1947.0" />
+      <point x="986.7049549549552" y="1947.0" />
+      <point x="986.7049549549552" y="1857.0" />
+      <point x="929.7049549549552" y="1857.0" />
+      <point x="36.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.MemberDTO" target="com.codingseahorse.tastylab.model.member.Gender" relationship="DEPENDENCY">
+      <point x="34.5" y="-15.5" />
+      <point x="1400.630292792793" y="927.0" />
+      <point x="1218.2049549549552" y="927.0" />
+      <point x="1218.2049549549552" y="867.0" />
+      <point x="1276.130292792793" y="867.0" />
+      <point x="1276.130292792793" y="277.0" />
+      <point x="2618.454954954955" y="277.0" />
+      <point x="2618.454954954955" y="227.0" />
+      <point x="2143.454954954955" y="227.0" />
+      <point x="25.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_ONE">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1042.0" />
+      <point x="2451.25" y="1042.0" />
+      <point x="2451.25" y="627.0" />
+      <point x="919.8802927927929" y="627.0" />
+      <point x="919.8802927927929" y="597.0" />
+      <point x="1362.380292792793" y="597.0" />
+      <point x="-24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="TO_MANY">
+      <point x="-35.75" y="-15.5" />
+      <point x="694.4549549549552" y="1742.0" />
+      <point x="1029.2500000000002" y="1742.0" />
+      <point x="1029.2500000000002" y="1082.0" />
+      <point x="461.13029279279294" y="1082.0" />
+      <point x="461.13029279279294" y="627.0" />
+      <point x="919.8802927927929" y="627.0" />
+      <point x="919.8802927927929" y="597.0" />
+      <point x="1362.380292792793" y="597.0" />
+      <point x="-24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RecipeDTO" target="com.codingseahorse.tastylab.model.recipe.RecipeSkills" relationship="TO_ONE">
+      <point x="-31.75" y="-15.5" />
+      <point x="851.3802927927929" y="762.0" />
+      <point x="771.6302927927929" y="762.0" />
+      <point x="771.6302927927929" y="702.0" />
+      <point x="761.1302927927929" y="702.0" />
+      <point x="761.1302927927929" y="442.0" />
+      <point x="771.6302927927929" y="442.0" />
+      <point x="771.6302927927929" y="412.0" />
+      <point x="1011.1302927927929" y="412.0" />
+      <point x="-32.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RecipeDTO" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
+      <point x="31.75" y="-15.5" />
+      <point x="914.8802927927929" y="752.0" />
+      <point x="798.1302927927929" y="752.0" />
+      <point x="798.1302927927929" y="722.0" />
+      <point x="1906.0000000000002" y="722.0" />
+      <point x="1906.0000000000002" y="702.0" />
+      <point x="929.8802927927929" y="702.0" />
+      <point x="27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="1353.4549549549552" y="1867.0" />
+      <point x="1353.4549549549552" y="1372.0" />
+      <point x="2345.9118243243247" y="1372.0" />
+      <point x="2345.9118243243247" y="482.0" />
+      <point x="2666.954954954955" y="482.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.service.MemberService" relationship="TO_ONE">
+      <point x="-50.25" y="-15.5" />
+      <point x="3568.954954954955" y="1927.0" />
+      <point x="2501.0052927927927" y="1927.0" />
+      <point x="2501.0052927927927" y="1907.0" />
+      <point x="2564.3802927927927" y="1907.0" />
+      <point x="2564.3802927927927" y="1847.0" />
+      <point x="2496.8802927927927" y="1847.0" />
+      <point x="-38.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="DEPENDENCY">
+      <point x="51.5" y="-15.5" />
+      <point x="3415.675337837838" y="1732.0" />
+      <point x="4361.130292792793" y="1732.0" />
+      <point x="4361.130292792793" y="1522.0" />
+      <point x="4565.755292792793" y="1522.0" />
+      <point x="4565.755292792793" y="1292.0" />
+      <point x="4842.380292792793" y="1292.0" />
+      <point x="-52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.repository.MemberRepository" relationship="TO_ONE">
+      <point x="40.5" y="-15.5" />
+      <point x="4138.718468468469" y="1622.0" />
+      <point x="5021.329954954956" y="1622.0" />
+      <point x="5021.329954954956" y="1332.0" />
+      <point x="2802.5" y="1332.0" />
+      <point x="2802.5" y="1322.0" />
+      <point x="2959.1618243243247" y="1322.0" />
+      <point x="-44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="DEPENDENCY">
+      <point x="27.0" y="15.5" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2666.954954954955" y="472.0" />
+      <point x="1424.130292792793" y="472.0" />
+      <point x="1424.130292792793" y="522.0" />
+      <point x="1410.880292792793" y="522.0" />
+      <point x="24.25" y="-15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
+      <point x="24.25" y="-15.5" />
+      <point x="1410.880292792793" y="522.0" />
+      <point x="1424.130292792793" y="522.0" />
+      <point x="1424.130292792793" y="472.0" />
+      <point x="2666.954954954955" y="472.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.repository.RecipeRepository" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="648.2049549549552" y="1867.0" />
+      <point x="648.2049549549552" y="1182.0" />
+      <point x="1466.130292792793" y="1182.0" />
+      <point x="1466.130292792793" y="1032.0" />
+      <point x="1685.9118243243245" y="1032.0" />
+      <point x="-42.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.dto.HomeDTO" relationship="DEPENDENCY">
+      <point x="36.0" y="-15.5" />
+      <point x="929.7049549549552" y="1702.0" />
+      <point x="1622.9118243243245" y="1702.0" />
+      <point x="1622.9118243243245" y="1322.0" />
+      <point x="2053.204954954955" y="1322.0" />
+      <point x="2053.204954954955" y="1012.0" />
+      <point x="2028.4118243243245" y="1012.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeService" target="com.codingseahorse.tastylab.repository.RecipeRepository" relationship="DEPENDENCY">
+      <point x="36.0" y="-15.5" />
+      <point x="929.7049549549552" y="1702.0" />
+      <point x="1622.9118243243245" y="1702.0" />
+      <point x="1622.9118243243245" y="1302.0" />
+      <point x="1983.9549549549552" y="1302.0" />
+      <point x="1983.9549549549552" y="1032.0" />
+      <point x="1769.9118243243245" y="1032.0" />
+      <point x="42.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="TO_ONE">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1552.0" />
+      <point x="4947.380292792793" y="1552.0" />
+      <point x="52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="TO_MANY">
+      <point x="-47.5" y="-15.5" />
+      <point x="47.5" y="512.0" />
+      <point x="409.66182432432447" y="512.0" />
+      <point x="409.66182432432447" y="422.0" />
+      <point x="483.16182432432447" y="422.0" />
+      <point x="-21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="47.25" y="-15.5" />
+      <point x="4553.079954954956" y="1957.0" />
+      <point x="5366.880292792793" y="1957.0" />
+      <point x="5366.880292792793" y="1817.0" />
+      <point x="5461.468468468469" y="1817.0" />
+      <point x="5461.468468468469" y="307.0" />
+      <point x="2688.454954954955" y="307.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberServiceTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="-45.5" y="-15.5" />
+      <point x="3785.204954954955" y="1907.0" />
+      <point x="2907.704954954955" y="1907.0" />
+      <point x="2907.704954954955" y="1472.0" />
+      <point x="3983.675337837838" y="1472.0" />
+      <point x="3983.675337837838" y="307.0" />
+      <point x="2688.454954954955" y="307.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.MemberServiceTest" target="com.codingseahorse.tastylab.service.MemberService" relationship="TO_ONE">
+      <point x="-45.5" y="-15.5" />
+      <point x="3785.204954954955" y="1907.0" />
+      <point x="2907.704954954955" y="1907.0" />
+      <point x="2907.704954954955" y="1897.0" />
+      <point x="2564.3802927927927" y="1897.0" />
+      <point x="2564.3802927927927" y="1847.0" />
+      <point x="2496.8802927927927" y="1847.0" />
+      <point x="-38.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="TO_ONE">
+      <point x="-47.5" y="-15.5" />
+      <point x="47.5" y="917.0" />
+      <point x="787.6302927927929" y="917.0" />
+      <point x="787.6302927927929" y="837.0" />
+      <point x="851.3802927927929" y="837.0" />
+      <point x="-31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeControllerTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_MANY">
+      <point x="-47.5" y="-15.5" />
+      <point x="47.5" y="742.0" />
+      <point x="739.6302927927929" y="742.0" />
+      <point x="739.6302927927929" y="712.0" />
+      <point x="874.3802927927929" y="712.0" />
+      <point x="-27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.MembershipRole" target="com.codingseahorse.tastylab.model.member.MemberPermission" relationship="DEPENDENCY">
+      <point x="41.25" y="-15.5" />
+      <point x="3956.204954954955" y="56.0" />
+      <point x="3959.704954954955" y="56.0" />
+      <point x="44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="TO_MANY">
+      <point x="-24.25" y="-15.5" />
+      <point x="1362.380292792793" y="522.0" />
+      <point x="771.6302927927929" y="522.0" />
+      <point x="771.6302927927929" y="432.0" />
+      <point x="409.66182432432447" y="432.0" />
+      <point x="409.66182432432447" y="422.0" />
+      <point x="483.16182432432447" y="422.0" />
+      <point x="-21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.MembershipRole" target="com.codingseahorse.tastylab.model.member.MemberPermission" relationship="TO_MANY">
+      <point x="-41.25" y="-15.5" />
+      <point x="3873.704954954955" y="56.0" />
+      <point x="3870.204954954955" y="56.0" />
+      <point x="-44.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.FoodTag" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="DEPENDENCY">
+      <point x="27.75" y="-15.5" />
+      <point x="929.8802927927929" y="617.0" />
+      <point x="1811.5000000000002" y="617.0" />
+      <point x="1811.5000000000002" y="597.0" />
+      <point x="1410.880292792793" y="597.0" />
+      <point x="24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
+      <point x="24.25" y="15.5" />
+      <point x="1410.880292792793" y="597.0" />
+      <point x="1811.5000000000002" y="597.0" />
+      <point x="1811.5000000000002" y="617.0" />
+      <point x="929.8802927927929" y="617.0" />
+      <point x="27.75" y="-15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.FoodTagRepositoryTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
+      <point x="52.25" y="-15.5" />
+      <point x="1520.7049549549552" y="1682.0" />
+      <point x="2334.9118243243247" y="1682.0" />
+      <point x="2334.9118243243247" y="732.0" />
+      <point x="1906.0000000000002" y="732.0" />
+      <point x="1906.0000000000002" y="702.0" />
+      <point x="929.8802927927929" y="702.0" />
+      <point x="27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
+      <point x="50.25" y="-15.5" />
+      <point x="3669.454954954955" y="1917.0" />
+      <point x="2805.6302927927927" y="1917.0" />
+      <point x="2805.6302927927927" y="1847.0" />
+      <point x="2891.204954954955" y="1847.0" />
+      <point x="2891.204954954955" y="1442.0" />
+      <point x="3190.9118243243247" y="1442.0" />
+      <point x="3190.9118243243247" y="482.0" />
+      <point x="2666.954954954955" y="482.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.MemberCard" target="com.codingseahorse.tastylab.model.member.MembershipRole" relationship="TO_ONE">
+      <point x="-34.75" y="-15.5" />
+      <point x="2860.204954954955" y="153.0" />
+      <point x="3909.454954954955" y="153.0" />
+      <point x="3909.454954954955" y="133.0" />
+      <point x="3873.704954954955" y="133.0" />
+      <point x="-41.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepositoryTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="51.5" y="-15.5" />
+      <point x="3415.675337837838" y="1732.0" />
+      <point x="4361.130292792793" y="1732.0" />
+      <point x="4361.130292792793" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1042.0" />
+      <point x="2666.954954954955" y="1042.0" />
+      <point x="2666.954954954955" y="617.0" />
+      <point x="1811.5000000000002" y="617.0" />
+      <point x="1811.5000000000002" y="597.0" />
+      <point x="1410.880292792793" y="597.0" />
+      <point x="24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="DEPENDENCY">
+      <point x="50.25" y="-15.5" />
+      <point x="3669.454954954955" y="1917.0" />
+      <point x="2805.6302927927927" y="1917.0" />
+      <point x="2805.6302927927927" y="1847.0" />
+      <point x="2891.204954954955" y="1847.0" />
+      <point x="2891.204954954955" y="1432.0" />
+      <point x="3190.9118243243247" y="1432.0" />
+      <point x="3190.9118243243247" y="887.0" />
+      <point x="1286.630292792793" y="887.0" />
+      <point x="1286.630292792793" y="847.0" />
+      <point x="756.3802927927929" y="847.0" />
+      <point x="42.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RecipeDTO" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="DEPENDENCY">
+      <point x="31.75" y="-15.5" />
+      <point x="914.8802927927929" y="752.0" />
+      <point x="798.1302927927929" y="752.0" />
+      <point x="798.1302927927929" y="422.0" />
+      <point x="526.1618243243245" y="422.0" />
+      <point x="21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.WelcomeController" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="TO_ONE">
+      <point x="45.25" y="-15.5" />
+      <point x="4346.079954954956" y="1977.0" />
+      <point x="4479.630292792793" y="1977.0" />
+      <point x="4479.630292792793" y="1827.0" />
+      <point x="4138.718468468469" y="1827.0" />
+      <point x="40.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.MemberControllerTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="-50.25" y="-15.5" />
+      <point x="3568.954954954955" y="1927.0" />
+      <point x="2501.0052927927927" y="1927.0" />
+      <point x="2501.0052927927927" y="1857.0" />
+      <point x="2447.6302927927927" y="1857.0" />
+      <point x="2447.6302927927927" y="1372.0" />
+      <point x="2688.454954954955" y="1372.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberCardRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="DEPENDENCY">
+      <point x="-59.25" y="-15.5" />
+      <point x="4913.954954954956" y="1602.0" />
+      <point x="5297.329954954956" y="1602.0" />
+      <point x="5297.329954954956" y="1302.0" />
+      <point x="4565.755292792793" y="1302.0" />
+      <point x="4565.755292792793" y="1292.0" />
+      <point x="4842.380292792793" y="1292.0" />
+      <point x="-52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.FoodTagRepositoryTest" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="TO_MANY">
+      <point x="-52.25" y="-15.5" />
+      <point x="1416.2049549549552" y="1692.0" />
+      <point x="2323.9118243243247" y="1692.0" />
+      <point x="2323.9118243243247" y="742.0" />
+      <point x="739.6302927927929" y="742.0" />
+      <point x="739.6302927927929" y="712.0" />
+      <point x="874.3802927927929" y="712.0" />
+      <point x="-27.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.MemberDTO" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="DEPENDENCY">
+      <point x="34.5" y="-15.5" />
+      <point x="1400.630292792793" y="927.0" />
+      <point x="1218.2049549549552" y="927.0" />
+      <point x="1218.2049549549552" y="877.0" />
+      <point x="1286.630292792793" y="877.0" />
+      <point x="1286.630292792793" y="847.0" />
+      <point x="756.3802927927929" y="847.0" />
+      <point x="42.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="TO_ONE">
+      <point x="-51.5" y="-15.5" />
+      <point x="3312.675337837838" y="1742.0" />
+      <point x="4350.130292792793" y="1742.0" />
+      <point x="4350.130292792793" y="1562.0" />
+      <point x="4947.380292792793" y="1562.0" />
+      <point x="52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.recipe.Recipe" target="com.codingseahorse.tastylab.model.recipe.Food" relationship="DEPENDENCY">
+      <point x="24.25" y="-15.5" />
+      <point x="1410.880292792793" y="522.0" />
+      <point x="1424.130292792793" y="522.0" />
+      <point x="1424.130292792793" y="432.0" />
+      <point x="798.1302927927929" y="432.0" />
+      <point x="798.1302927927929" y="422.0" />
+      <point x="526.1618243243245" y="422.0" />
+      <point x="21.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberCardRepository" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="4894.880292792793" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.FoodTagRepositoryTest" target="com.codingseahorse.tastylab.repository.FoodTagRepository" relationship="TO_ONE">
+      <point x="-52.25" y="-15.5" />
+      <point x="1416.2049549549552" y="1692.0" />
+      <point x="2323.9118243243247" y="1692.0" />
+      <point x="2323.9118243243247" y="1222.0" />
+      <point x="1876.2049549549552" y="1222.0" />
+      <point x="1876.2049549549552" y="1022.0" />
+      <point x="2155.4118243243247" y="1022.0" />
+      <point x="-45.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.dto.MemberCardDTO" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1062.0" />
+      <point x="1286.630292792793" y="1062.0" />
+      <point x="1286.630292792793" y="847.0" />
+      <point x="756.3802927927929" y="847.0" />
+      <point x="42.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.jwt.JwtManager" relationship="TO_ONE">
+      <point x="40.5" y="-15.5" />
+      <point x="4138.718468468469" y="1622.0" />
+      <point x="5021.329954954956" y="1622.0" />
+      <point x="5021.329954954956" y="1322.0" />
+      <point x="4575.755292792793" y="1322.0" />
+      <point x="33.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1062.0" />
+      <point x="957.1302927927929" y="1062.0" />
+      <point x="957.1302927927929" y="712.0" />
+      <point x="1445.630292792793" y="712.0" />
+      <point x="1445.630292792793" y="482.0" />
+      <point x="2666.954954954955" y="482.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.repository.FoodTagRepository" relationship="DEPENDENCY">
+      <point x="42.75" y="-15.5" />
+      <point x="3078.954954954955" y="1957.0" />
+      <point x="1316.7500000000002" y="1957.0" />
+      <point x="1316.7500000000002" y="1867.0" />
+      <point x="1303.7049549549552" y="1867.0" />
+      <point x="1303.7049549549552" y="1332.0" />
+      <point x="2225.9118243243247" y="1332.0" />
+      <point x="2225.9118243243247" y="1042.0" />
+      <point x="2246.4118243243247" y="1042.0" />
+      <point x="45.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.member.Gender" relationship="DEPENDENCY">
+      <point x="27.0" y="-15.5" />
+      <point x="2618.454954954955" y="227.0" />
+      <point x="2143.454954954955" y="227.0" />
+      <point x="25.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.repository.FoodTagRepository" relationship="TO_ONE">
+      <point x="-48.75" y="-15.5" />
+      <point x="2290.8802927927927" y="1672.0" />
+      <point x="2577.0" y="1672.0" />
+      <point x="2577.0" y="1082.0" />
+      <point x="1876.2049549549552" y="1082.0" />
+      <point x="1876.2049549549552" y="1022.0" />
+      <point x="2155.4118243243247" y="1022.0" />
+      <point x="-45.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepository" target="com.codingseahorse.tastylab.model.member.Member" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="3003.9118243243247" y="482.0" />
+      <point x="2666.954954954955" y="482.0" />
+      <point x="2666.954954954955" y="462.0" />
+      <point x="2618.454954954955" y="462.0" />
+      <point x="27.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="156.0" y="1867.0" />
+      <point x="156.0" y="1152.0" />
+      <point x="439.63029279279294" y="1152.0" />
+      <point x="439.63029279279294" y="917.0" />
+      <point x="787.6302927927929" y="917.0" />
+      <point x="787.6302927927929" y="837.0" />
+      <point x="851.3802927927929" y="837.0" />
+      <point x="-31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.RecipeController" target="com.codingseahorse.tastylab.dto.LizzyDTO" relationship="DEPENDENCY">
+      <point x="40.75" y="-15.5" />
+      <point x="3263.954954954955" y="1947.0" />
+      <point x="1594.4549549549552" y="1947.0" />
+      <point x="1594.4549549549552" y="1272.0" />
+      <point x="1914.7049549549552" y="1272.0" />
+      <point x="1914.7049549549552" y="1012.0" />
+      <point x="1889.9118243243245" y="1012.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepository" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="1727.9118243243245" y="617.0" />
+      <point x="1811.5000000000002" y="617.0" />
+      <point x="1811.5000000000002" y="597.0" />
+      <point x="1410.880292792793" y="597.0" />
+      <point x="24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.LizzyDTO" target="com.codingseahorse.tastylab.dto.RecipeDTO" relationship="TO_MANY">
+      <point x="-28.5" y="-15.5" />
+      <point x="1861.4118243243245" y="917.0" />
+      <point x="787.6302927927929" y="917.0" />
+      <point x="787.6302927927929" y="837.0" />
+      <point x="851.3802927927929" y="837.0" />
+      <point x="-31.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.controller.WelcomeControllerTest" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="TO_ONE">
+      <point x="52.0" y="-15.5" />
+      <point x="4094.675337837838" y="2061.0" />
+      <point x="4479.630292792793" y="2061.0" />
+      <point x="4479.630292792793" y="2051.0" />
+      <point x="4610.829954954956" y="2051.0" />
+      <point x="4610.829954954956" y="1977.0" />
+      <point x="4479.630292792793" y="1977.0" />
+      <point x="4479.630292792793" y="1827.0" />
+      <point x="4138.718468468469" y="1827.0" />
+      <point x="40.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RegistrationDTO" target="com.codingseahorse.tastylab.model.member.Gender" relationship="DEPENDENCY">
+      <point x="40.5" y="-15.5" />
+      <point x="5355.593468468469" y="327.0" />
+      <point x="5320.593468468469" y="327.0" />
+      <point x="5320.593468468469" y="237.0" />
+      <point x="2618.454954954955" y="237.0" />
+      <point x="2618.454954954955" y="227.0" />
+      <point x="2143.454954954955" y="227.0" />
+      <point x="25.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberCardRepositoryTest" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="TO_ONE">
+      <point x="59.25" y="-15.5" />
+      <point x="5032.454954954956" y="1592.0" />
+      <point x="5307.329954954956" y="1592.0" />
+      <point x="5307.329954954956" y="1292.0" />
+      <point x="4947.380292792793" y="1292.0" />
+      <point x="52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.MemberCard" target="com.codingseahorse.tastylab.model.member.MembershipRole" relationship="DEPENDENCY">
+      <point x="34.75" y="-15.5" />
+      <point x="2929.704954954955" y="143.0" />
+      <point x="3919.954954954955" y="143.0" />
+      <point x="3919.954954954955" y="133.0" />
+      <point x="3956.204954954955" y="133.0" />
+      <point x="41.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberRepositoryTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="-51.5" y="-15.5" />
+      <point x="3312.675337837838" y="1742.0" />
+      <point x="4350.130292792793" y="1742.0" />
+      <point x="4350.130292792793" y="307.0" />
+      <point x="2688.454954954955" y="307.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="TO_ONE">
+      <point x="47.25" y="-15.5" />
+      <point x="4553.079954954956" y="1957.0" />
+      <point x="5366.880292792793" y="1957.0" />
+      <point x="5366.880292792793" y="1817.0" />
+      <point x="5361.630292792793" y="1817.0" />
+      <point x="5361.630292792793" y="1272.0" />
+      <point x="4947.380292792793" y="1272.0" />
+      <point x="52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.RecipeDTO" target="com.codingseahorse.tastylab.model.recipe.RecipeStatus" relationship="DEPENDENCY">
+      <point x="31.75" y="-15.5" />
+      <point x="914.8802927927929" y="752.0" />
+      <point x="798.1302927927929" y="752.0" />
+      <point x="798.1302927927929" y="452.0" />
+      <point x="1231.380292792793" y="452.0" />
+      <point x="34.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.dto.converter.ConverterTest" target="com.codingseahorse.tastylab.model.recipe.Recipe" relationship="DEPENDENCY">
+      <point x="35.75" y="-15.5" />
+      <point x="765.9549549549552" y="1732.0" />
+      <point x="1361.425337837838" y="1732.0" />
+      <point x="1361.425337837838" y="1062.0" />
+      <point x="1445.630292792793" y="1062.0" />
+      <point x="1445.630292792793" y="617.0" />
+      <point x="1811.5000000000002" y="617.0" />
+      <point x="1811.5000000000002" y="597.0" />
+      <point x="1410.880292792793" y="597.0" />
+      <point x="24.25" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.RecipeServiceTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="TO_ONE">
+      <point x="-42.75" y="-15.5" />
+      <point x="2993.454954954955" y="1967.0" />
+      <point x="129.75" y="1967.0" />
+      <point x="129.75" y="1867.0" />
+      <point x="113.5" y="1867.0" />
+      <point x="113.5" y="307.0" />
+      <point x="2688.454954954955" y="307.0" />
+      <point x="2688.454954954955" y="227.0" />
+      <point x="2860.204954954955" y="227.0" />
+      <point x="-34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.jwt.JwtUsernamePasswordAuthenticationFilter" target="com.codingseahorse.tastylab.jwt.JwtManager" relationship="TO_ONE">
+      <point x="82.75" y="-15.5" />
+      <point x="3853.0" y="1542.0" />
+      <point x="4575.755292792793" y="1542.0" />
+      <point x="33.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.model.member.Member" target="com.codingseahorse.tastylab.model.member.Gender" relationship="TO_ONE">
+      <point x="-27.0" y="-15.5" />
+      <point x="2564.454954954955" y="327.0" />
+      <point x="1424.130292792793" y="327.0" />
+      <point x="1424.130292792793" y="267.0" />
+      <point x="1446.2049549549552" y="267.0" />
+      <point x="1446.2049549549552" y="237.0" />
+      <point x="2093.454954954955" y="237.0" />
+      <point x="-25.0" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.RecipeRepositoryTest" target="com.codingseahorse.tastylab.repository.FoodTagRepository" relationship="DEPENDENCY">
+      <point x="48.75" y="-15.5" />
+      <point x="2388.3802927927927" y="1662.0" />
+      <point x="2672.204954954955" y="1662.0" />
+      <point x="2672.204954954955" y="1062.0" />
+      <point x="2225.9118243243247" y="1062.0" />
+      <point x="2225.9118243243247" y="1042.0" />
+      <point x="2246.4118243243247" y="1042.0" />
+      <point x="45.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeService" target="com.codingseahorse.tastylab.repository.MemberCardRepository" relationship="TO_ONE">
+      <point x="40.5" y="-15.5" />
+      <point x="4138.718468468469" y="1622.0" />
+      <point x="5021.329954954956" y="1622.0" />
+      <point x="5021.329954954956" y="1312.0" />
+      <point x="4947.380292792793" y="1312.0" />
+      <point x="52.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.MemberCardRepositoryTest" target="com.codingseahorse.tastylab.model.member.MemberCard" relationship="DEPENDENCY">
+      <point x="-59.25" y="-15.5" />
+      <point x="4913.954954954956" y="1602.0" />
+      <point x="5297.329954954956" y="1602.0" />
+      <point x="5297.329954954956" y="1582.0" />
+      <point x="5439.968468468469" y="1582.0" />
+      <point x="5439.968468468469" y="317.0" />
+      <point x="2994.954954954955" y="317.0" />
+      <point x="2994.954954954955" y="227.0" />
+      <point x="2929.704954954955" y="227.0" />
+      <point x="34.75" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.service.WelcomeServiceTest" target="com.codingseahorse.tastylab.service.WelcomeService" relationship="TO_ONE">
+      <point x="47.25" y="-15.5" />
+      <point x="4553.079954954956" y="1957.0" />
+      <point x="5366.880292792793" y="1957.0" />
+      <point x="5366.880292792793" y="1837.0" />
+      <point x="4479.630292792793" y="1837.0" />
+      <point x="4479.630292792793" y="1827.0" />
+      <point x="4138.718468468469" y="1827.0" />
+      <point x="40.5" y="15.5" />
+    </edge>
+    <edge source="com.codingseahorse.tastylab.repository.FoodTagRepository" target="com.codingseahorse.tastylab.model.recipe.FoodTag" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="2200.9118243243247" y="732.0" />
+      <point x="1906.0000000000002" y="732.0" />
+      <point x="1906.0000000000002" y="702.0" />
+      <point x="929.8802927927929" y="702.0" />
+      <point x="27.75" y="15.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.6999999999999998" showDependencies="true" x="1238.4347826086957" y="506.57142857142867" />
-  <SelectedNodes>
-    <node>com.codingseahorse.tastylab.model.member.Gender</node>
-  </SelectedNodes>
-  <Categories>
-    <Category>Constructors</Category>
-    <Category>Methods</Category>
-    <Category>Properties</Category>
-  </Categories>
+  <settings layout="Hierarchic" zoom="0.2593943816125502" showDependencies="true" x="2731.0" y="1094.5" />
+  <SelectedNodes />
+  <Categories />
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>
