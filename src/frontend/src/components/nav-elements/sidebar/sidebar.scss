@@ -23,9 +23,20 @@
     padding-top: 5rem;
     padding-bottom: 5rem;
     &__member{
-      width: 4rem;
-      height: 4rem;
-      background-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4.2rem;
+      height: 4.2rem;
+      border: 0.1rem solid $tasty-color-basic;
+      border-radius: 3rem;
+      p{
+        color: $tasty-color-basic;
+        font-size: 1.4rem;
+      }
+      &:hover{
+        background-color: $tasty-color-highlight;
+      }
     }
     &__home{
       width: 4rem;
@@ -62,6 +73,9 @@
       height: 4rem;
       margin-top: 5rem;
       background-image: url("../../../bag/icons/logout_icon.png");
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
 }

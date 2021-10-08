@@ -10,13 +10,11 @@ import Home from './pages/home/home';
 import Login from './pages/welcome/login/login';
 import SignUp from './pages/welcome/registration/signup';
 import PageTurnArrow from './components/nav-elements/page-turn/page-turn-arrow';
-import SideBar from './components/nav-elements/sidebar/sidebar';
 
 const App = () => {
   return (
       <React.Fragment>
         <Router>
-          <SideBar/>
           <Switch>
             <Route path="/welcome/login">
               <Login/>
