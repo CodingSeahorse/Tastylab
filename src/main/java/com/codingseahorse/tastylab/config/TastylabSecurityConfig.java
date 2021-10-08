@@ -47,7 +47,9 @@ public class TastylabSecurityConfig extends WebSecurityConfigurerAdapter{
                 .sessionManagement()
                     .sessionCreationPolicy(STATELESS)
                 .and()
-                .addFilterBefore(new JwtTokenVerifier(), JwtUsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(
+                        new JwtTokenVerifier(),
+                        JwtUsernamePasswordAuthenticationFilter.class)
                 .addFilter(authenticationFilter)
                 .authorizeRequests()
                 .antMatchers( // allow basic files

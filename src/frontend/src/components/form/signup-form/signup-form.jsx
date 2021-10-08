@@ -12,15 +12,13 @@ import Alert from "../../alert/Alert";
 
 const SignUp = () => {
     const[user,setUser] = useState({
-
-            firstName:"",
-            lastName:"",
-            email:"",
-            gender:"",
-            age: 0,
-            username:"",
-            password:""
-        ,
+        firstName:"",
+        lastName:"",
+        email:"",
+        gender:"",
+        age: 0,
+        username:"",
+        password:"",
         confirmPassword:"",
         signupSuccess: false,
         showSuccessMessage: false,
