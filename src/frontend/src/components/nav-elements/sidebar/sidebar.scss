@@ -1,6 +1,15 @@
 @import '../../../helpers/color';
 
+#no-user{
+  padding-bottom: 5rem;
+}
+
+#no-user-login:hover{
+  background-color: $tasty-color-highlight;
+}
+
 .container {
+  z-index: 10;
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -33,9 +42,6 @@
       p{
         color: $tasty-color-basic;
         font-size: 1.4rem;
-      }
-      &:hover{
-        background-color: $tasty-color-highlight;
       }
     }
     &__home{
