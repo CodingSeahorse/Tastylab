@@ -17,7 +17,7 @@ const Login= () => (
                 <aside className="login__description-container">
                     <Title firstLine="find new"
                            secondLine="inspirations"/>
-                    <p className="login__description-container__text">
+                    <div className="login__description-container__text">
                         <p>
                             Tastylab is a community platform where you<br/>
                             can easily share food with other people.<br/>
@@ -36,7 +36,7 @@ const Login= () => (
                             no sea takimata sanctus est Lorem ipsum dolor sit<br/>
                             amet.
                         </p>
-                    </p>
+                    </div>
                 </aside>
             </div>
         </main>
