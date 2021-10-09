@@ -35,7 +35,6 @@ const LoginForm = () => {
                     .registerSuccessfulLoginForJwt(
                         user.username,
                         response.data)
-
                 setUser({...user,
                     loggedIn: true,
                     showSuccessMessage: true,

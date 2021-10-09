@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Route,
   BrowserRouter as Router,
-  Switch } from 'react-router-dom';
+  Switch, Redirect
+} from 'react-router-dom';
 
 import './App.scss';
 
@@ -15,6 +16,9 @@ const App = () => {
   return (
       <React.Fragment>
         <Router>
+          <Route path="/">
+            <Redirect to="/home"/>
+          </Route>
           <Switch>
             <Route path="/welcome/login">
               <Login/>
