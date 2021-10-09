@@ -1,0 +1,70 @@
+@import "../../helpers/color";
+
+.carousel{
+  &__control__prev{
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 43rem;
+    top:1rem;
+    background-color: $tasty-color-highlight;
+    cursor: pointer;
+    left: 1.5rem;
+  }
+
+  &__control__next{
+    position: absolute;
+    z-index: 2;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 43rem;
+    top:1rem;
+    background-color: $tasty-color-highlight;
+    cursor: pointer;
+    right: 1.5rem;
+  }
+}
+
+.carousel__right{
+  height: 56.5rem;
+  width: 106rem;
+  margin-left: 5.5rem;
+  &__testCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__card{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 33rem;
+      height: 47.5rem;
+      background-color: blue;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.carousel__left{
+  height: 56.5rem;
+  width: 106rem;
+  margin-top: 10rem;
+  margin-left: 11rem;
+  margin-right: 1rem;
+  &__testCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__card{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 33rem;
+      height: 47.5rem;
+      background-color: blue;
+      margin-right: 1rem;
+    }
+  }
+}
