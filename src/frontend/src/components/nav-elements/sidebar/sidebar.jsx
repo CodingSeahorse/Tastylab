@@ -16,37 +16,37 @@ const Sidebar = ({isLoggedIn}) => {
             <nav className="container">
                 <div className="container__elements">
                     <Link to="/welcome/login"> {/*TODO:REPLACE WITH PROFILE PAGE*/}
-                        <Tippy themeinteractive={true} content="Profile" style={{color:'green'}}>
+                        <Tippy content="Profile">
                             <div className="container__elements__member" id="test"/>
                         </Tippy>
                     </Link>
                     <Link to="/home">
-                        <Tippy themeinteractive={true} content="Home">
+                        <Tippy content="Home">
                             <div className="container__elements__home"/>
                         </Tippy>
                     </Link>
-                    <Tippy themeinteractive={true} content="Search">
+                    <Tippy content="Search">
                         <div className="container__elements__search"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Wishlist">
+                    <Tippy content="Wishlist">
                         <div className="container__elements__wishlist"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Lizzy">
+                    <Tippy content="Lizzy">
                         <div className="container__elements__lizzy"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Write">
+                    <Tippy content="Write">
                         <div className="container__elements__write"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Option">
+                    <Tippy content="Option">
                         <div className="container__elements__option"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Logout">
+                    <Tippy content="Logout">
                         <div className="container__elements__logout"
                              onClick={() => {
                                      AuthenticationService.logout()
                                      setTimeout(
                                          () => {history.push("/welcome/login")},
-                                         2000)}}/>
+                                         1500)}}/>
                     </Tippy>
                 </div>
             </nav>
@@ -56,30 +56,30 @@ const Sidebar = ({isLoggedIn}) => {
             <nav className="container" id="no-user">
                 <div className="container__elements">
                     <Link to="/welcome/login">
-                        <Tippy themeinteractive={true} content="Login">
+                        <Tippy content="Login">
                             <div className="container__elements__member" id="no-user-login">
                                 <p>Login</p>
                             </div>
                         </Tippy>
                     </Link>
                     <Link to="/home">
-                        <Tippy themeinteractive={true} content="Home">
+                        <Tippy content="Home">
                             <div className="container__elements__home"/>
                         </Tippy>
                     </Link>
-                    <Tippy themeinteractive={true} content="Search">
+                    <Tippy content="Search">
                         <div className="container__elements__search"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Wishlist">
+                    <Tippy content="Wishlist">
                         <div className="container__elements__wishlist"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Lizzy">
+                    <Tippy content="Lizzy">
                         <div className="container__elements__lizzy"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Write">
+                    <Tippy content="Write">
                         <div className="container__elements__write"/>
                     </Tippy>
-                    <Tippy themeinteractive={true} content="Option">
+                    <Tippy content="Option">
                         <div className="container__elements__option"/>
                     </Tippy>
                 </div>

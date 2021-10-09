@@ -3,6 +3,9 @@ import React, {useEffect, useState} from "react";
 import Title from '../../components/title/title';
 
 import './home.scss';
+import 'tippy.js/dist/tippy.css';
+
+import Tippy from "@tippyjs/react";
 import MyCarousel from "../../components/carousel/carousel";
 import Sidebar from "../../components/nav-elements/sidebar/sidebar";
 import AuthenticationService from "../../services/AuthenticationService";
@@ -73,19 +76,26 @@ const Home = () => {
                                         <p>Don’t miss a any news and <strong>follow us on social-media!</strong></p>
 
                                         <div className="landing__inspiration__description-container__content__promo__btn">
-                                            <input
-                                                className="landing__inspiration__description-container__content__promo__btn__facebook"
-                                                type="button"/>
-                                            <input
-                                                className="landing__inspiration__description-container__content__promo__btn__instagram"
-                                                type="button"/>
-
-                                            <input
-                                                className="landing__inspiration__description-container__content__promo__btn__twitter"
-                                                type="button"/>
-                                            <input
-                                                className="landing__inspiration__description-container__content__promo__btn__pinterest"
-                                                type="button"/>
+                                            <Tippy content="Facebook">
+                                                <input
+                                                    className="landing__inspiration__description-container__content__promo__btn__facebook"
+                                                    type="button"/>
+                                            </Tippy>
+                                            <Tippy content="Instagram">
+                                                <input
+                                                    className="landing__inspiration__description-container__content__promo__btn__instagram"
+                                                    type="button"/>
+                                            </Tippy>
+                                            <Tippy content="Twitter">
+                                                <input
+                                                    className="landing__inspiration__description-container__content__promo__btn__twitter"
+                                                    type="button"/>
+                                            </Tippy>
+                                            <Tippy content="Pinterest">
+                                                <input
+                                                    className="landing__inspiration__description-container__content__promo__btn__pinterest"
+                                                    type="button"/>
+                                            </Tippy>
                                         </div>
                                     </div>
                                 </aside>
