@@ -3,6 +3,7 @@ import FormInput from '../../form/input-form-fields/input-form-fields';
 import MyButton from "../../button/mybutton";
 
 import './login-form.scss'
+import '../../../pages/welcome/welcome.scss'
 
 import {Link, useHistory} from "react-router-dom";
 import AuthenticationService from "../../../services/AuthenticationService";
@@ -45,13 +46,14 @@ const LoginForm = () => {
                 setUser({...user,
                     loggedIn: false,
                     showSuccessMessage: false,
+                    showErrorMessage: true,
                     loginFailed: true
                 })
             })
         e.preventDefault()
     }
 
-    const showMessage = (loggedIn,showSuccessMessage, showFailedMessage) => {
+    const showMessage = (loggedIn,showSuccessMessage, showErrorMessage) => {
         if(showSuccessMessage === true && loggedIn === true){
             return(
                 <React.Fragment>
@@ -59,8 +61,8 @@ const LoginForm = () => {
                 </React.Fragment>
             )
         }
-        if(showFailedMessage === true && loggedIn === false){
-            return <Alert message="A error occurred. Log in failed!" type="failed"/>
+        if(showErrorMessage === true && loggedIn === false){
+            return <Alert message="A error occurred. Login failed!" type="failed"/>
         }
     }
 
@@ -84,10 +86,12 @@ const LoginForm = () => {
                         onChange={handleChange}/>
                     <div className="login__input-area__btn">
                         <MyButton value="submit"/>
-                        <p className="login__input-area__btn__switch">
+                        <div className="login__input-area__btn__switch">
                             Don't have a account?
-                            <Link to="/welcome/signup">click here</Link>
-                        </p>
+                            <Link
+                                to="/welcome/signup"
+                                className="click-here"> click here</Link>
+                        </div>
                     </div>
                 </form>
             </div>

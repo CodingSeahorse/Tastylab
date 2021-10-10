@@ -1,6 +1,6 @@
 @import '../../helpers/color';
 
-@keyframes zoomin {
+@keyframes zoomIn {
   0% { transform: scale(1.05, 1.05) }
   50% { transform: scale(1, 1) }
   100% { transform: scale(1.05, 1.05) }
@@ -21,7 +21,7 @@
   background:
           url("../../bag/images/inspiration_background.png")
           no-repeat;
-  animation: 30s ease 0s normal none infinite running zoomin;
+  animation: 30s ease 0s normal none infinite running zoomIn;
 }
 
 .img-highlight{
@@ -32,7 +32,7 @@
   background:
           url("../../bag/images/highlight_background.png")
           no-repeat;
-  animation: 30s ease 0s normal none infinite running zoomin;
+  animation: 30s ease 0s normal none infinite running zoomIn;
 }
 .landing{
   // ===== INSPIRATION AREA =====
@@ -67,25 +67,43 @@
               height: 4.8rem;
               margin-top: 2.6rem;
               margin-right: 2.5rem;
+              &:hover{
+                margin-top: 2.4rem;
+                margin-right: 2.3rem;
+                width: 5.0rem;
+                height: 5.0rem;
+              }
             }
 
             &__facebook {
               background: url("../../bag/icons/facebook_icon.png") no-repeat;
               background-size: cover;
+              &:hover{
+                background-image: url("../../bag/icons/highlight/facebook_highlight.png");
+              }
             }
 
             &__instagram {
               background: url("../../bag/icons/instagram_icon.png") no-repeat;
+              &:hover{
+                background-image: url("../../bag/icons/highlight/instagram_highlight.png");
+              }
             }
 
             &__twitter {
               background: url("../../bag/icons/twitter_icon.png") no-repeat;
               background-size: contain;
+              &:hover{
+                background-image: url("../../bag/icons/highlight/twitter_highlight.png");
+              }
             }
 
             &__pinterest {
               background: url("../../bag/icons/pinterest_icon.png") no-repeat;
               background-size: cover;
+              &:hover{
+                background-image: url("../../bag/icons/highlight/pinterest_highlight.png");
+              }
             }
           }
         }

@@ -1,9 +1,35 @@
-.welcome{
-    display: flex;
-    justify-content: center;
-    background-color: gray;
+@import '../../helpers/color';
+
+@keyframes zoomIn {
+    0% { transform: scale(1.05, 1.05) }
+    50% { transform: scale(1, 1) }
+    100% { transform: scale(1.05, 1.05) }
+}
+
+.click-here{
+    text-decoration: underline;
+    color: inherit;
+}
+
+.click-here:hover{
+    color: $tasty-color-highlight;
+    font-size: 2rem;
+}
+
+.welcome-img{
+    position: absolute;
+    z-index:0;
     height: 93.7rem;
-    background: 
+    width: 100%;
+    background:
         url('../../bag/images/welcome_background.png')
         no-repeat;
+    animation: 30s ease 0s normal none infinite running zoomIn;
+}
+.content-container{
+    display: flex;
+    height: 93.7rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }

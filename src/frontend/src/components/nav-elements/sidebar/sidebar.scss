@@ -49,31 +49,55 @@
       width: 4rem;
       height: 4rem;
       background-image: url("../../../bag/icons/home_icon.png");
+      &:hover{
+        cursor: pointer;
+        background-image: url("../../../bag/icons/highlight/home_highlight.png");
+      }
     }
     &__search{
       width: 4rem;
       height: 4rem;
       background-image: url("../../../bag/icons/search_icon.png");
+      &:hover{
+        cursor: pointer;
+        background-image: url("../../../bag/icons/highlight/search_highlight.png");
+      }
     }
     &__wishlist{
       width: 4rem;
       height: 4rem;
       background-image: url("../../../bag/icons/wishlist_icon.png");
+      &:hover{
+        cursor: pointer;
+        background-image: url("../../../bag/icons/highlight/wishlist_highlight.png");
+      }
     }
     &__lizzy{
       width: 4rem;
       height: 4rem;
       background-image: url("../../../bag/icons/lizzy_icon.png");
+      &:hover{
+        cursor: pointer;
+        background-image: url("../../../bag/icons/highlight/lizzy_highlight.png");
+      }
     }
     &__write{
       width: 4rem;
       height: 4rem;
       background-image: url("../../../bag/icons/write_icon.png");
+      &:hover{
+        cursor: pointer;
+        background-image: url("../../../bag/icons/highlight/write_highlight.png");
+      }
     }
     &__option{
       width: 4rem;
       height: 4rem;
       background-image: url("../../../bag/icons/option_icon.png");
+      &:hover{
+        cursor: pointer;
+        background-image: url("../../../bag/icons/highlight/option_highlight.png");
+      }
     }
     &__logout{
       width: 4rem;
@@ -83,6 +107,7 @@
       background-image: url("../../../bag/icons/logout_icon.png");
       &:hover{
         cursor: pointer;
+        background-image: url("../../../bag/icons/highlight/logout_highlight.png");
       }
     }
   }
