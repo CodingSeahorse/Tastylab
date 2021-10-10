@@ -5,6 +5,7 @@ import FormInput from '../input-form-fields/input-form-fields';
 import MyButton from '../../button/mybutton';
 
 import './signup-form.scss'
+import '../../../pages/welcome/welcome.scss'
 
 import AuthenticationService from "../../../services/AuthenticationService";
 import SignupService from "../../../services/SignupService";
@@ -22,7 +23,7 @@ const SignUp = () => {
         confirmPassword:"",
         signupSuccess: false,
         showSuccessMessage: false,
-        showFailedMessage: false
+        showErrorMessage: false
     });
 
     const history = useHistory()
@@ -64,7 +65,7 @@ const SignUp = () => {
                         ...user,
                         showSuccessMessage: true,
                         signupSuccess:true,
-                        showFailedMessage: false
+                        showErrorMessage: false
                     })
                     setTimeout(() => {history.push("/home")},2000)
                 })
@@ -73,21 +74,26 @@ const SignUp = () => {
                     ...user,
                     showSuccessMessage: false,
                     signupSuccess:false,
-                    showFailedMessage: true
+                    showErrorMessage: true
                 })
             })
     }
 
-    const showMessage = (showFailedMessage,signupSuccess, showSuccessMessage) => {
+    const showMessage = (showErrorMessage,signupSuccess, showSuccessMessage) => {
         if(signupSuccess === true && showSuccessMessage === true){
             return(
                 <React.Fragment>
-                    <Alert message="Successfully registered. Welcome !" type="success"/>
+                    <Alert
+                        message="Successfully registered. Welcome !"
+                        type="success"/>
                 </React.Fragment>
             )
         }
-        if(showFailedMessage === true && signupSuccess === false){
-            return <Alert message="A error occurred. Request can't validate. Check your Form." type="failed"/>
+        if(showErrorMessage === true && signupSuccess === false){
+            return (
+                <Alert
+                    message="A error occurred. Request can't validate. Check your Form."
+                    type="failed"/>)
         }
     }
 
@@ -95,7 +101,7 @@ const SignUp = () => {
         <div className="signup__input-area">
             <div className="signup__input-area__content">
                 <h3 className="signup__input-area__title">Signup</h3>
-                {showMessage(user.showFailedMessage,user.signupSuccess,user.showSuccessMessage)}
+                {showMessage(user.showErrorMessage,user.signupSuccess,user.showSuccessMessage)}
                 <form className="signup__input-area__form"
                       onSubmit={onSubmit}>
                     <FormInput
@@ -148,10 +154,13 @@ const SignUp = () => {
                         onChange={handleChangeConfirm}/>
                     <div className="signup__input-area__btn">
                         <MyButton value="submit"/>
-                        <p className="signup__input-area__btn__switch">
+                        <div className="signup__input-area__btn__switch">
                             Already have a account?
-                            <Link to="/welcome/login">click here</Link>
-                        </p>
+                            <Link
+                                to="/welcome/login"
+                                className="click-here"
+                                > click here</Link>
+                        </div>
                     </div>
                 </form>
             </div>

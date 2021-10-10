@@ -1,5 +1,7 @@
 @import '../../../helpers/color';
+
 .error-box{
+  z-index:5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,13 +11,13 @@
   background-color: #480404;
 }
 .login__input-area{
+  z-index:5;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   height: 50rem;
   border-right: 1px solid $tasty-color-basic;
-
   &__title{
     font-size: 2.4rem;
     text-decoration: underline;
@@ -25,12 +27,6 @@
     margin-top: 5rem;
     &__switch{
       margin-top: 2rem;
-      a{
-        color: $tasty-color-basic;
-        &:hover{
-          font-size: 2rem;
-        }
-      }
     }
   }
 }
